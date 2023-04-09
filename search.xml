@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>k8s网络</title>
+    <url>/2023/03/12/k8s%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<h2 id="k8s网络"><a href="#k8s网络" class="headerlink" title="k8s网络"></a>k8s网络</h2><h3 id="k8s网络中的ip"><a href="#k8s网络中的ip" class="headerlink" title="k8s网络中的ip"></a>k8s网络中的ip</h3><h4 id="Node-IP：Node节点的IP地址（物理机、虚拟机的IP）"><a href="#Node-IP：Node节点的IP地址（物理机、虚拟机的IP）" class="headerlink" title="Node IP：Node节点的IP地址（物理机、虚拟机的IP）"></a>Node IP：Node节点的IP地址（物理机、虚拟机的IP）</h4><h4 id="Pod-IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。"><a href="#Pod-IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。" class="headerlink" title="Pod IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。"></a>Pod IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。</h4><p>● 通常是一个虚拟的二层网络<br>● 同Service下的pod可以直接根据PodIP相互通信<br>● 不同Service下的pod在集群间pod通信要借助于 cluster ip<br>● pod和集群外通信，要借助于node ip  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">查看命令：kubectl describe pod podName  </span><br></pre></td></tr></table></figure>
+<h4 id="Cluster-IP：Service的IP地址，此为虚拟IP地址。"><a href="#Cluster-IP：Service的IP地址，此为虚拟IP地址。" class="headerlink" title="Cluster IP：Service的IP地址，此为虚拟IP地址。"></a>Cluster IP：Service的IP地址，此为虚拟IP地址。</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">查看命令：kubectl describe svc name -n uecm</span><br></pre></td></tr></table></figure>
+<p>Cluster IP仅仅作用于Kubernetes Service这个对象，并由Kubernetes管理和分配P地址<br>Cluster IP无法被ping，他没有一个“实体网络对象”来响应<br>Cluster IP只能结合Service Port组成一个具体的通信端口，单独的Cluster IP不具备通信的基础，并且他们属于Kubernetes集群这样一个封闭的空间。<br>在不同Service下的pod节点在集群间相互访问可以通过Cluster IP  </p>
+<hr>
+<h3 id="三种IP网络间的通信"><a href="#三种IP网络间的通信" class="headerlink" title="三种IP网络间的通信"></a>三种IP网络间的通信</h3><h4 id="NodePort的方式"><a href="#NodePort的方式" class="headerlink" title="NodePort的方式"></a>NodePort的方式</h4><p>缺点：是服务一旦多起来，NodePort 在每个节点上开启的端口数量会极其庞大，难以维护</p>
+<div class="gallery">
+    <div class="fj-gallery  data" data-rowHeight="220" data-limit="10">
+    <span class="gallery-data">[{"url":"https://cdn.nlark.com/yuque/0/2022/png/28188528/1669447090047-67fc33fa-8cb3-41fb-85eb-d6019b54fad8.png","alt":"img.png"}]</span>
+    </div>
+    <button class="gallery-load-more"><span>加载更多</span><i class="fa-solid fa-arrow-down"></i></button>
+    </div>
+<hr>
+<h3 id="网络知识"><a href="#网络知识" class="headerlink" title="网络知识"></a>网络知识</h3><h4 id="路由器-amp-交换机-区别"><a href="#路由器-amp-交换机-区别" class="headerlink" title="路由器&amp;交换机 区别"></a>路由器&amp;交换机 区别</h4><p><strong>路由器</strong>：寻址，转发（依靠 IP 地址），交换机：过滤，转发（依靠 MAC 地址）<br><strong>交换机</strong>：用于连接局域网，数据包在局域网内网的数据转发，路由器用于连接局域网和外网，数据包可以在不同局域网转发。<br>交换机工作于TCP/IP协议的最后一层数据链路层（物理层），路由器工作于网络层<br>交换机负责具体的数据包传输，路由器不负责包的实际传输，路由器只封装好要传输的数据包，然后交给交换机去传输（不一定是交换机，可能是其他传输技术），用java比喻大概简单理解为路由器是抽象类，定义好传输的数据包格式，交换机是具体实现类，也可以有其他实现类<br>交换机没有MAC地址和IP地址，路由器有MAC地址和IP地址（指纯碎的交换机和路由器，三层交换机是可以有IP地址的，路由器也有内置交换机功能的）  </p>
+<h4 id="网桥-amp-交换机的区别"><a href="#网桥-amp-交换机的区别" class="headerlink" title="网桥&amp;交换机的区别"></a>网桥&amp;交换机的区别</h4><p>● <strong>交换机</strong>工作时，实际上允许许多组端口间的通道同时工作。所以，交换机的功能体现出不仅仅是一个网桥的功能，而是多个网桥功能的集合。即网桥一般分有两个输出输入端口，而交换机具有高密度的端口。所以一般的交换机，网桥就有桥接作用。<br>● <strong>网桥</strong>主要由软件实现，交换机主要由硬件实现  </p>
+]]></content>
+  </entry>
+  <entry>
     <title>关于博客的命令</title>
-    <url>/2020/01/08/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
+    <url>/2023/01/08/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 清理</span></span><br><span class="line">$ hexo clean </span><br><span class="line"><span class="comment"># 构建</span></span><br><span class="line">$ hexo g</span><br><span class="line"><span class="comment"># 预览</span></span><br><span class="line">$ hexo s</span><br><span class="line"><span class="comment"># 如果是新创建的 需要执行</span></span><br><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line"><span class="comment"># 打包 发布</span></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
@@ -21,7 +41,7 @@
   </entry>
   <entry>
     <title>衡量算法效率</title>
-    <url>/2023/04/07/%E8%A1%A1%E9%87%8F%E7%AE%97%E6%B3%95%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
+    <url>/2023/02/07/%E8%A1%A1%E9%87%8F%E7%AE%97%E6%B3%95%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[<h2 id="衡量算法效率的方式"><a href="#衡量算法效率的方式" class="headerlink" title="衡量算法效率的方式"></a>衡量算法效率的方式</h2><h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>时间复杂度是指算法执行所需要的时间，通常用大 O（O）表示。它描述了算法执行时间随着输入大小增加而增长的趋势。<br>简单来说：时间复杂度描述了算法运行所需的时间和输入数据规模之间的关系。$O=log_{数据规模}（2*{运行所需时间}）$<br>常见的时间复杂度有：<br>● 常数阶（O(1)）：无论输入大小如何，算法的执行时间都保持不变。<br>● 线性阶（O(n)）：算法的执行时间与输入大小成正比。<br>● 对数阶（O(log n)）：算法的执行时间与输入大小的对数成正比。<br>● 平方阶（O(n^2)）：算法的执行时间与输入大小的平方成正比。<br>● 指数阶（O(2^n)）：算法的执行时间随着输入大小呈指数级别增长。<br>通常情况下，我们希望算法的时间复杂度尽可能低，因为这意味着算法执行所需的时间更少。<br>空间复杂度<br>空间复杂度是指算法执行所需的内存空间大小，通常也用大 O（O）表示。它描述了算法执行时使用的额外内存随着输入大小增加而增长的趋势。常见的空间复杂度有：<br>● 常数阶（O(1)）：算法的内存使用量不随输入大小而变化。<br>● 线性阶（O(n)）：算法的内存使用量与输入大小成正比。<br>● 对数阶（O(log n)）：算法的内存使用量与输入大小的对数成正比。<br>● 平方阶（O(n^2)）：算法的内存使用量与输入大小的平方成正比。<br>通常情况下，我们希望算法的空间复杂度尽可能低，因为这意味着算法执行所需的内存更少。</p>
 <h3 id="计算时间复杂度的过程"><a href="#计算时间复杂度的过程" class="headerlink" title="计算时间复杂度的过程"></a>计算时间复杂度的过程</h3><p>计算时间复杂度的过程通常分为以下几个步骤：</p>
 <ol>
