@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>关于博客的命令</title>
+    <url>/blog/2020/01/08/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 清理</span></span><br><span class="line">$ hexo clean </span><br><span class="line"><span class="comment"># 构建</span></span><br><span class="line">$ hexo g</span><br><span class="line"><span class="comment"># 预览</span></span><br><span class="line">$ hexo s</span><br><span class="line"><span class="comment"># 如果是新创建的 需要执行</span></span><br><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line"><span class="comment"># 打包 发布</span></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><h4 id="1、hexo-d打包时显示-ERROR-Deployer-not-found-git"><a href="#1、hexo-d打包时显示-ERROR-Deployer-not-found-git" class="headerlink" title="1、hexo d打包时显示 ERROR Deployer not found: git"></a>1、hexo d打包时显示 ERROR Deployer not found: git</h4><p>如下图  </p>
+<div class="gallery">
+    <div class="fj-gallery  data" data-rowHeight="220" data-limit="10">
+    <span class="gallery-data">[{"url":"https://i.328888.xyz/2023/04/09/icVZJy.png","alt":"img.png"}]</span>
+    </div>
+    <button class="gallery-load-more"><span>加载更多</span><i class="fa-solid fa-arrow-down"></i></button>
+    </div>
+<p>原因：需要安装hexo-deployer-git(hexo git部署工具) </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>完美解决<br><img src="https://i.328888.xyz/2023/04/09/icVVA5.png" alt="img.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>衡量算法效率</title>
+    <url>/blog/2023/04/07/%E8%A1%A1%E9%87%8F%E7%AE%97%E6%B3%95%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<h2 id="衡量算法效率的方式"><a href="#衡量算法效率的方式" class="headerlink" title="衡量算法效率的方式"></a>衡量算法效率的方式</h2><h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>时间复杂度是指算法执行所需要的时间，通常用大 O（O）表示。它描述了算法执行时间随着输入大小增加而增长的趋势。<br>简单来说：时间复杂度描述了算法运行所需的时间和输入数据规模之间的关系。$O=log_{数据规模}（2*{运行所需时间}）$<br>常见的时间复杂度有：<br>● 常数阶（O(1)）：无论输入大小如何，算法的执行时间都保持不变。<br>● 线性阶（O(n)）：算法的执行时间与输入大小成正比。<br>● 对数阶（O(log n)）：算法的执行时间与输入大小的对数成正比。<br>● 平方阶（O(n^2)）：算法的执行时间与输入大小的平方成正比。<br>● 指数阶（O(2^n)）：算法的执行时间随着输入大小呈指数级别增长。<br>通常情况下，我们希望算法的时间复杂度尽可能低，因为这意味着算法执行所需的时间更少。<br>空间复杂度<br>空间复杂度是指算法执行所需的内存空间大小，通常也用大 O（O）表示。它描述了算法执行时使用的额外内存随着输入大小增加而增长的趋势。常见的空间复杂度有：<br>● 常数阶（O(1)）：算法的内存使用量不随输入大小而变化。<br>● 线性阶（O(n)）：算法的内存使用量与输入大小成正比。<br>● 对数阶（O(log n)）：算法的内存使用量与输入大小的对数成正比。<br>● 平方阶（O(n^2)）：算法的内存使用量与输入大小的平方成正比。<br>通常情况下，我们希望算法的空间复杂度尽可能低，因为这意味着算法执行所需的内存更少。</p>
+<h3 id="计算时间复杂度的过程"><a href="#计算时间复杂度的过程" class="headerlink" title="计算时间复杂度的过程"></a>计算时间复杂度的过程</h3><p>计算时间复杂度的过程通常分为以下几个步骤：</p>
+<ol>
+<li>确定算法的基本操作<br>首先需要确定算法中每一条语句的执行次数，也就是算法的基本操作。比如，在一个 for 循环中，循环体内的操作就是算法的基本操作。</li>
+<li>分析最坏情况下的执行次数<br>然后需要分析算法在最坏情况下的执行次数，也就是算法的最坏时间复杂度。为了保证算法在不同情况下都能够高效地运行，通常使用最坏时间复杂度来衡量算法的效率。</li>
+<li>使用大 O 符号表示时间复杂度<br>最后，使用大 O 符号表示算法的时间复杂度。通常将算法的执行次数与输入数据规模 n 的关系表示为一个函数 f(n)，然后使用大 O 符号来描述这个函数的增长趋势。例如，如果算法的执行次数与输入数据规模 n 成正比，那么它的时间复杂度就可以表示为 O(n)。<br>总的来说，计算时间复杂度需要对算法进行仔细分析，并结合算法的基本操作和输入数据规模来确定</li>
+</ol>
+]]></content>
+  </entry>
+</search>
