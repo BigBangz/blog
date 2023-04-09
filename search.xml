@@ -23,7 +23,11 @@
   <entry>
     <title>关于博客的命令</title>
     <url>/2023/01/08/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="安装前注意事项（个人踩过的坑）"><a href="#安装前注意事项（个人踩过的坑）" class="headerlink" title="安装前注意事项（个人踩过的坑）"></a>安装前注意事项（个人踩过的坑）</h3><p>1、node、npm最好更新最新版本<br>&emsp;● node升级特别注意</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"># windows环境下 <span class="built_in">cmd</span>命名行下执行命令，查看node服务安装位置</span><br><span class="line">where node</span><br><span class="line"># 下载安装包替换路径完成升级</span><br></pre></td></tr></table></figure>
+
+<p>2、不清楚的地方看看<br>官方文档：<a href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a><br>具体模版文档（以butterfly为例）：<a href="https://butterfly.js.org/">https://butterfly.js.org/</a></p>
+<h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 清理</span></span><br><span class="line">$ hexo clean </span><br><span class="line"><span class="comment"># 构建</span></span><br><span class="line">$ hexo g</span><br><span class="line"><span class="comment"># 预览</span></span><br><span class="line">$ hexo s</span><br><span class="line"><span class="comment"># 如果是新创建的 需要执行</span></span><br><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line"><span class="comment"># 打包 发布</span></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 
@@ -48,6 +52,10 @@
 <li>确定算法的基本操作<br>首先需要确定算法中每一条语句的执行次数，也就是算法的基本操作。比如，在一个 for 循环中，循环体内的操作就是算法的基本操作。</li>
 <li>分析最坏情况下的执行次数<br>然后需要分析算法在最坏情况下的执行次数，也就是算法的最坏时间复杂度。为了保证算法在不同情况下都能够高效地运行，通常使用最坏时间复杂度来衡量算法的效率。</li>
 <li>使用大 O 符号表示时间复杂度<br>最后，使用大 O 符号表示算法的时间复杂度。通常将算法的执行次数与输入数据规模 n 的关系表示为一个函数 f(n)，然后使用大 O 符号来描述这个函数的增长趋势。例如，如果算法的执行次数与输入数据规模 n 成正比，那么它的时间复杂度就可以表示为 O(n)。<br>总的来说，计算时间复杂度需要对算法进行仔细分析，并结合算法的基本操作和输入数据规模来确定</li>
+</ol>
+<h3 id="总结下：什么是好算法，什么是坏算法？"><a href="#总结下：什么是好算法，什么是坏算法？" class="headerlink" title="总结下：什么是好算法，什么是坏算法？"></a>总结下：什么是好算法，什么是坏算法？</h3><ol>
+<li><strong>时间复杂度</strong>代表<strong>执行时间</strong>，<strong>空间复杂度</strong>代表<strong>占用的内存空间</strong>  </li>
+<li>执行时间越短，占用的内存空间越小。一般都是<strong>好算法</strong>，反之则是<strong>坏算法</strong></li>
 </ol>
 ]]></content>
   </entry>
