@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C10K与C10M问题</title>
+    <url>/2023/04/12/C10K%E4%B8%8EC10M%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="C10K与C10M问题"><a href="#C10K与C10M问题" class="headerlink" title="C10K与C10M问题"></a>C10K与C10M问题</h2><h3 id="C10K"><a href="#C10K" class="headerlink" title="C10K"></a>C10K</h3><p>C10K 问题是一个优化网络套接字以同时处理大量客户端连接的问题。<br>C10K 表示处理 10000 个并发连接（与每秒请求数相似，但更强调有效的连接）。</p>
+<p><a href="https://jaminzhang.github.io/web/C10K-problem/">https://jaminzhang.github.io/web/C10K-problem/</a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">    participant dotcom</span><br><span class="line">    participant iframe</span><br><span class="line">    participant viewscreen</span><br><span class="line">    dotcom-&gt;&gt;iframe: loads html w/ iframe url</span><br><span class="line">    iframe-&gt;&gt;viewscreen: request template</span><br><span class="line">    viewscreen-&gt;&gt;iframe: html &amp; javascript</span><br><span class="line">    iframe-&gt;&gt;dotcom: iframe ready</span><br><span class="line">    dotcom-&gt;&gt;iframe: set mermaid data on iframe</span><br><span class="line">    iframe-&gt;&gt;iframe: render mermaid</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>k8s网络</title>
     <url>/2023/03/12/k8s%E7%BD%91%E7%BB%9C/</url>
     <content><![CDATA[<h2 id="k8s网络"><a href="#k8s网络" class="headerlink" title="k8s网络"></a>k8s网络</h2><h3 id="k8s网络中的ip"><a href="#k8s网络中的ip" class="headerlink" title="k8s网络中的ip"></a>k8s网络中的ip</h3><h4 id="Node-IP：Node节点的IP地址（物理机、虚拟机的IP）"><a href="#Node-IP：Node节点的IP地址（物理机、虚拟机的IP）" class="headerlink" title="Node IP：Node节点的IP地址（物理机、虚拟机的IP）"></a>Node IP：Node节点的IP地址（物理机、虚拟机的IP）</h4><h4 id="Pod-IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。"><a href="#Pod-IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。" class="headerlink" title="Pod IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。"></a>Pod IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。</h4><p>● 通常是一个虚拟的二层网络<br>● 同Service下的pod可以直接根据PodIP相互通信<br>● 不同Service下的pod在集群间pod通信要借助于 cluster ip<br>● pod和集群外通信，要借助于node ip  </p>
@@ -41,6 +48,81 @@
 <p>原因：需要安装hexo-deployer-git(hexo git部署工具) </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <p>完美解决<br><img src="https://i.328888.xyz/2023/04/09/icVVA5.png" alt="img.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>学习资源</title>
+    <url>/2023/10/01/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/</url>
+    <content><![CDATA[<h1 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h1><p><strong>持续更新中….</strong></p>
+<style>
+table th:first-of-type {
+    width: 10%;
+}
+table th:nth-of-type(2) {
+    width: 45%;
+}
+table th:nth-of-type(3) {
+    width: 45%;
+}
+</style>
+
+<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><table>
+<thead>
+<tr>
+<th align="center">#</th>
+<th align="center">项目</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center"><a href="https://doocs.gitee.io/advanced-java/#/">advanced-java</a></td>
+<td align="center">Java 工程师进阶知识</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"><a href="https://github.com/doocs/source-code-hunter">source-code-hunter</a></td>
+<td align="center">互联网常用组件框架源码分析</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"><a href="https://github.com/doocs/jvm">jvm</a></td>
+<td align="center">Java 虚拟机底层原理知识总结</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center"><a href="https://github.com/doocs/leetcode">leetcode</a></td>
+<td align="center">算法、数据结构</td>
+</tr>
+</tbody></table>
+<h2 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h2><table>
+<thead>
+<tr>
+<th align="center">#</th>
+<th align="center">书籍</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">5</td>
+<td align="center"><a href="https://icyfenix.cn/">《凤凰架构》周志明</a></td>
+<td align="center">讨论如何构建一套可靠的大型分布式系统</td>
+</tr>
+</tbody></table>
+<h2 id="技术文章"><a href="#技术文章" class="headerlink" title="技术文章"></a>技术文章</h2><table>
+<thead>
+<tr>
+<th align="center">#</th>
+<th align="center">网址</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">5</td>
+<td align="center"><a href="https://tech.meituan.com/">美团技术团队</a></td>
+<td align="center">讨论如何构建一套可靠的大型分布式系统</td>
+</tr>
+</tbody></table>
 ]]></content>
   </entry>
   <entry>
