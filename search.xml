@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C10K与C10M问题</title>
-    <url>/2023/04/12/C10K%E4%B8%8EC10M%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="C10K与C10M问题"><a href="#C10K与C10M问题" class="headerlink" title="C10K与C10M问题"></a>C10K与C10M问题</h2><h3 id="C10K"><a href="#C10K" class="headerlink" title="C10K"></a>C10K</h3><p>C10K 问题是一个优化网络套接字以同时处理大量客户端连接的问题。<br>C10K 表示处理 10000 个并发连接（与每秒请求数相似，但更强调有效的连接）。</p>
-<p><a href="https://jaminzhang.github.io/web/C10K-problem/">https://jaminzhang.github.io/web/C10K-problem/</a></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">    participant dotcom</span><br><span class="line">    participant iframe</span><br><span class="line">    participant viewscreen</span><br><span class="line">    dotcom-&gt;&gt;iframe: loads html w/ iframe url</span><br><span class="line">    iframe-&gt;&gt;viewscreen: request template</span><br><span class="line">    viewscreen-&gt;&gt;iframe: html &amp; javascript</span><br><span class="line">    iframe-&gt;&gt;dotcom: iframe ready</span><br><span class="line">    dotcom-&gt;&gt;iframe: set mermaid data on iframe</span><br><span class="line">    iframe-&gt;&gt;iframe: render mermaid</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
     <title>k8s网络</title>
     <url>/2023/03/12/k8s%E7%BD%91%E7%BB%9C/</url>
     <content><![CDATA[<h2 id="k8s网络"><a href="#k8s网络" class="headerlink" title="k8s网络"></a>k8s网络</h2><h3 id="k8s网络中的ip"><a href="#k8s网络中的ip" class="headerlink" title="k8s网络中的ip"></a>k8s网络中的ip</h3><h4 id="Node-IP：Node节点的IP地址（物理机、虚拟机的IP）"><a href="#Node-IP：Node节点的IP地址（物理机、虚拟机的IP）" class="headerlink" title="Node IP：Node节点的IP地址（物理机、虚拟机的IP）"></a>Node IP：Node节点的IP地址（物理机、虚拟机的IP）</h4><h4 id="Pod-IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。"><a href="#Pod-IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。" class="headerlink" title="Pod IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。"></a>Pod IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。</h4><p>● 通常是一个虚拟的二层网络<br>● 同Service下的pod可以直接根据PodIP相互通信<br>● 不同Service下的pod在集群间pod通信要借助于 cluster ip<br>● pod和集群外通信，要借助于node ip  </p>
@@ -28,6 +21,13 @@
 ]]></content>
   </entry>
   <entry>
+    <title>C10K与C10M问题</title>
+    <url>/2023/04/12/C10K%E4%B8%8EC10M%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="C10K与C10M问题"><a href="#C10K与C10M问题" class="headerlink" title="C10K与C10M问题"></a>C10K与C10M问题</h2><h3 id="C10K"><a href="#C10K" class="headerlink" title="C10K"></a>C10K</h3><p>C10K 问题是一个优化网络套接字以同时处理大量客户端连接的问题。<br>C10K 表示处理 10000 个并发连接（与每秒请求数相似，但更强调有效的连接）。</p>
+<p><a href="https://jaminzhang.github.io/web/C10K-problem/">https://jaminzhang.github.io/web/C10K-problem/</a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">    participant dotcom</span><br><span class="line">    participant iframe</span><br><span class="line">    participant viewscreen</span><br><span class="line">    dotcom-&gt;&gt;iframe: loads html w/ iframe url</span><br><span class="line">    iframe-&gt;&gt;viewscreen: request template</span><br><span class="line">    viewscreen-&gt;&gt;iframe: html &amp; javascript</span><br><span class="line">    iframe-&gt;&gt;dotcom: iframe ready</span><br><span class="line">    dotcom-&gt;&gt;iframe: set mermaid data on iframe</span><br><span class="line">    iframe-&gt;&gt;iframe: render mermaid</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>关于博客的命令</title>
     <url>/2023/01/08/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="安装前注意事项（个人踩过的坑）"><a href="#安装前注意事项（个人踩过的坑）" class="headerlink" title="安装前注意事项（个人踩过的坑）"></a>安装前注意事项（个人踩过的坑）</h3><p>1、node、npm最好更新最新版本<br>&emsp;● node升级特别注意</p>
@@ -38,9 +38,9 @@
 
 <h3 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 清理</span></span><br><span class="line">$ hexo clean </span><br><span class="line"><span class="comment"># 构建</span></span><br><span class="line">$ hexo g</span><br><span class="line"><span class="comment"># 预览</span></span><br><span class="line">$ hexo s</span><br><span class="line"><span class="comment"># 如果是新创建的 需要执行</span></span><br><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line"><span class="comment"># 打包 发布</span></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 
-<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><h4 id="1、hexo-d打包时显示-ERROR-Deployer-not-found-git"><a href="#1、hexo-d打包时显示-ERROR-Deployer-not-found-git" class="headerlink" title="1、hexo d打包时显示 ERROR Deployer not found: git"></a>1、hexo d打包时显示 ERROR Deployer not found: git</h4><p>如下图<br><img src="https://github.com/BigBangz/bigbangz.github.io/blob/main/img/img_2.png?raw=true" alt="img2.png"><br>原因：需要安装hexo-deployer-git(hexo git部署工具) </p>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><h4 id="1、hexo-d打包时显示-ERROR-Deployer-not-found-git"><a href="#1、hexo-d打包时显示-ERROR-Deployer-not-found-git" class="headerlink" title="1、hexo d打包时显示 ERROR Deployer not found: git"></a>1、hexo d打包时显示 ERROR Deployer not found: git</h4><p>如下图<br><img src="https://github.com/BigBangz/spring-cloud-domo/blob/master/src/main/resources/image/img2.png?raw=true" alt="img2.png"><br>原因：需要安装hexo-deployer-git(hexo git部署工具) </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>完美解决<br><img src="https://github.com/BigBangz/bigbangz.github.io/blob/main/img/img.png?raw=true" alt="img.png"></p>
+<p>完美解决<br><img src="https://github.com/BigBangz/spring-cloud-domo/blob/master/src/main/resources/image/img.png?raw=true" alt="img.png"></p>
 ]]></content>
   </entry>
   <entry>
