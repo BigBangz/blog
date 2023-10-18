@@ -97,22 +97,6 @@ table th:nth-of-type(5) {
 ]]></content>
   </entry>
   <entry>
-    <title>关于博客的命令</title>
-    <url>/2023/01/08/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="安装前注意事项（个人踩过的坑）"><a href="#安装前注意事项（个人踩过的坑）" class="headerlink" title="安装前注意事项（个人踩过的坑）"></a>安装前注意事项（个人踩过的坑）</h3><p>1、node、npm最好更新最新版本<br>&emsp;● node升级特别注意</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"># windows环境下 <span class="built_in">cmd</span>命名行下执行命令，查看node服务安装位置</span><br><span class="line">where node</span><br><span class="line"># 下载安装包替换路径完成升级</span><br></pre></td></tr></table></figure>
-
-<p>2、不清楚的地方看看<br>官方文档：<a href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a><br>具体模版文档（以butterfly为例）：<a href="https://butterfly.js.org/">https://butterfly.js.org/</a></p>
-<h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 清理</span></span><br><span class="line">$ hexo clean </span><br><span class="line"><span class="comment"># 构建</span></span><br><span class="line">$ hexo g</span><br><span class="line"><span class="comment"># 预览</span></span><br><span class="line">$ hexo s</span><br><span class="line"><span class="comment"># 如果是新创建的 需要执行</span></span><br><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line"><span class="comment"># 打包 发布</span></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-
-<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><h4 id="1、hexo-d打包时显示-ERROR-Deployer-not-found-git"><a href="#1、hexo-d打包时显示-ERROR-Deployer-not-found-git" class="headerlink" title="1、hexo d打包时显示 ERROR Deployer not found: git"></a>1、hexo d打包时显示 ERROR Deployer not found: git</h4><p>如下图<br><img src="https://github.com/BigBangz/spring-cloud-domo/blob/master/src/main/resources/image/img2.png?raw=true" alt="img2.png"><br>原因：需要安装hexo-deployer-git(hexo git部署工具) </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>完美解决<br><img src="https://github.com/BigBangz/spring-cloud-domo/blob/master/src/main/resources/image/img.png?raw=true" alt="img.png"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>学习资源</title>
     <url>/2023/09/05/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/</url>
     <content><![CDATA[<h1 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h1><p><strong>持续更新中…. 分享技术知识点、书籍、文章</strong></p>
@@ -206,6 +190,22 @@ table th:nth-of-type(3) {
 </style>]]></content>
   </entry>
   <entry>
+    <title>关于博客的命令</title>
+    <url>/2023/01/08/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="安装前注意事项（个人踩过的坑）"><a href="#安装前注意事项（个人踩过的坑）" class="headerlink" title="安装前注意事项（个人踩过的坑）"></a>安装前注意事项（个人踩过的坑）</h3><p>1、node、npm最好更新最新版本<br>&emsp;● node升级特别注意</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"># windows环境下 <span class="built_in">cmd</span>命名行下执行命令，查看node服务安装位置</span><br><span class="line">where node</span><br><span class="line"># 下载安装包替换路径完成升级</span><br></pre></td></tr></table></figure>
+
+<p>2、不清楚的地方看看<br>官方文档：<a href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a><br>具体模版文档（以butterfly为例）：<a href="https://butterfly.js.org/">https://butterfly.js.org/</a></p>
+<h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 清理</span></span><br><span class="line">$ hexo clean </span><br><span class="line"><span class="comment"># 构建</span></span><br><span class="line">$ hexo g</span><br><span class="line"><span class="comment"># 预览</span></span><br><span class="line">$ hexo s</span><br><span class="line"><span class="comment"># 如果是新创建的 需要执行</span></span><br><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line"><span class="comment"># 打包 发布</span></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><h4 id="1、hexo-d打包时显示-ERROR-Deployer-not-found-git"><a href="#1、hexo-d打包时显示-ERROR-Deployer-not-found-git" class="headerlink" title="1、hexo d打包时显示 ERROR Deployer not found: git"></a>1、hexo d打包时显示 ERROR Deployer not found: git</h4><p>如下图<br><img src="https://github.com/BigBangz/spring-cloud-domo/blob/master/src/main/resources/image/img2.png?raw=true" alt="img2.png"><br>原因：需要安装hexo-deployer-git(hexo git部署工具) </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>完美解决<br><img src="https://github.com/BigBangz/spring-cloud-domo/blob/master/src/main/resources/image/img.png?raw=true" alt="img.png"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>衡量算法效率</title>
     <url>/2023/02/07/%E8%A1%A1%E9%87%8F%E7%AE%97%E6%B3%95%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[<h2 id="衡量算法效率的方式"><a href="#衡量算法效率的方式" class="headerlink" title="衡量算法效率的方式"></a>衡量算法效率的方式</h2><h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>时间复杂度是指算法执行所需要的时间，通常用大 O（O）表示。它描述了算法执行时间随着输入大小增加而增长的趋势。<br>简单来说：时间复杂度描述了算法运行所需的时间和输入数据规模之间的关系。$O=log_{数据规模}（2*{运行所需时间}）$<br>常见的时间复杂度有：<br>● 常数阶（O(1)）：无论输入大小如何，算法的执行时间都保持不变。<br>● 线性阶（O(n)）：算法的执行时间与输入大小成正比。<br>● 对数阶（O(log n)）：算法的执行时间与输入大小的对数成正比。<br>● 平方阶（O(n^2)）：算法的执行时间与输入大小的平方成正比。<br>● 指数阶（O(2^n)）：算法的执行时间随着输入大小呈指数级别增长。<br>通常情况下，我们希望算法的时间复杂度尽可能低，因为这意味着算法执行所需的时间更少。<br>空间复杂度<br>空间复杂度是指算法执行所需的内存空间大小，通常也用大 O（O）表示。它描述了算法执行时使用的额外内存随着输入大小增加而增长的趋势。常见的空间复杂度有：<br>● 常数阶（O(1)）：算法的内存使用量不随输入大小而变化。<br>● 线性阶（O(n)）：算法的内存使用量与输入大小成正比。<br>● 对数阶（O(log n)）：算法的内存使用量与输入大小的对数成正比。<br>● 平方阶（O(n^2)）：算法的内存使用量与输入大小的平方成正比。<br>通常情况下，我们希望算法的空间复杂度尽可能低，因为这意味着算法执行所需的内存更少。</p>
@@ -219,6 +219,100 @@ table th:nth-of-type(3) {
 <li><strong>时间复杂度</strong>代表<strong>执行时间</strong>，<strong>空间复杂度</strong>代表<strong>占用的内存空间</strong>  </li>
 <li>执行时间越短，占用的内存空间越小。一般都是<strong>好算法</strong>，反之则是<strong>坏算法</strong></li>
 </ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>软件服务行业名词</title>
+    <url>/2023/08/29/%E8%BD%AF%E4%BB%B6%E6%9C%8D%E5%8A%A1%E8%A1%8C%E4%B8%9A%E5%90%8D%E8%AF%8D/</url>
+    <content><![CDATA[<h1 id="软件服务行业名词"><a href="#软件服务行业名词" class="headerlink" title="软件服务行业名词"></a>软件服务行业名词</h1><h2 id="企业管理应用软件"><a href="#企业管理应用软件" class="headerlink" title="企业管理应用软件"></a>企业管理应用软件</h2><table>
+<thead>
+<tr>
+<th align="center">简称</th>
+<th align="center">英文全称</th>
+<th align="center">中文解释</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ERP系统</td>
+<td align="center">Enterprise Resource Planning</td>
+<td align="center">企业资源计划系统</td>
+<td align="center">帮助企业组织自动执行和管理核心业务流程</td>
+</tr>
+<tr>
+<td align="center">MES系统</td>
+<td align="center">Manufacturing Execution System</td>
+<td align="center">制造企业生产过程执行系统</td>
+<td align="center">可以监控、追踪、记录和控制整个生产周期，优化制造流程</td>
+</tr>
+<tr>
+<td align="center">CRM系统</td>
+<td align="center">Customer Relationship Management</td>
+<td align="center">客户关系管理系统</td>
+<td align="center">专注于改善客户关系，促进销售</td>
+</tr>
+<tr>
+<td align="center">SCM系统</td>
+<td align="center">Supply Chain Management</td>
+<td align="center">供应链管理系统</td>
+<td align="center">帮助企业实现整个业务运作的全面自动化</td>
+</tr>
+</tbody></table>
+<h2 id="云计算服务模式"><a href="#云计算服务模式" class="headerlink" title="云计算服务模式"></a>云计算服务模式</h2><table>
+<thead>
+<tr>
+<th align="center">简称</th>
+<th align="center">英文全称</th>
+<th align="center">中文解释</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SaaS</td>
+<td align="center">Software as a Service</td>
+<td align="center">软件即服务</td>
+<td align="center">提供整个应用栈，交付可供客户访问和使用的完整云端应用</td>
+</tr>
+<tr>
+<td align="center">PaaS</td>
+<td align="center">Platform as a Service</td>
+<td align="center">平台即服务</td>
+<td align="center">提供和管理所有硬件和软件资源，以便通过云开发应用</td>
+</tr>
+<tr>
+<td align="center">APaaS</td>
+<td align="center">Application Platform as a Service</td>
+<td align="center">应用程序平台即服务</td>
+<td align="center">这种基于PaaS平台的解决方案提供云端开发、部署和运行支持，并提供基础工具集，适用于低代码或零代码开发</td>
+</tr>
+<tr>
+<td align="center">CaaS</td>
+<td align="center">Containers as a Service</td>
+<td align="center">容器即服务</td>
+<td align="center">提供和管理所有硬件和软件资源，以使用容器开发和部署应用</td>
+</tr>
+<tr>
+<td align="center">IaaS</td>
+<td align="center">Infrastructure as a Service</td>
+<td align="center">基础架构即服务</td>
+<td align="center">通过云为组织提供按需基础架构资源，例如计算、存储、网络和虚拟化</td>
+</tr>
+</tbody></table>
+<style>
+table th:first-of-type {
+    width: 17%;
+}
+table th:nth-of-type(2) {
+    width: 24%;
+}
+table th:nth-of-type(3) {
+    width: 30%;
+}
+table th:nth-of-type(4) {
+    width: 30%;
+}
+</style>
+
 ]]></content>
   </entry>
 </search>
