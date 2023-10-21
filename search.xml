@@ -3,9 +3,19 @@
   <entry>
     <title>C10K与C10M问题</title>
     <url>/2023/04/12/C10K%E4%B8%8EC10M%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="C10K与C10M问题"><a href="#C10K与C10M问题" class="headerlink" title="C10K与C10M问题"></a>C10K与C10M问题</h2><h3 id="C10K"><a href="#C10K" class="headerlink" title="C10K"></a>C10K</h3><p>C10K 问题是一个优化网络套接字以同时处理大量客户端连接的问题。<br>C10K 表示处理 10000 个并发连接（与每秒请求数相似，但更强调有效的连接）。</p>
-<p><a href="https://jaminzhang.github.io/web/C10K-problem/">https://jaminzhang.github.io/web/C10K-problem/</a></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">    participant dotcom</span><br><span class="line">    participant iframe</span><br><span class="line">    participant viewscreen</span><br><span class="line">    dotcom-&gt;&gt;iframe: loads html w/ iframe url</span><br><span class="line">    iframe-&gt;&gt;viewscreen: request template</span><br><span class="line">    viewscreen-&gt;&gt;iframe: html &amp; javascript</span><br><span class="line">    iframe-&gt;&gt;dotcom: iframe ready</span><br><span class="line">    dotcom-&gt;&gt;iframe: set mermaid data on iframe</span><br><span class="line">    iframe-&gt;&gt;iframe: render mermaid</span><br></pre></td></tr></table></figure>]]></content>
+    <content><![CDATA[<h2 id="C10K与C10M问题"><a href="#C10K与C10M问题" class="headerlink" title="C10K与C10M问题"></a>C10K与C10M问题</h2><h3 id="C10K"><a href="#C10K" class="headerlink" title="C10K"></a>C10K</h3><p>C10K 问题是一个优化网络套接字以同时处理大量客户端连接的问题。<br>C10K 表示处理 10000 个并发连接（与每秒请求数相似，但更强调有效的连接）。<br><img src="https://fastly.jsdelivr.net/gh/BigBangz/spring-cloud-domo@master/src/main/resources/image/document/1697869489659tree.png" alt="流程图"><br><a href="https://jaminzhang.github.io/web/C10K-problem/">https://jaminzhang.github.io/web/C10K-problem/</a></p>
+<!-- ```mermaid
+sequenceDiagram
+    participant dotcom
+    participant iframe
+    participant viewscreen
+    dotcom->>iframe: loads html w/ iframe url
+    iframe->>viewscreen: request template
+    viewscreen->>iframe: html & javascript
+    iframe->>dotcom: iframe ready
+    dotcom->>iframe: set mermaid data on iframe
+    iframe->>iframe: render mermaid
+``` -->]]></content>
       <categories>
         <category>技术</category>
       </categories>
