@@ -147,6 +147,76 @@ table th:nth-of-type(5) {
       </tags>
   </entry>
   <entry>
+    <title>分布式事务及其解决方案</title>
+    <url>/2023/10/12/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<h2 id="分布式事务及其解决方案"><a href="#分布式事务及其解决方案" class="headerlink" title="分布式事务及其解决方案"></a>分布式事务及其解决方案</h2><h3 id="一、分布式事务的产生"><a href="#一、分布式事务的产生" class="headerlink" title="一、分布式事务的产生"></a>一、分布式事务的产生</h3><p>随着时代的发展，企业级应用的规模、数据量和复杂度不断增加，传统的单体数据库无法应对这些变化，分布式数据库应运而生。于此同时也带来了一系列新问题：<strong>跨库事务</strong>、<strong>全局性数据一致性</strong>、<strong>负载均衡</strong>、<strong>复杂SQL</strong>。  </p>
+<p><strong>发展路径：</strong><br><strong>传统单体数据库</strong> $\Longrightarrow$ <strong>基于中间件的分库分表</strong>  $\Longrightarrow$ <strong>分布式数据库</strong><br><strong>分布式数据库：</strong> 通常是地理上分散而逻辑上集中的数据库系统</p>
+<h3 id="二、分布式事务的难点"><a href="#二、分布式事务的难点" class="headerlink" title="二、分布式事务的难点"></a>二、分布式事务的难点</h3><h4 id="ACID问题：原子性、一致性、隔离性、持久性"><a href="#ACID问题：原子性、一致性、隔离性、持久性" class="headerlink" title="ACID问题：原子性、一致性、隔离性、持久性"></a>ACID问题：原子性、一致性、隔离性、持久性</h4><table>
+<thead>
+<tr>
+<th align="center">问题</th>
+<th align="center">场景</th>
+<th align="center">解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">原子性</td>
+<td align="center">一个事务如何保证在多台机器，多个数据分片的修改提交，都提交全部成功，或者提交全部失败？</td>
+<td align="center">两阶段提交（2PC）、三阶段提交（3PC）</td>
+</tr>
+<tr>
+<td align="center">一致性</td>
+<td align="center">数据分片后，如何保证数据的一致和完整？</td>
+<td align="center">两阶段提交（2PC）、三阶段提交（3PC）</td>
+</tr>
+<tr>
+<td align="center">隔离性</td>
+<td align="center">多个机器多个事务之间的脏读、不可重复读、幻读问题</td>
+<td align="center">MVCC版本控制</td>
+</tr>
+<tr>
+<td align="center">持久性</td>
+<td align="center">一个事务提交后需要将数据同步到其他节点，如何保证主节点宕机的情况下，其他节点仍能将事务恢复过来？</td>
+<td align="center">分布式事务日志</td>
+</tr>
+</tbody></table>
+<h3 id="三、分布式事务【原子性】解决方案"><a href="#三、分布式事务【原子性】解决方案" class="headerlink" title="三、分布式事务【原子性】解决方案"></a>三、分布式事务【原子性】解决方案</h3><h4 id="1-两阶段提交（2PC）"><a href="#1-两阶段提交（2PC）" class="headerlink" title="1.两阶段提交（2PC）"></a>1.两阶段提交（2PC）</h4><p>两阶段提交是一种经典的分布式事务解决方案。在第一阶段，协调者询问所有参与者是否准备提交事务；只有在所有参与者都回复“准备好”时，协调者才在第二阶段通知所有参与者提交事务。然而，2PC在面对系统故障和网络故障时可能出现脑裂(split-brain)问题，从而引发数据不一致。</p>
+<h4 id="2-三阶段提交（3PC）"><a href="#2-三阶段提交（3PC）" class="headerlink" title="2.三阶段提交（3PC）"></a>2.三阶段提交（3PC）</h4><p>为解决2PC的脑裂问题，出现了三阶段提交。在第三阶段，协调者询问所有参与者是否完成事务提交；只有当所有参与者都回复“完成”时，协调者才通知所有参与者提交事务。否则，根据参与者的回复进行相应处理。然而，3PC在面对网络延迟和消息丢失的情况下可能引发问题。</p>
+<h4 id="3-补偿事务（Compensating-Transactions）"><a href="#3-补偿事务（Compensating-Transactions）" class="headerlink" title="3.补偿事务（Compensating Transactions）"></a>3.补偿事务（Compensating Transactions）</h4><p>补偿事务是另一种分布式事务解决方案。当某个参与者的事务处理失败时，协调者会通知其他参与者执行补偿事务来弥补损失。补偿事务通常是一组逆操作，用于撤销或回滚之前执行的事务操作。这种方案能够解决脑裂问题和网络故障问题，但需要手动编写补偿逻辑，增加了开发成本和维护成本。</p>
+<h4 id="4-分布式事务管理器（Distributed-Transaction-Manager）"><a href="#4-分布式事务管理器（Distributed-Transaction-Manager）" class="headerlink" title="4.分布式事务管理器（Distributed Transaction Manager）"></a>4.分布式事务管理器（Distributed Transaction Manager）</h4><p>分布式事务管理器是一种自动化的解决方案，用于管理分布式事务的全生命周期。它能够协调不同数据库或数据存储之间的操作，处理分布式事务的提交、回滚等操作。常见的分布式事务管理器包括Java Transaction API (JTA)、Java Transaction Service (JTS) 和 Atomikos 等。</p>
+<h3 id="四、性能优化与监控"><a href="#四、性能优化与监控" class="headerlink" title="四、性能优化与监控"></a>四、性能优化与监控</h3><h4 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h4><p>分布式事务的性能优化也是至关重要的。以下是一些性能优化的技巧：</p>
+<p>（1）选择合适的隔离级别：不同的隔离级别可能导致锁竞争和数据库连接的增加。因此，应根据具体业务需求选择合适的隔离级别，例如READ COMMITTED或REPEATABLE READ。</p>
+<p>（2）优化数据访问逻辑：避免在事务中执行不必要的查询和更新操作。对于大型数据集，应分批处理而不是一次性处理。</p>
+<p>（3）使用索引和缓存：为数据库表的关键字段创建索引，以提高查询效率。同时，利用缓存技术减少对数据库的频繁访问。</p>
+<p>（4）调整事务超时时间：根据具体业务需求和系统负载情况，合理设置事务超时时间，以避免长时间占用数据库连接。</p>
+<h4 id="监控与调优"><a href="#监控与调优" class="headerlink" title="监控与调优"></a>监控与调优</h4><p>为了确保分布式事务的稳定性和性能，应实施有效的监控和调优措施。以下是一些监控和调优的建议：</p>
+<p>（1）监控数据库连接池：密切关注数据库连接池的状态和性能，确保连接池中的连接得到充分利用，避免空闲连接过多占用资源。</p>
+<p>（2）监控事务处理速度：通过收集和分析事务处理的速度数据，找出性能瓶颈并进行针对性优化。</p>
+<p>（3）利用日志和诊断信息：记录日志并收集诊断信息，以便在出现问题时迅速定位和解决问题。</p>
+<p>（4）定期进行系统性能评估：定期进行系统性能评估，以便及时发现和解决潜在的性能问题。</p>
+<style>
+table th:first-of-type {
+    width: 10%;
+}
+table th:nth-of-type(2) {
+    width: 30%;
+}
+table th:nth-of-type(3) {
+    width: 30%;
+}
+table th:nth-of-type(4) {
+    width: 30%;
+}
+</style>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>分布式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>学习资源</title>
     <url>/2023/09/05/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/</url>
     <content><![CDATA[<h1 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h1><p><strong>持续更新中…. 分享技术知识点、书籍、文章</strong></p>
