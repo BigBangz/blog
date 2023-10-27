@@ -287,6 +287,9 @@ table th:nth-of-type(4) {
 </tbody></table>
 <h3 id="二、数据导出工具"><a href="#二、数据导出工具" class="headerlink" title="二、数据导出工具"></a>二、数据导出工具</h3><h4 id="1、TiDB-Lightning"><a href="#1、TiDB-Lightning" class="headerlink" title="1、TiDB Lightning"></a>1、TiDB Lightning</h4><p>是用于从静态文件导入 TB 级数据到 TiDB 集群的工具，常用于 TiDB 集群的初始化数据导入</p>
 <h4 id="2、Dumpling"><a href="#2、Dumpling" class="headerlink" title="2、Dumpling"></a>2、Dumpling</h4><p>可以把存储在 TiDB 或 MySQL 中的数据导出为 SQL 或 CSV 格式，用于逻辑全量备份</p>
+<h3 id="三、开源离线数据同步框架"><a href="#三、开源离线数据同步框架" class="headerlink" title="三、开源离线数据同步框架"></a>三、开源离线数据同步框架</h3><h4 id="Dadax"><a href="#Dadax" class="headerlink" title="Dadax"></a>Dadax</h4><p>DataX 实现了包括 MySQL、Oracle、OceanBase、SqlServer、Postgre、HDFS、Hive、ADS、HBase、TableStore(OTS)、MaxCompute(ODPS)、Hologres、DRDS, databend 等各种异构数据源之间高效的数据同步功能</p>
+<p>开源地址：<a href="https://github.com/alibaba/DataX">alibaba DataX</a></p>
+<hr>
 <p>参考链接：<a href="https://docs-archive.pingcap.com/zh/tidb/v7.2/dm-overview">TiDB Data Migration官方文档</a></p>
 ]]></content>
       <categories>
@@ -327,6 +330,11 @@ table th:nth-of-type(4) {
 <td align="center">4</td>
 <td align="center"><a href="https://github.com/doocs/leetcode">leetcode</a></td>
 <td align="center">算法、数据结构</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center"><a href="https://www.liaoxuefeng.com/wiki/1252599548343744">廖雪峰Java教程</a></td>
+<td align="center">Java 基础知识汇总</td>
 </tr>
 </tbody></table>
 <h2 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h2><table>
