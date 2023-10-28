@@ -337,6 +337,25 @@ table th:nth-of-type(4) {
 <td align="center">Java 基础知识汇总</td>
 </tr>
 </tbody></table>
+<h2 id="AI模型社区"><a href="#AI模型社区" class="headerlink" title="AI模型社区"></a>AI模型社区</h2><table>
+<thead>
+<tr>
+<th align="center">#</th>
+<th align="center">社区</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center"><a href="https://huggingface.co/">huggingface官网</a></td>
+<td align="center">LLM大模型社区，有开源模型和数据集</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"><a href="https://replicate.com/">replicate官网</a></td>
+<td align="center">开源机器学习AI模型云端部署平台</td>
+</tr>
+</tbody></table>
 <h2 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h2><table>
 <thead>
 <tr>
