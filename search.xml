@@ -47,32 +47,6 @@ sequenceDiagram
       </tags>
   </entry>
   <entry>
-    <title>k8s网络</title>
-    <url>/2023/03/12/k8s%E7%BD%91%E7%BB%9C/</url>
-    <content><![CDATA[<h2 id="k8s网络"><a href="#k8s网络" class="headerlink" title="k8s网络"></a>k8s网络</h2><h3 id="k8s网络中的ip"><a href="#k8s网络中的ip" class="headerlink" title="k8s网络中的ip"></a>k8s网络中的ip</h3><h4 id="Node-IP：Node节点的IP地址（物理机、虚拟机的IP）"><a href="#Node-IP：Node节点的IP地址（物理机、虚拟机的IP）" class="headerlink" title="Node IP：Node节点的IP地址（物理机、虚拟机的IP）"></a>Node IP：Node节点的IP地址（物理机、虚拟机的IP）</h4><h4 id="Pod-IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。"><a href="#Pod-IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。" class="headerlink" title="Pod IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。"></a>Pod IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。</h4><p>● 通常是一个虚拟的二层网络<br>● 同Service下的pod可以直接根据PodIP相互通信<br>● 不同Service下的pod在集群间pod通信要借助于 cluster ip<br>● pod和集群外通信，要借助于node ip  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">查看命令：kubectl describe pod podName  </span><br></pre></td></tr></table></figure>
-<h4 id="Cluster-IP：Service的IP地址，此为虚拟IP地址。"><a href="#Cluster-IP：Service的IP地址，此为虚拟IP地址。" class="headerlink" title="Cluster IP：Service的IP地址，此为虚拟IP地址。"></a>Cluster IP：Service的IP地址，此为虚拟IP地址。</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">查看命令：kubectl describe svc name -n uecm</span><br></pre></td></tr></table></figure>
-<p>Cluster IP仅仅作用于Kubernetes Service这个对象，并由Kubernetes管理和分配P地址<br>Cluster IP无法被ping，他没有一个“实体网络对象”来响应<br>Cluster IP只能结合Service Port组成一个具体的通信端口，单独的Cluster IP不具备通信的基础，并且他们属于Kubernetes集群这样一个封闭的空间。<br>在不同Service下的pod节点在集群间相互访问可以通过Cluster IP  </p>
-<hr>
-<h3 id="三种IP网络间的通信"><a href="#三种IP网络间的通信" class="headerlink" title="三种IP网络间的通信"></a>三种IP网络间的通信</h3><h4 id="NodePort的方式"><a href="#NodePort的方式" class="headerlink" title="NodePort的方式"></a>NodePort的方式</h4><p>缺点：是服务一旦多起来，NodePort 在每个节点上开启的端口数量会极其庞大，难以维护</p>
-<div class="gallery">
-    <div class="fj-gallery  data" data-rowHeight="220" data-limit="10">
-    <span class="gallery-data">[{"url":"https://cdn.nlark.com/yuque/0/2022/png/28188528/1669447090047-67fc33fa-8cb3-41fb-85eb-d6019b54fad8.png","alt":"img.png"}]</span>
-    </div>
-    <button class="gallery-load-more"><span>加载更多</span><i class="fa-solid fa-arrow-down"></i></button>
-    </div>
-<hr>
-<h3 id="网络知识"><a href="#网络知识" class="headerlink" title="网络知识"></a>网络知识</h3><h4 id="路由器-amp-交换机-区别"><a href="#路由器-amp-交换机-区别" class="headerlink" title="路由器&amp;交换机 区别"></a>路由器&amp;交换机 区别</h4><p><strong>路由器</strong>：寻址，转发（依靠 IP 地址），交换机：过滤，转发（依靠 MAC 地址）<br><strong>交换机</strong>：用于连接局域网，数据包在局域网内网的数据转发，路由器用于连接局域网和外网，数据包可以在不同局域网转发。<br>交换机工作于TCP/IP协议的最后一层数据链路层（物理层），路由器工作于网络层<br>交换机负责具体的数据包传输，路由器不负责包的实际传输，路由器只封装好要传输的数据包，然后交给交换机去传输（不一定是交换机，可能是其他传输技术），用java比喻大概简单理解为路由器是抽象类，定义好传输的数据包格式，交换机是具体实现类，也可以有其他实现类<br>交换机没有MAC地址和IP地址，路由器有MAC地址和IP地址（指纯碎的交换机和路由器，三层交换机是可以有IP地址的，路由器也有内置交换机功能的）  </p>
-<h4 id="网桥-amp-交换机的区别"><a href="#网桥-amp-交换机的区别" class="headerlink" title="网桥&amp;交换机的区别"></a>网桥&amp;交换机的区别</h4><p>● <strong>交换机</strong>工作时，实际上允许许多组端口间的通道同时工作。所以，交换机的功能体现出不仅仅是一个网桥的功能，而是多个网桥功能的集合。即网桥一般分有两个输出输入端口，而交换机具有高密度的端口。所以一般的交换机，网桥就有桥接作用。<br>● <strong>网桥</strong>主要由软件实现，交换机主要由硬件实现  </p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>云计算</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>不同种类的数据库比较</title>
     <url>/2023/09/25/%E4%B8%8D%E5%90%8C%E7%A7%8D%E7%B1%BB%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%AF%94%E8%BE%83/</url>
     <content><![CDATA[<h1 id="不同种类数据库比较"><a href="#不同种类数据库比较" class="headerlink" title="不同种类数据库比较"></a>不同种类数据库比较</h1><h2 id="数据库对比"><a href="#数据库对比" class="headerlink" title="数据库对比"></a>数据库对比</h2><table>
@@ -148,25 +122,85 @@ table th:nth-of-type(5) {
       </tags>
   </entry>
   <entry>
-    <title>关于博客的命令</title>
-    <url>/2023/01/08/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="安装前注意事项（个人踩过的坑）"><a href="#安装前注意事项（个人踩过的坑）" class="headerlink" title="安装前注意事项（个人踩过的坑）"></a>安装前注意事项（个人踩过的坑）</h3><p>1、node、npm最好更新最新版本<br>&emsp;● node升级特别注意</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"># windows环境下 <span class="built_in">cmd</span>命名行下执行命令，查看node服务安装位置</span><br><span class="line">where node</span><br><span class="line"># 下载安装包替换路径完成升级</span><br></pre></td></tr></table></figure>
-
-<p>2、不清楚的地方看看<br>官方文档：<a href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a><br>具体模版文档（以butterfly为例）：<a href="https://butterfly.js.org/">https://butterfly.js.org/</a></p>
-<h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 清理</span></span><br><span class="line">$ hexo clean </span><br><span class="line"><span class="comment"># 构建</span></span><br><span class="line">$ hexo g</span><br><span class="line"><span class="comment"># 预览</span></span><br><span class="line">$ hexo s</span><br><span class="line"><span class="comment"># 如果是新创建的 需要执行</span></span><br><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line"><span class="comment"># 打包 发布</span></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-
-<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><h4 id="1、hexo-d打包时显示-ERROR-Deployer-not-found-git"><a href="#1、hexo-d打包时显示-ERROR-Deployer-not-found-git" class="headerlink" title="1、hexo d打包时显示 ERROR Deployer not found: git"></a>1、hexo d打包时显示 ERROR Deployer not found: git</h4><p>如下图<br><img src="https://github.com/BigBangz/spring-cloud-domo/blob/master/src/main/resources/image/img2.png?raw=true" alt="img2.png"><br>原因：需要安装hexo-deployer-git(hexo git部署工具) </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>完美解决<br><img src="https://github.com/BigBangz/spring-cloud-domo/blob/master/src/main/resources/image/img.png?raw=true" alt="img.png"></p>
+    <title>k8s网络</title>
+    <url>/2023/03/12/k8s%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<h2 id="k8s网络"><a href="#k8s网络" class="headerlink" title="k8s网络"></a>k8s网络</h2><h3 id="k8s网络中的ip"><a href="#k8s网络中的ip" class="headerlink" title="k8s网络中的ip"></a>k8s网络中的ip</h3><h4 id="Node-IP：Node节点的IP地址（物理机、虚拟机的IP）"><a href="#Node-IP：Node节点的IP地址（物理机、虚拟机的IP）" class="headerlink" title="Node IP：Node节点的IP地址（物理机、虚拟机的IP）"></a>Node IP：Node节点的IP地址（物理机、虚拟机的IP）</h4><h4 id="Pod-IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。"><a href="#Pod-IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。" class="headerlink" title="Pod IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。"></a>Pod IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。</h4><p>● 通常是一个虚拟的二层网络<br>● 同Service下的pod可以直接根据PodIP相互通信<br>● 不同Service下的pod在集群间pod通信要借助于 cluster ip<br>● pod和集群外通信，要借助于node ip  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">查看命令：kubectl describe pod podName  </span><br></pre></td></tr></table></figure>
+<h4 id="Cluster-IP：Service的IP地址，此为虚拟IP地址。"><a href="#Cluster-IP：Service的IP地址，此为虚拟IP地址。" class="headerlink" title="Cluster IP：Service的IP地址，此为虚拟IP地址。"></a>Cluster IP：Service的IP地址，此为虚拟IP地址。</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">查看命令：kubectl describe svc name -n uecm</span><br></pre></td></tr></table></figure>
+<p>Cluster IP仅仅作用于Kubernetes Service这个对象，并由Kubernetes管理和分配P地址<br>Cluster IP无法被ping，他没有一个“实体网络对象”来响应<br>Cluster IP只能结合Service Port组成一个具体的通信端口，单独的Cluster IP不具备通信的基础，并且他们属于Kubernetes集群这样一个封闭的空间。<br>在不同Service下的pod节点在集群间相互访问可以通过Cluster IP  </p>
+<hr>
+<h3 id="三种IP网络间的通信"><a href="#三种IP网络间的通信" class="headerlink" title="三种IP网络间的通信"></a>三种IP网络间的通信</h3><h4 id="NodePort的方式"><a href="#NodePort的方式" class="headerlink" title="NodePort的方式"></a>NodePort的方式</h4><p>缺点：是服务一旦多起来，NodePort 在每个节点上开启的端口数量会极其庞大，难以维护</p>
+<div class="gallery">
+    <div class="fj-gallery  data" data-rowHeight="220" data-limit="10">
+    <span class="gallery-data">[{"url":"https://cdn.nlark.com/yuque/0/2022/png/28188528/1669447090047-67fc33fa-8cb3-41fb-85eb-d6019b54fad8.png","alt":"img.png"}]</span>
+    </div>
+    <button class="gallery-load-more"><span>加载更多</span><i class="fa-solid fa-arrow-down"></i></button>
+    </div>
+<hr>
+<h3 id="网络知识"><a href="#网络知识" class="headerlink" title="网络知识"></a>网络知识</h3><h4 id="路由器-amp-交换机-区别"><a href="#路由器-amp-交换机-区别" class="headerlink" title="路由器&amp;交换机 区别"></a>路由器&amp;交换机 区别</h4><p><strong>路由器</strong>：寻址，转发（依靠 IP 地址），交换机：过滤，转发（依靠 MAC 地址）<br><strong>交换机</strong>：用于连接局域网，数据包在局域网内网的数据转发，路由器用于连接局域网和外网，数据包可以在不同局域网转发。<br>交换机工作于TCP/IP协议的最后一层数据链路层（物理层），路由器工作于网络层<br>交换机负责具体的数据包传输，路由器不负责包的实际传输，路由器只封装好要传输的数据包，然后交给交换机去传输（不一定是交换机，可能是其他传输技术），用java比喻大概简单理解为路由器是抽象类，定义好传输的数据包格式，交换机是具体实现类，也可以有其他实现类<br>交换机没有MAC地址和IP地址，路由器有MAC地址和IP地址（指纯碎的交换机和路由器，三层交换机是可以有IP地址的，路由器也有内置交换机功能的）  </p>
+<h4 id="网桥-amp-交换机的区别"><a href="#网桥-amp-交换机的区别" class="headerlink" title="网桥&amp;交换机的区别"></a>网桥&amp;交换机的区别</h4><p>● <strong>交换机</strong>工作时，实际上允许许多组端口间的通道同时工作。所以，交换机的功能体现出不仅仅是一个网桥的功能，而是多个网桥功能的集合。即网桥一般分有两个输出输入端口，而交换机具有高密度的端口。所以一般的交换机，网桥就有桥接作用。<br>● <strong>网桥</strong>主要由软件实现，交换机主要由硬件实现  </p>
 ]]></content>
       <categories>
-        <category>技术问题</category>
+        <category>技术</category>
       </categories>
       <tags>
-        <tag>问题记录</tag>
+        <tag>云计算</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分布式数据库 数据迁移同步工具</title>
+    <url>/2023/10/20/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%20%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<h1 id="分布式数据库-数据迁移同步工具"><a href="#分布式数据库-数据迁移同步工具" class="headerlink" title="分布式数据库 数据迁移同步工具"></a>分布式数据库 数据迁移同步工具</h1><h2 id="TiDB数据迁移同步工具"><a href="#TiDB数据迁移同步工具" class="headerlink" title="TiDB数据迁移同步工具"></a>TiDB数据迁移同步工具</h2><h3 id="一、TiDB-Data-Migration-DM"><a href="#一、TiDB-Data-Migration-DM" class="headerlink" title="一、TiDB Data Migration (DM)"></a>一、TiDB Data Migration (DM)</h3><h4 id="DM-的使用场景："><a href="#DM-的使用场景：" class="headerlink" title="DM 的使用场景："></a>DM 的使用场景：</h4><ul>
+<li>兼容 从MySQL 的单一实例中全量和增量迁移数据到 TiDB</li>
+<li>将小数据量（小于 1 TB）分库分表 MySQL 合并迁移数据到 TiDB</li>
+<li>在业务数据中台、业务数据实时汇聚等数据中枢场景中，作为数据同步中间件来使用</li>
+</ul>
+<h4 id="数据库迁移场景"><a href="#数据库迁移场景" class="headerlink" title="数据库迁移场景"></a>数据库迁移场景</h4><ul>
+<li>支持全量数据迁移</li>
+<li>增量数据同步</li>
+<li>部分数据全量，部分数据增量</li>
+</ul>
+<h4 id="高可用架构"><a href="#高可用架构" class="headerlink" title="高可用架构"></a>高可用架构</h4><p>DM 高可用架构图<br>DM 主要包括三个组件：DM-master，DM-worker 和 dmctl。<br><img src="https://download.pingcap.com/images/docs-cn/dm/dm-architecture-2.0.png" alt="DM 架构图">  </p>
+<h4 id="DM-的性能参数如下表"><a href="#DM-的性能参数如下表" class="headerlink" title="DM 的性能参数如下表"></a>DM 的性能参数如下表</h4><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">限制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">最大同步节点（Work Nodes ）</td>
+<td align="center">1000</td>
+</tr>
+<tr>
+<td align="center">最大同步任务数量</td>
+<td align="center">600</td>
+</tr>
+<tr>
+<td align="center">最大同步 QPS</td>
+<td align="center">30k QPS/worker</td>
+</tr>
+<tr>
+<td align="center">最大 Binlog 吞吐量</td>
+<td align="center">20 MB/s/worker</td>
+</tr>
+<tr>
+<td align="center">每个 Task 处理的表数量</td>
+<td align="center">无限制</td>
+</tr>
+</tbody></table>
+<h3 id="二、数据导出工具"><a href="#二、数据导出工具" class="headerlink" title="二、数据导出工具"></a>二、数据导出工具</h3><h4 id="1、TiDB-Lightning"><a href="#1、TiDB-Lightning" class="headerlink" title="1、TiDB Lightning"></a>1、TiDB Lightning</h4><p>是用于从静态文件导入 TB 级数据到 TiDB 集群的工具，常用于 TiDB 集群的初始化数据导入</p>
+<h4 id="2、Dumpling"><a href="#2、Dumpling" class="headerlink" title="2、Dumpling"></a>2、Dumpling</h4><p>可以把存储在 TiDB 或 MySQL 中的数据导出为 SQL 或 CSV 格式，用于逻辑全量备份</p>
+<h3 id="三、开源离线数据同步框架"><a href="#三、开源离线数据同步框架" class="headerlink" title="三、开源离线数据同步框架"></a>三、开源离线数据同步框架</h3><h4 id="Dadax"><a href="#Dadax" class="headerlink" title="Dadax"></a>Dadax</h4><p>DataX 实现了包括 MySQL、Oracle、OceanBase、SqlServer、Postgre、HDFS、Hive、ADS、HBase、TableStore(OTS)、MaxCompute(ODPS)、Hologres、DRDS, databend 等各种异构数据源之间高效的数据同步功能</p>
+<p>开源地址：<a href="https://github.com/alibaba/DataX">alibaba DataX</a></p>
+<hr>
+<p>参考链接：<a href="https://docs-archive.pingcap.com/zh/tidb/v7.2/dm-overview">TiDB Data Migration官方文档</a></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -244,59 +278,25 @@ table th:nth-of-type(4) {
       </tags>
   </entry>
   <entry>
-    <title>分布式数据库 数据迁移同步工具</title>
-    <url>/2023/10/20/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%20%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<h1 id="分布式数据库-数据迁移同步工具"><a href="#分布式数据库-数据迁移同步工具" class="headerlink" title="分布式数据库 数据迁移同步工具"></a>分布式数据库 数据迁移同步工具</h1><h2 id="TiDB数据迁移同步工具"><a href="#TiDB数据迁移同步工具" class="headerlink" title="TiDB数据迁移同步工具"></a>TiDB数据迁移同步工具</h2><h3 id="一、TiDB-Data-Migration-DM"><a href="#一、TiDB-Data-Migration-DM" class="headerlink" title="一、TiDB Data Migration (DM)"></a>一、TiDB Data Migration (DM)</h3><h4 id="DM-的使用场景："><a href="#DM-的使用场景：" class="headerlink" title="DM 的使用场景："></a>DM 的使用场景：</h4><ul>
-<li>兼容 从MySQL 的单一实例中全量和增量迁移数据到 TiDB</li>
-<li>将小数据量（小于 1 TB）分库分表 MySQL 合并迁移数据到 TiDB</li>
-<li>在业务数据中台、业务数据实时汇聚等数据中枢场景中，作为数据同步中间件来使用</li>
-</ul>
-<h4 id="数据库迁移场景"><a href="#数据库迁移场景" class="headerlink" title="数据库迁移场景"></a>数据库迁移场景</h4><ul>
-<li>支持全量数据迁移</li>
-<li>增量数据同步</li>
-<li>部分数据全量，部分数据增量</li>
-</ul>
-<h4 id="高可用架构"><a href="#高可用架构" class="headerlink" title="高可用架构"></a>高可用架构</h4><p>DM 高可用架构图<br>DM 主要包括三个组件：DM-master，DM-worker 和 dmctl。<br><img src="https://download.pingcap.com/images/docs-cn/dm/dm-architecture-2.0.png" alt="DM 架构图">  </p>
-<h4 id="DM-的性能参数如下表"><a href="#DM-的性能参数如下表" class="headerlink" title="DM 的性能参数如下表"></a>DM 的性能参数如下表</h4><table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">限制</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">最大同步节点（Work Nodes ）</td>
-<td align="center">1000</td>
-</tr>
-<tr>
-<td align="center">最大同步任务数量</td>
-<td align="center">600</td>
-</tr>
-<tr>
-<td align="center">最大同步 QPS</td>
-<td align="center">30k QPS/worker</td>
-</tr>
-<tr>
-<td align="center">最大 Binlog 吞吐量</td>
-<td align="center">20 MB/s/worker</td>
-</tr>
-<tr>
-<td align="center">每个 Task 处理的表数量</td>
-<td align="center">无限制</td>
-</tr>
-</tbody></table>
-<h3 id="二、数据导出工具"><a href="#二、数据导出工具" class="headerlink" title="二、数据导出工具"></a>二、数据导出工具</h3><h4 id="1、TiDB-Lightning"><a href="#1、TiDB-Lightning" class="headerlink" title="1、TiDB Lightning"></a>1、TiDB Lightning</h4><p>是用于从静态文件导入 TB 级数据到 TiDB 集群的工具，常用于 TiDB 集群的初始化数据导入</p>
-<h4 id="2、Dumpling"><a href="#2、Dumpling" class="headerlink" title="2、Dumpling"></a>2、Dumpling</h4><p>可以把存储在 TiDB 或 MySQL 中的数据导出为 SQL 或 CSV 格式，用于逻辑全量备份</p>
-<h3 id="三、开源离线数据同步框架"><a href="#三、开源离线数据同步框架" class="headerlink" title="三、开源离线数据同步框架"></a>三、开源离线数据同步框架</h3><h4 id="Dadax"><a href="#Dadax" class="headerlink" title="Dadax"></a>Dadax</h4><p>DataX 实现了包括 MySQL、Oracle、OceanBase、SqlServer、Postgre、HDFS、Hive、ADS、HBase、TableStore(OTS)、MaxCompute(ODPS)、Hologres、DRDS, databend 等各种异构数据源之间高效的数据同步功能</p>
-<p>开源地址：<a href="https://github.com/alibaba/DataX">alibaba DataX</a></p>
-<hr>
-<p>参考链接：<a href="https://docs-archive.pingcap.com/zh/tidb/v7.2/dm-overview">TiDB Data Migration官方文档</a></p>
+    <title>关于博客的命令</title>
+    <url>/2023/01/08/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="安装前注意事项（个人踩过的坑）"><a href="#安装前注意事项（个人踩过的坑）" class="headerlink" title="安装前注意事项（个人踩过的坑）"></a>安装前注意事项（个人踩过的坑）</h3><p>1、node、npm最好更新最新版本<br>&emsp;● node升级特别注意</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"># windows环境下 <span class="built_in">cmd</span>命名行下执行命令，查看node服务安装位置</span><br><span class="line">where node</span><br><span class="line"># 下载安装包替换路径完成升级</span><br></pre></td></tr></table></figure>
+
+<p>2、不清楚的地方看看<br>官方文档：<a href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a><br>具体模版文档（以butterfly为例）：<a href="https://butterfly.js.org/">https://butterfly.js.org/</a></p>
+<h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 清理</span></span><br><span class="line">$ hexo clean </span><br><span class="line"><span class="comment"># 构建</span></span><br><span class="line">$ hexo g</span><br><span class="line"><span class="comment"># 预览</span></span><br><span class="line">$ hexo s</span><br><span class="line"><span class="comment"># 如果是新创建的 需要执行</span></span><br><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line"><span class="comment"># 打包 发布</span></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><h4 id="1、hexo-d打包时显示-ERROR-Deployer-not-found-git"><a href="#1、hexo-d打包时显示-ERROR-Deployer-not-found-git" class="headerlink" title="1、hexo d打包时显示 ERROR Deployer not found: git"></a>1、hexo d打包时显示 ERROR Deployer not found: git</h4><p>如下图<br><img src="https://github.com/BigBangz/spring-cloud-domo/blob/master/src/main/resources/image/img2.png?raw=true" alt="img2.png"><br>原因：需要安装hexo-deployer-git(hexo git部署工具) </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>完美解决<br><img src="https://github.com/BigBangz/spring-cloud-domo/blob/master/src/main/resources/image/img.png?raw=true" alt="img.png"></p>
 ]]></content>
       <categories>
-        <category>技术</category>
+        <category>技术问题</category>
       </categories>
       <tags>
-        <tag>工具</tag>
+        <tag>问题记录</tag>
       </tags>
   </entry>
   <entry>
@@ -462,6 +462,53 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
+    <title>计算机性能指标</title>
+    <url>/2023/08/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/</url>
+    <content><![CDATA[<h1 id="计算机性能指标"><a href="#计算机性能指标" class="headerlink" title="计算机性能指标"></a>计算机性能指标</h1><h2 id="一、计算机事务处理性能指标"><a href="#一、计算机事务处理性能指标" class="headerlink" title="一、计算机事务处理性能指标"></a>一、计算机事务处理性能指标</h2><h3 id="1-每秒事务数（TPS）"><a href="#1-每秒事务数（TPS）" class="headerlink" title="1. 每秒事务数（TPS）"></a>1. 每秒事务数（TPS）</h3><h4 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h4><p>每秒事务数（TPS）是衡量系统处理能力的一个指标，指系统在单位时间内处理的事务数量。</p>
+<h4 id="1-2-计算公式"><a href="#1-2-计算公式" class="headerlink" title="1.2 计算公式"></a>1.2 计算公式</h4><p>TPS = 事务数 / 事务响应时间</p>
+<h4 id="1-3-计算示例"><a href="#1-3-计算示例" class="headerlink" title="1.3 计算示例"></a>1.3 计算示例</h4><p>假设系统每秒处理1000个事务，每个事务处理耗时100ms，则TPS = 1000 / 100 = 10。</p>
+<h3 id="2-每秒查询率（QPS）"><a href="#2-每秒查询率（QPS）" class="headerlink" title="2. 每秒查询率（QPS）"></a>2. 每秒查询率（QPS）</h3><h4 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义"></a>2.1 定义</h4><p>每秒查询率（QPS）是衡量系统处理能力的一个指标，指系统在单位时间内处理的查询数量。</p>
+<h4 id="2-2-计算公式"><a href="#2-2-计算公式" class="headerlink" title="2.2 计算公式"></a>2.2 计算公式</h4><p>QPS = 查询数 / 查询响应时间</p>
+<h4 id="2-3-计算示例"><a href="#2-3-计算示例" class="headerlink" title="2.3 计算示例"></a>2.3 计算示例</h4><p>假设系统每秒处理1000个查询，每个查询处理耗时100ms，则QPS = 1000 / 100 = 10。</p>
+<h3 id="3-每秒请求数（RPS）"><a href="#3-每秒请求数（RPS）" class="headerlink" title="3. 每秒请求数（RPS）"></a>3. 每秒请求数（RPS）</h3><h4 id="3-1-定义"><a href="#3-1-定义" class="headerlink" title="3.1 定义"></a>3.1 定义</h4><p>每秒请求数（RPS）是衡量系统处理能力的一个指标，指系统在单位时间内处理的请求数量。</p>
+<h4 id="3-2-计算公式"><a href="#3-2-计算公式" class="headerlink" title="3.2 计算公式"></a>3.2 计算公式</h4><p>RPS = 请求数 / 请求响应时间</p>
+<h4 id="3-3-计算示例"><a href="#3-3-计算示例" class="headerlink" title="3.3 计算示例"></a>3.3 计算示例</h4><p>假设系统每秒处理1000个请求，每个请求处理耗时100ms，则RPS = 1000 / 100 = 10。</p>
+<h3 id="4-每秒并发数（CPS）"><a href="#4-每秒并发数（CPS）" class="headerlink" title="4. 每秒并发数（CPS）"></a>4. 每秒并发数（CPS）</h3><h4 id="4-1-定义"><a href="#4-1-定义" class="headerlink" title="4.1 定义"></a>4.1 定义</h4><p>每秒并发数（CPS）是衡量系统处理能力的一个指标，指系统在单位时间内处理的并发数量。</p>
+<h4 id="4-2-计算公式"><a href="#4-2-计算公式" class="headerlink" title="4.2 计算公式"></a>4.2 计算公式</h4><p>CPS = 并发数 / 并发响应时间</p>
+<h4 id="4-3-计算示例"><a href="#4-3-计算示例" class="headerlink" title="4.3 计算示例"></a>4.3 计算示例</h4><p>假设系统每秒处理1000个并发，每个并发处理耗时100ms，则CPS = 1000 / 100 = 10。</p>
+<h3 id="5-TPMC指标"><a href="#5-TPMC指标" class="headerlink" title="5. TPMC指标"></a>5. TPMC指标</h3><h4 id="5-1-定义"><a href="#5-1-定义" class="headerlink" title="5.1 定义"></a>5.1 定义</h4><p>TPMC指标是衡量系统处理能力的一个指标，指系统在单位时间内处理的事务数。</p>
+<h4 id="5-2-计算公式"><a href="#5-2-计算公式" class="headerlink" title="5.2 计算公式"></a>5.2 计算公式</h4><p>TPMC = TPS * 事务响应时间</p>
+<h4 id="5-3-计算示例"><a href="#5-3-计算示例" class="headerlink" title="5.3 计算示例"></a>5.3 计算示例</h4><p>假设系统每秒处理1000个事务，每个事务处理耗时100ms，则TPMC = 10 * 100 = 1000。</p>
+<h3 id="6-TPCC指标"><a href="#6-TPCC指标" class="headerlink" title="6. TPCC指标"></a>6. TPCC指标</h3><h4 id="6-1-定义"><a href="#6-1-定义" class="headerlink" title="6.1 定义"></a>6.1 定义</h4><p>TPCC指标是衡量系统处理能力的一个指标，指系统在单位时间内处理的事务数。</p>
+<h4 id="6-2-计算公式"><a href="#6-2-计算公式" class="headerlink" title="6.2 计算公式"></a>6.2 计算公式</h4><p>TPCC = TPS * 事务响应时间</p>
+<h4 id="6-3-计算示例"><a href="#6-3-计算示例" class="headerlink" title="6.3 计算示例"></a>6.3 计算示例</h4><p>假设系统每秒处理1000个事务，每个事务处理耗时100ms，则TPCC = 10 * 100 = 1000。</p>
+<style>
+table th:first-of-type {
+    width: 20%;
+}
+table th:nth-of-type(2) {
+    width: 14%;
+}
+table th:nth-of-type(3) {
+    width: 23%;
+}
+table th:nth-of-type(4) {
+    width: 23%;
+}
+table th:nth-of-type(5) {
+    width: 20%;
+}
+</style>
+
+]]></content>
+      <categories>
+        <category>名词</category>
+      </categories>
+      <tags>
+        <tag>名词</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>软件服务行业名词</title>
     <url>/2023/08/29/%E8%BD%AF%E4%BB%B6%E6%9C%8D%E5%8A%A1%E8%A1%8C%E4%B8%9A%E5%90%8D%E8%AF%8D/</url>
     <content><![CDATA[<h1 id="软件服务行业名词"><a href="#软件服务行业名词" class="headerlink" title="软件服务行业名词"></a>软件服务行业名词</h1><h2 id="企业管理应用软件"><a href="#企业管理应用软件" class="headerlink" title="企业管理应用软件"></a>企业管理应用软件</h2><table>
@@ -551,53 +598,6 @@ table th:nth-of-type(3) {
 }
 table th:nth-of-type(4) {
     width: 30%;
-}
-</style>
-
-]]></content>
-      <categories>
-        <category>名词</category>
-      </categories>
-      <tags>
-        <tag>名词</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机性能指标</title>
-    <url>/2023/08/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/</url>
-    <content><![CDATA[<h1 id="计算机性能指标"><a href="#计算机性能指标" class="headerlink" title="计算机性能指标"></a>计算机性能指标</h1><h2 id="一、计算机事务处理性能指标"><a href="#一、计算机事务处理性能指标" class="headerlink" title="一、计算机事务处理性能指标"></a>一、计算机事务处理性能指标</h2><h3 id="1-每秒事务数（TPS）"><a href="#1-每秒事务数（TPS）" class="headerlink" title="1. 每秒事务数（TPS）"></a>1. 每秒事务数（TPS）</h3><h4 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h4><p>每秒事务数（TPS）是衡量系统处理能力的一个指标，指系统在单位时间内处理的事务数量。</p>
-<h4 id="1-2-计算公式"><a href="#1-2-计算公式" class="headerlink" title="1.2 计算公式"></a>1.2 计算公式</h4><p>TPS = 事务数 / 事务响应时间</p>
-<h4 id="1-3-计算示例"><a href="#1-3-计算示例" class="headerlink" title="1.3 计算示例"></a>1.3 计算示例</h4><p>假设系统每秒处理1000个事务，每个事务处理耗时100ms，则TPS = 1000 / 100 = 10。</p>
-<h3 id="2-每秒查询率（QPS）"><a href="#2-每秒查询率（QPS）" class="headerlink" title="2. 每秒查询率（QPS）"></a>2. 每秒查询率（QPS）</h3><h4 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义"></a>2.1 定义</h4><p>每秒查询率（QPS）是衡量系统处理能力的一个指标，指系统在单位时间内处理的查询数量。</p>
-<h4 id="2-2-计算公式"><a href="#2-2-计算公式" class="headerlink" title="2.2 计算公式"></a>2.2 计算公式</h4><p>QPS = 查询数 / 查询响应时间</p>
-<h4 id="2-3-计算示例"><a href="#2-3-计算示例" class="headerlink" title="2.3 计算示例"></a>2.3 计算示例</h4><p>假设系统每秒处理1000个查询，每个查询处理耗时100ms，则QPS = 1000 / 100 = 10。</p>
-<h3 id="3-每秒请求数（RPS）"><a href="#3-每秒请求数（RPS）" class="headerlink" title="3. 每秒请求数（RPS）"></a>3. 每秒请求数（RPS）</h3><h4 id="3-1-定义"><a href="#3-1-定义" class="headerlink" title="3.1 定义"></a>3.1 定义</h4><p>每秒请求数（RPS）是衡量系统处理能力的一个指标，指系统在单位时间内处理的请求数量。</p>
-<h4 id="3-2-计算公式"><a href="#3-2-计算公式" class="headerlink" title="3.2 计算公式"></a>3.2 计算公式</h4><p>RPS = 请求数 / 请求响应时间</p>
-<h4 id="3-3-计算示例"><a href="#3-3-计算示例" class="headerlink" title="3.3 计算示例"></a>3.3 计算示例</h4><p>假设系统每秒处理1000个请求，每个请求处理耗时100ms，则RPS = 1000 / 100 = 10。</p>
-<h3 id="4-每秒并发数（CPS）"><a href="#4-每秒并发数（CPS）" class="headerlink" title="4. 每秒并发数（CPS）"></a>4. 每秒并发数（CPS）</h3><h4 id="4-1-定义"><a href="#4-1-定义" class="headerlink" title="4.1 定义"></a>4.1 定义</h4><p>每秒并发数（CPS）是衡量系统处理能力的一个指标，指系统在单位时间内处理的并发数量。</p>
-<h4 id="4-2-计算公式"><a href="#4-2-计算公式" class="headerlink" title="4.2 计算公式"></a>4.2 计算公式</h4><p>CPS = 并发数 / 并发响应时间</p>
-<h4 id="4-3-计算示例"><a href="#4-3-计算示例" class="headerlink" title="4.3 计算示例"></a>4.3 计算示例</h4><p>假设系统每秒处理1000个并发，每个并发处理耗时100ms，则CPS = 1000 / 100 = 10。</p>
-<h3 id="5-TPMC指标"><a href="#5-TPMC指标" class="headerlink" title="5. TPMC指标"></a>5. TPMC指标</h3><h4 id="5-1-定义"><a href="#5-1-定义" class="headerlink" title="5.1 定义"></a>5.1 定义</h4><p>TPMC指标是衡量系统处理能力的一个指标，指系统在单位时间内处理的事务数。</p>
-<h4 id="5-2-计算公式"><a href="#5-2-计算公式" class="headerlink" title="5.2 计算公式"></a>5.2 计算公式</h4><p>TPMC = TPS * 事务响应时间</p>
-<h4 id="5-3-计算示例"><a href="#5-3-计算示例" class="headerlink" title="5.3 计算示例"></a>5.3 计算示例</h4><p>假设系统每秒处理1000个事务，每个事务处理耗时100ms，则TPMC = 10 * 100 = 1000。</p>
-<h3 id="6-TPCC指标"><a href="#6-TPCC指标" class="headerlink" title="6. TPCC指标"></a>6. TPCC指标</h3><h4 id="6-1-定义"><a href="#6-1-定义" class="headerlink" title="6.1 定义"></a>6.1 定义</h4><p>TPCC指标是衡量系统处理能力的一个指标，指系统在单位时间内处理的事务数。</p>
-<h4 id="6-2-计算公式"><a href="#6-2-计算公式" class="headerlink" title="6.2 计算公式"></a>6.2 计算公式</h4><p>TPCC = TPS * 事务响应时间</p>
-<h4 id="6-3-计算示例"><a href="#6-3-计算示例" class="headerlink" title="6.3 计算示例"></a>6.3 计算示例</h4><p>假设系统每秒处理1000个事务，每个事务处理耗时100ms，则TPCC = 10 * 100 = 1000。</p>
-<style>
-table th:first-of-type {
-    width: 20%;
-}
-table th:nth-of-type(2) {
-    width: 14%;
-}
-table th:nth-of-type(3) {
-    width: 23%;
-}
-table th:nth-of-type(4) {
-    width: 23%;
-}
-table th:nth-of-type(5) {
-    width: 20%;
 }
 </style>
 
