@@ -1,357 +1,936 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>DataOps的起源与趋势</title>
-      <link href="/2023/11/02/DataOps%E4%BD%93%E7%B3%BB/"/>
-      <url>/2023/11/02/DataOps%E4%BD%93%E7%B3%BB/</url>
-      
-        <content type="html"><![CDATA[<h1 id="DataOps的起源与趋势"><a href="#DataOps的起源与趋势" class="headerlink" title="DataOps的起源与趋势"></a>DataOps的起源与趋势</h1><h2 id="DataOps是什么"><a href="#DataOps是什么" class="headerlink" title="DataOps是什么"></a>DataOps是什么</h2><p>DataOps 数据运维，是一种自动化的、面向流程的方法，能够提高数据质量并缩短数据分析的周期，一般被大数据和数据分析团队使用。DataOps主要通过代码、工具、基础架构和数据之间的协作来加快数据产品的交付。</p><h2 id="DataOps的演进"><a href="#DataOps的演进" class="headerlink" title="DataOps的演进"></a>DataOps的演进</h2><p>DataOps的演进经历了三个阶段，分别是：</p><ol><li>数据工程</li><li>数据科学</li><li>数据运维</li></ol><h2 id="DataOps核心体系"><a href="#DataOps核心体系" class="headerlink" title="DataOps核心体系"></a>DataOps核心体系</h2><p>DataOps是一种方法论，而不是一套工具或产品。包含精益化生产、敏捷开发和DevOps:三大核心体系</p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>C10K与C10M问题</title>
+    <url>/2023/04/12/C10K%E4%B8%8EC10M%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="C10K与C10M问题"><a href="#C10K与C10M问题" class="headerlink" title="C10K与C10M问题"></a>C10K与C10M问题</h2><h3 id="C10K"><a href="#C10K" class="headerlink" title="C10K"></a>C10K</h3><p>C10K 问题是一个优化网络套接字以同时处理大量客户端连接的问题。<br>C10K 表示处理 10000 个并发连接（与每秒请求数相似，但更强调有效的连接）。<br><img src="https://fastly.jsdelivr.net/gh/BigBangz/spring-cloud-domo@master/src/main/resources/image/document/1697869489659tree.png" alt="流程图"><br><a href="https://jaminzhang.github.io/web/C10K-problem/">https://jaminzhang.github.io/web/C10K-problem/</a></p>
+<!-- ```mermaid
+sequenceDiagram
+    participant dotcom
+    participant iframe
+    participant viewscreen
+    dotcom->>iframe: loads html w/ iframe url
+    iframe->>viewscreen: request template
+    viewscreen->>iframe: html & javascript
+    iframe->>dotcom: iframe ready
+    dotcom->>iframe: set mermaid data on iframe
+    iframe->>iframe: render mermaid
+``` -->]]></content>
       <categories>
-          
-          <category> 技术 </category>
-          
+        <category>技术</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 大数据 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>架构知识</title>
-      <link href="/2023/10/26/%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86/"/>
-      <url>/2023/10/26/%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86/</url>
-      
-        <content type="html"><![CDATA[<h1 id="架构知识"><a href="#架构知识" class="headerlink" title="架构知识"></a>架构知识</h1><h2 id="云原生-DevOps-工具全景图"><a href="#云原生-DevOps-工具全景图" class="headerlink" title="云原生 DevOps 工具全景图"></a>云原生 DevOps 工具全景图</h2><center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="https://fastly.jsdelivr.net/gh/BigBangz/spring-cloud-domo@master/src/main/resources/image/document/1698884709085DevOps%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%85%A8%E6%99%AF%E5%9B%BE.webp">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">云原生 DevOps 工具全景图</div></center><h2 id="监控指标体系"><a href="#监控指标体系" class="headerlink" title="监控指标体系"></a>监控指标体系</h2><p><strong>指标体系：</strong> 聚焦于故障发现环节，服务以数字形式评估出服务 QPS、成功率、延迟、容量等关键指标，搭配报警系统可以保证当核心指标异常时及时通知开发 / 运维人员。除了核心指标外，服务还可以将各模块 / 阶段的瓶颈点、外部依赖指标量化，建立更加完善服务状态概览，以便服务开发 / 运维人员快速定位异常，完成根因分析。指标系统优势是聚合能力，用较少的存储资源和计算资源表达系统内部状态。  </p><table><thead><tr><th align="center">组件</th><th align="center">Prometheus</th><th align="center">Openfalcon</th><th align="center">Nightingale</th><th align="center">Cat</th><th align="center">CudgX</th></tr></thead><tbody><tr><td align="center">服务支持</td><td align="center">开源</td><td align="center">开源</td><td align="center">开源</td><td align="center">开源</td><td align="center">源代码开源</td></tr><tr><td align="center">API支持</td><td align="center">良好</td><td align="center">良好</td><td align="center">良好</td><td align="center">良好</td><td align="center">良好</td></tr><tr><td align="center">数据存储</td><td align="center">TSDB</td><td align="center">rrd/opentsdb</td><td align="center">rrd/opentsdb/m3db/VictoriaMetrics</td><td align="center">HDFS</td><td align="center">Clickhouse/M3db/VictoriaMetrics</td></tr><tr><td align="center">数据场景</td><td align="center">服务指标</td><td align="center">主机/交换机</td><td align="center">主机/交换机</td><td align="center">服务指标</td><td align="center">物理机指标/服务指标/集成Nightingale</td></tr><tr><td align="center">监控规模</td><td align="center">Kubernetes/服务监控</td><td align="center">多家国内公司在使用</td><td align="center">使用范围更广泛</td><td align="center">美团,大厂背书</td><td align="center">高可用，高性能：支持千万每秒级指标；存储查询；支持指标聚合；</td></tr><tr><td align="center">二次开发</td><td align="center">容易</td><td align="center">容易</td><td align="center">容易</td><td align="center">容易</td><td align="center">容易</td></tr><tr><td align="center">上手难度</td><td align="center">简单易用</td><td align="center">简单易用</td><td align="center">简单易用</td><td align="center">有一定难度</td><td align="center">简单易用</td></tr><tr><td align="center">报警</td><td align="center">支持</td><td align="center">支持</td><td align="center">支持</td><td align="center">支持</td><td align="center">支持</td></tr><tr><td align="center">Grafana</td><td align="center">支持</td><td align="center">支持</td><td align="center">支持</td><td align="center">支持</td><td align="center">支持</td></tr><tr><td align="center">亮点</td><td align="center">生态完善</td><td align="center">物理机指标开箱即用</td><td align="center">物理机指标开箱即用</td><td align="center">报表完善</td><td align="center">服务冗余度保持特；整合业务指标和基础指标</td></tr></tbody></table><h2 id="分布式追踪系统"><a href="#分布式追踪系统" class="headerlink" title="分布式追踪系统"></a>分布式追踪系统</h2><p><strong>分布式追踪系统：</strong> 用于分析服务调用关系。在微服务盛行的今天，服务之间调用关系越来越复杂，微服务之间相互影响也更加难以定位和排查。分布式追踪系统聚焦于故障定位环节，与指标体系和日志体系不同，分布式追踪系统可以提供服务之间依赖拓扑信息，对于梳理系统调用拓扑、追踪下游依赖导致的异常意义重大。</p><table><thead><tr><th align="center">特性</th><th align="center">Jaeger</th><th align="center">SkyWalking</th></tr></thead><tbody><tr><td align="center">OpenTracing兼容</td><td align="center">是</td><td align="center">是</td></tr><tr><td align="center">客户端支持语言</td><td align="center">Java,C#,Go,PHP等</td><td align="center">Java,NET Core,NodeJS and PHP</td></tr><tr><td align="center">存储</td><td align="center">Elasticsearch,Kafka,Cassandra,内存</td><td align="center">ES,H2,MySQL,TiDB,ShardingSphere</td></tr><tr><td align="center">传输协议支持</td><td align="center">UDP/HTTP</td><td align="center">gRPC</td></tr><tr><td align="center">UI丰富程度</td><td align="center">中</td><td align="center">中</td></tr><tr><td align="center">实现方式-代码侵入性</td><td align="center">拦截请求，侵入</td><td align="center">字节码注入，无侵入</td></tr><tr><td align="center">扩展性</td><td align="center">高</td><td align="center">中</td></tr><tr><td align="center">trace查询</td><td align="center">支持</td><td align="center">支持</td></tr><tr><td align="center">告警支持</td><td align="center">不支持</td><td align="center">支持</td></tr><tr><td align="center">JVM监控</td><td align="center">不支持</td><td align="center">支持</td></tr><tr><td align="center">性能损失</td><td align="center">中</td><td align="center">低</td></tr></tbody></table><style>table th:first-of-type {    width: 5%;}table th:nth-of-type(2) {    width: 19%;}table th:nth-of-type(3) {    width: 19%;}table th:nth-of-type(4) {    width: 19%;}table th:nth-of-type(5) {    width: 19%;}table th:nth-of-type(6) {    width: 19%;}</style>]]></content>
-      
-      
+      <tags>
+        <tag>高并发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一、大数据学习</title>
+    <url>/2023/11/02/%E4%B8%80%E3%80%81%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="一、大数据学习"><a href="#一、大数据学习" class="headerlink" title="一、大数据学习"></a>一、大数据学习</h1><h2 id="Hadoop"><a href="#Hadoop" class="headerlink" title="Hadoop"></a>Hadoop</h2><p>Hadoop主要包含三大组件：HDFS+MapReduce+YARN</p>
+<h2 id="Hadoop的核心HDFS"><a href="#Hadoop的核心HDFS" class="headerlink" title="Hadoop的核心HDFS"></a>Hadoop的核心HDFS</h2><p>HDFS（Hadoop Distributed File System）是一个分布式文件系统，用于存储海量数据。</p>
+<h3 id="1-特点"><a href="#1-特点" class="headerlink" title="1. 特点"></a>1. 特点</h3><ul>
+<li>数据自动保存多个副本，且副本之间可自动备份</li>
+<li>数据自动切分，可按数据块存储到多个节点</li>
+<li>数据自动恢复</li>
+<li>数据高容错性</li>
+</ul>
+<h3 id="2-组成"><a href="#2-组成" class="headerlink" title="2. 组成"></a>2. 组成</h3><ul>
+<li>NameNode：负责管理文件元数据，包括文件路径、权限、副本数等</li>
+<li>DataNode：负责管理本地文件存储，包括文件块的存储和恢复</li>
+<li>SecondaryNameNode：辅助NameNode，分担其工作量</li>
+</ul>
+]]></content>
       <categories>
-          
-          <category> 技术 </category>
-          
+        <category>技术</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 架构 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>分布式数据库 数据迁移同步工具</title>
-      <link href="/2023/10/20/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%20%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/"/>
-      <url>/2023/10/20/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%20%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/</url>
-      
-        <content type="html"><![CDATA[<h1 id="分布式数据库-数据迁移同步工具"><a href="#分布式数据库-数据迁移同步工具" class="headerlink" title="分布式数据库 数据迁移同步工具"></a>分布式数据库 数据迁移同步工具</h1><h2 id="TiDB数据迁移同步工具"><a href="#TiDB数据迁移同步工具" class="headerlink" title="TiDB数据迁移同步工具"></a>TiDB数据迁移同步工具</h2><h3 id="一、TiDB-Data-Migration-DM"><a href="#一、TiDB-Data-Migration-DM" class="headerlink" title="一、TiDB Data Migration (DM)"></a>一、TiDB Data Migration (DM)</h3><h4 id="DM-的使用场景："><a href="#DM-的使用场景：" class="headerlink" title="DM 的使用场景："></a>DM 的使用场景：</h4><ul><li>兼容 从MySQL 的单一实例中全量和增量迁移数据到 TiDB</li><li>将小数据量（小于 1 TB）分库分表 MySQL 合并迁移数据到 TiDB</li><li>在业务数据中台、业务数据实时汇聚等数据中枢场景中，作为数据同步中间件来使用</li></ul><h4 id="数据库迁移场景"><a href="#数据库迁移场景" class="headerlink" title="数据库迁移场景"></a>数据库迁移场景</h4><ul><li>支持全量数据迁移</li><li>增量数据同步</li><li>部分数据全量，部分数据增量</li></ul><h4 id="高可用架构"><a href="#高可用架构" class="headerlink" title="高可用架构"></a>高可用架构</h4><p>DM 高可用架构图<br>DM 主要包括三个组件：DM-master，DM-worker 和 dmctl。<br><img src="https://download.pingcap.com/images/docs-cn/dm/dm-architecture-2.0.png" alt="DM 架构图">  </p><h4 id="DM-的性能参数如下表"><a href="#DM-的性能参数如下表" class="headerlink" title="DM 的性能参数如下表"></a>DM 的性能参数如下表</h4><table><thead><tr><th align="center">参数</th><th align="center">限制</th></tr></thead><tbody><tr><td align="center">最大同步节点（Work Nodes ）</td><td align="center">1000</td></tr><tr><td align="center">最大同步任务数量</td><td align="center">600</td></tr><tr><td align="center">最大同步 QPS</td><td align="center">30k QPS/worker</td></tr><tr><td align="center">最大 Binlog 吞吐量</td><td align="center">20 MB/s/worker</td></tr><tr><td align="center">每个 Task 处理的表数量</td><td align="center">无限制</td></tr></tbody></table><h3 id="二、数据导出工具"><a href="#二、数据导出工具" class="headerlink" title="二、数据导出工具"></a>二、数据导出工具</h3><h4 id="1、TiDB-Lightning"><a href="#1、TiDB-Lightning" class="headerlink" title="1、TiDB Lightning"></a>1、TiDB Lightning</h4><p>是用于从静态文件导入 TB 级数据到 TiDB 集群的工具，常用于 TiDB 集群的初始化数据导入</p><h4 id="2、Dumpling"><a href="#2、Dumpling" class="headerlink" title="2、Dumpling"></a>2、Dumpling</h4><p>可以把存储在 TiDB 或 MySQL 中的数据导出为 SQL 或 CSV 格式，用于逻辑全量备份</p><h3 id="三、开源离线数据同步框架"><a href="#三、开源离线数据同步框架" class="headerlink" title="三、开源离线数据同步框架"></a>三、开源离线数据同步框架</h3><h4 id="Dadax"><a href="#Dadax" class="headerlink" title="Dadax"></a>Dadax</h4><p>DataX 实现了包括 MySQL、Oracle、OceanBase、SqlServer、Postgre、HDFS、Hive、ADS、HBase、TableStore(OTS)、MaxCompute(ODPS)、Hologres、DRDS, databend 等各种异构数据源之间高效的数据同步功能</p><p>开源地址：<a href="https://github.com/alibaba/DataX">alibaba DataX</a></p><hr><p>参考链接：<a href="https://docs-archive.pingcap.com/zh/tidb/v7.2/dm-overview">TiDB Data Migration官方文档</a></p>]]></content>
-      
-      
+      <tags>
+        <tag>大数据</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>k8s网络</title>
+    <url>/2023/03/12/k8s%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<h2 id="k8s网络"><a href="#k8s网络" class="headerlink" title="k8s网络"></a>k8s网络</h2><h3 id="k8s网络中的ip"><a href="#k8s网络中的ip" class="headerlink" title="k8s网络中的ip"></a>k8s网络中的ip</h3><h4 id="Node-IP：Node节点的IP地址（物理机、虚拟机的IP）"><a href="#Node-IP：Node节点的IP地址（物理机、虚拟机的IP）" class="headerlink" title="Node IP：Node节点的IP地址（物理机、虚拟机的IP）"></a>Node IP：Node节点的IP地址（物理机、虚拟机的IP）</h4><h4 id="Pod-IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。"><a href="#Pod-IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。" class="headerlink" title="Pod IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。"></a>Pod IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。</h4><p>● 通常是一个虚拟的二层网络<br>● 同Service下的pod可以直接根据PodIP相互通信<br>● 不同Service下的pod在集群间pod通信要借助于 cluster ip<br>● pod和集群外通信，要借助于node ip  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">查看命令：kubectl describe pod podName  </span><br></pre></td></tr></table></figure>
+<h4 id="Cluster-IP：Service的IP地址，此为虚拟IP地址。"><a href="#Cluster-IP：Service的IP地址，此为虚拟IP地址。" class="headerlink" title="Cluster IP：Service的IP地址，此为虚拟IP地址。"></a>Cluster IP：Service的IP地址，此为虚拟IP地址。</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">查看命令：kubectl describe svc name -n uecm</span><br></pre></td></tr></table></figure>
+<p>Cluster IP仅仅作用于Kubernetes Service这个对象，并由Kubernetes管理和分配P地址<br>Cluster IP无法被ping，他没有一个“实体网络对象”来响应<br>Cluster IP只能结合Service Port组成一个具体的通信端口，单独的Cluster IP不具备通信的基础，并且他们属于Kubernetes集群这样一个封闭的空间。<br>在不同Service下的pod节点在集群间相互访问可以通过Cluster IP  </p>
+<hr>
+<h3 id="三种IP网络间的通信"><a href="#三种IP网络间的通信" class="headerlink" title="三种IP网络间的通信"></a>三种IP网络间的通信</h3><h4 id="NodePort的方式"><a href="#NodePort的方式" class="headerlink" title="NodePort的方式"></a>NodePort的方式</h4><p>缺点：是服务一旦多起来，NodePort 在每个节点上开启的端口数量会极其庞大，难以维护</p>
+<div class="gallery">
+    <div class="fj-gallery  data" data-rowHeight="220" data-limit="10">
+    <span class="gallery-data">[{"url":"https://cdn.nlark.com/yuque/0/2022/png/28188528/1669447090047-67fc33fa-8cb3-41fb-85eb-d6019b54fad8.png","alt":"img.png"}]</span>
+    </div>
+    <button class="gallery-load-more"><span>加载更多</span><i class="fa-solid fa-arrow-down"></i></button>
+    </div>
+<hr>
+<h3 id="网络知识"><a href="#网络知识" class="headerlink" title="网络知识"></a>网络知识</h3><h4 id="路由器-amp-交换机-区别"><a href="#路由器-amp-交换机-区别" class="headerlink" title="路由器&amp;交换机 区别"></a>路由器&amp;交换机 区别</h4><p><strong>路由器</strong>：寻址，转发（依靠 IP 地址），交换机：过滤，转发（依靠 MAC 地址）<br><strong>交换机</strong>：用于连接局域网，数据包在局域网内网的数据转发，路由器用于连接局域网和外网，数据包可以在不同局域网转发。<br>交换机工作于TCP/IP协议的最后一层数据链路层（物理层），路由器工作于网络层<br>交换机负责具体的数据包传输，路由器不负责包的实际传输，路由器只封装好要传输的数据包，然后交给交换机去传输（不一定是交换机，可能是其他传输技术），用java比喻大概简单理解为路由器是抽象类，定义好传输的数据包格式，交换机是具体实现类，也可以有其他实现类<br>交换机没有MAC地址和IP地址，路由器有MAC地址和IP地址（指纯碎的交换机和路由器，三层交换机是可以有IP地址的，路由器也有内置交换机功能的）  </p>
+<h4 id="网桥-amp-交换机的区别"><a href="#网桥-amp-交换机的区别" class="headerlink" title="网桥&amp;交换机的区别"></a>网桥&amp;交换机的区别</h4><p>● <strong>交换机</strong>工作时，实际上允许许多组端口间的通道同时工作。所以，交换机的功能体现出不仅仅是一个网桥的功能，而是多个网桥功能的集合。即网桥一般分有两个输出输入端口，而交换机具有高密度的端口。所以一般的交换机，网桥就有桥接作用。<br>● <strong>网桥</strong>主要由软件实现，交换机主要由硬件实现  </p>
+]]></content>
       <categories>
-          
-          <category> 技术 </category>
-          
+        <category>技术</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 工具 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>分布式事务解决方案</title>
-      <link href="/2023/10/12/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-      <url>/2023/10/12/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-      
-        <content type="html"><![CDATA[<h2 id="分布式事务解决方案"><a href="#分布式事务解决方案" class="headerlink" title="分布式事务解决方案"></a>分布式事务解决方案</h2><h3 id="一、分布式事务的产生"><a href="#一、分布式事务的产生" class="headerlink" title="一、分布式事务的产生"></a>一、分布式事务的产生</h3><p>随着时代的发展，企业级应用的规模、数据量和复杂度不断增加，传统的单体数据库无法应对这些变化，分布式数据库应运而生。于此同时也带来了一系列新问题：<strong>跨库事务</strong>、<strong>全局性数据一致性</strong>、<strong>负载均衡</strong>、<strong>复杂SQL</strong>。  </p><p><strong>发展路径：</strong><br><strong>传统单体数据库</strong> $\Longrightarrow$ <strong>基于中间件的分库分表</strong>  $\Longrightarrow$ <strong>分布式数据库</strong><br><strong>分布式数据库：</strong> 通常是地理上分散而逻辑上集中的数据库系统</p><h3 id="二、分布式事务的难点"><a href="#二、分布式事务的难点" class="headerlink" title="二、分布式事务的难点"></a>二、分布式事务的难点</h3><h4 id="ACID问题：原子性、一致性、隔离性、持久性"><a href="#ACID问题：原子性、一致性、隔离性、持久性" class="headerlink" title="ACID问题：原子性、一致性、隔离性、持久性"></a>ACID问题：原子性、一致性、隔离性、持久性</h4><table><thead><tr><th align="center">问题</th><th align="center">场景</th><th align="center">解决方案</th></tr></thead><tbody><tr><td align="center">原子性</td><td align="center">一个事务如何保证在多台机器，多个数据分片的修改提交，都提交全部成功，或者提交全部失败？</td><td align="center">两阶段提交（2PC）、三阶段提交（3PC）</td></tr><tr><td align="center">一致性</td><td align="center">数据分片后，如何保证数据的一致和完整？</td><td align="center">paxos协议、raft协议</td></tr><tr><td align="center">隔离性</td><td align="center">多个机器多个事务之间的脏读、不可重复读、幻读问题</td><td align="center">MVCC版本控制</td></tr><tr><td align="center">持久性</td><td align="center">一个事务提交后需要将数据同步到其他节点，如何保证主节点宕机的情况下，其他节点仍能将事务恢复过来？</td><td align="center">多副本复制技术、分布式事务日志</td></tr></tbody></table><h3 id="三、分布式事务【原子性】解决方案"><a href="#三、分布式事务【原子性】解决方案" class="headerlink" title="三、分布式事务【原子性】解决方案"></a>三、分布式事务【原子性】解决方案</h3><h4 id="1-两阶段提交（2PC）"><a href="#1-两阶段提交（2PC）" class="headerlink" title="1.两阶段提交（2PC）"></a>1.两阶段提交（2PC）</h4><p>两阶段提交是一种经典的分布式事务解决方案。在第一阶段，协调者询问所有参与者是否准备提交事务；只有在所有参与者都回复“准备好”时，协调者才在第二阶段通知所有参与者提交事务。然而，2PC在面对系统故障和网络故障时可能出现脑裂(split-brain)问题，从而引发数据不一致。</p><h4 id="2-三阶段提交（3PC）"><a href="#2-三阶段提交（3PC）" class="headerlink" title="2.三阶段提交（3PC）"></a>2.三阶段提交（3PC）</h4><p>为解决2PC的脑裂问题，出现了三阶段提交。在第三阶段，协调者询问所有参与者是否完成事务提交；只有当所有参与者都回复“完成”时，协调者才通知所有参与者提交事务。否则，根据参与者的回复进行相应处理。然而，3PC在面对网络延迟和消息丢失的情况下可能引发问题。</p><h4 id="3-补偿事务（Compensating-Transactions）"><a href="#3-补偿事务（Compensating-Transactions）" class="headerlink" title="3.补偿事务（Compensating Transactions）"></a>3.补偿事务（Compensating Transactions）</h4><p>补偿事务是另一种分布式事务解决方案。当某个参与者的事务处理失败时，协调者会通知其他参与者执行补偿事务来弥补损失。补偿事务通常是一组逆操作，用于撤销或回滚之前执行的事务操作。这种方案能够解决脑裂问题和网络故障问题，但需要手动编写补偿逻辑，增加了开发成本和维护成本。</p><h4 id="4-分布式事务管理器（Distributed-Transaction-Manager）"><a href="#4-分布式事务管理器（Distributed-Transaction-Manager）" class="headerlink" title="4.分布式事务管理器（Distributed Transaction Manager）"></a>4.分布式事务管理器（Distributed Transaction Manager）</h4><p>分布式事务管理器是一种自动化的解决方案，用于管理分布式事务的全生命周期。它能够协调不同数据库或数据存储之间的操作，处理分布式事务的提交、回滚等操作。常见的分布式事务管理器包括Java Transaction API (JTA)、Java Transaction Service (JTS) 和 Atomikos 等。</p><h3 id="四、分布式事务【隔离性】解决方案"><a href="#四、分布式事务【隔离性】解决方案" class="headerlink" title="四、分布式事务【隔离性】解决方案"></a>四、分布式事务【隔离性】解决方案</h3><h4 id="1-MVCC版本控制"><a href="#1-MVCC版本控制" class="headerlink" title="1.MVCC版本控制"></a>1.MVCC版本控制</h4><p>MVCC（Multi-Version Concurrency Control）是一种基于乐观锁的并发控制方法。它为每个事务分配一个版本号，当事务开始时，将当前事务的版本号作为行版本号，并将其与行中的当前版本进行比较。如果版本号相同，则可以更新行；否则，需要回滚事务。MVCC能够解决脏读、不可重复读和幻读等问题，但MVCC需要数据库支持事务隔离级别，并且需要数据库支持行级锁。</p><h4 id="2-分布式锁"><a href="#2-分布式锁" class="headerlink" title="2.分布式锁"></a>2.分布式锁</h4><p>分布式锁是一种基于锁机制的并发控制方法。它为每个事务分配一个锁，当事务开始时，将锁作为行版本号，并将其与行中的当前版本进行比较。如果版本号相同，则可以更新行；否则，需要回滚事务。分布式锁能够解决脏读、不可重复读和幻读等问题，但分布式锁需要数据库支持事务隔离级别，并且需要数据库支持行级锁。</p><h3 id="五、分布式事务模型"><a href="#五、分布式事务模型" class="headerlink" title="五、分布式事务模型"></a>五、分布式事务模型</h3><h4 id="1-全局事务管理器GTM"><a href="#1-全局事务管理器GTM" class="headerlink" title="1.全局事务管理器GTM"></a>1.全局事务管理器GTM</h4><p>全局事务管理器GTM(Global Transaction Manager)是分布式事务管理器的一种实现，它能够管理分布式事务的全生命周期，包括事务的提交、回滚等操作。GTM能够解决分布式事务的隔离性，但需要数据库支持事务隔离级别。</p><h4 id="2-谷歌Percolator"><a href="#2-谷歌Percolator" class="headerlink" title="2.谷歌Percolator"></a>2.谷歌Percolator</h4><p>Percolator 通过一个全局的授时服务器 TSO 给予事务一个全局的时间戳来解决分布式环境下事务的全局时序问题；通过经典的两阶段提交来解决分布式事务原子提交的问题。Percolator 不仅仅是一个改进版的两阶段提交，它涵盖的内容更多，可以认为是一个完整的分布式事务解决方案，它还包括了依据全局时间戳实现 Snapshot Isolation 隔离级别的并发控制协议，并给出了在故障发生如何进行自动 failover 的细节</p><h3 id="六、性能优化与监控"><a href="#六、性能优化与监控" class="headerlink" title="六、性能优化与监控"></a>六、性能优化与监控</h3><h4 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h4><p>分布式事务的性能优化也是至关重要的。以下是一些性能优化的技巧：</p><p>（1）选择合适的隔离级别：不同的隔离级别可能导致锁竞争和数据库连接的增加。因此，应根据具体业务需求选择合适的隔离级别，例如READ COMMITTED或REPEATABLE READ。</p><p>（2）优化数据访问逻辑：避免在事务中执行不必要的查询和更新操作。对于大型数据集，应分批处理而不是一次性处理。</p><p>（3）使用索引和缓存：为数据库表的关键字段创建索引，以提高查询效率。同时，利用缓存技术减少对数据库的频繁访问。</p><p>（4）调整事务超时时间：根据具体业务需求和系统负载情况，合理设置事务超时时间，以避免长时间占用数据库连接。</p><h4 id="监控与调优"><a href="#监控与调优" class="headerlink" title="监控与调优"></a>监控与调优</h4><p>为了确保分布式事务的稳定性和性能，应实施有效的监控和调优措施。以下是一些监控和调优的建议：</p><p>（1）监控数据库连接池：密切关注数据库连接池的状态和性能，确保连接池中的连接得到充分利用，避免空闲连接过多占用资源。</p><p>（2）监控事务处理速度：通过收集和分析事务处理的速度数据，找出性能瓶颈并进行针对性优化。</p><p>（3）利用日志和诊断信息：记录日志并收集诊断信息，以便在出现问题时迅速定位和解决问题。</p><p>（4）定期进行系统性能评估：定期进行系统性能评估，以便及时发现和解决潜在的性能问题。</p><style>table th:first-of-type {    width: 10%;}table th:nth-of-type(2) {    width: 30%;}table th:nth-of-type(3) {    width: 30%;}table th:nth-of-type(4) {    width: 30%;}</style>]]></content>
-      
-      
+      <tags>
+        <tag>云计算</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JDK 21新特性</title>
+    <url>/2023/10/11/JDK%2021%E6%96%B0%E7%89%B9%E6%80%A7/</url>
+    <content><![CDATA[<h1 id="JDK-21新特性"><a href="#JDK-21新特性" class="headerlink" title="JDK 21新特性"></a>JDK 21新特性</h1><p><strong>Java 21，下一个 LTS 版本，提供虚拟线程、记录模式和模式匹配该版本</strong></p>
+<h2 id="最重要的三大特性"><a href="#最重要的三大特性" class="headerlink" title="最重要的三大特性"></a>最重要的三大特性</h2><h3 id="一、虚拟线程"><a href="#一、虚拟线程" class="headerlink" title="一、虚拟线程"></a>一、虚拟线程</h3><h4 id="虚拟线程的含义"><a href="#虚拟线程的含义" class="headerlink" title="虚拟线程的含义"></a>虚拟线程的含义</h4><p>虚拟线程便宜且充足，因此永远不应该被池化：应该为每个应用程序任务创建一个新的虚拟线程。因此，大多数虚拟线程都是短暂的，并且具有浅层调用堆栈，只执行单个 HTTP 客户端调用或单个 JDBC 查询。相比之下，平台线程重量级且昂贵，因此通常必须进行池化。它们往往寿命很长，具有很深的调用堆栈，并且在许多任务之间共享。</p>
+<p>总之，虚拟线程保留了可靠的每个请求线程风格，该风格与 Java 平台的设计相协调，同时最佳地利用了可用的硬件。使用虚拟线程不需要学习新概念，尽管它可能需要放弃为应对当今线程的高成本而养成的习惯。虚拟线程不仅可以帮助应用程序开发人员，还可以帮助框架设计人员提供易于使用的 API，这些 API 与平台的设计兼容，而不影响可扩展性。</p>
+<h3 id="虚拟线程的用法"><a href="#虚拟线程的用法" class="headerlink" title="虚拟线程的用法"></a>虚拟线程的用法</h3><h4 id="创建虚拟线程"><a href="#创建虚拟线程" class="headerlink" title="创建虚拟线程"></a>创建虚拟线程</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> (<span class="type">var</span> <span class="variable">executor</span> <span class="operator">=</span> Executors.newVirtualThreadPerTaskExecutor()) &#123;</span><br><span class="line">    IntStream.range(<span class="number">0</span>, <span class="number">10_000</span>).forEach(i -&gt; &#123;</span><br><span class="line">        executor.submit(() -&gt; &#123;</span><br><span class="line">            Thread.sleep(Duration.ofSeconds(<span class="number">1</span>));</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="虚拟线程的特点"><a href="#虚拟线程的特点" class="headerlink" title="虚拟线程的特点"></a>虚拟线程的特点</h4><ul>
+<li>虚拟线程是由JVM管理的轻量级线程。</li>
+<li>虚拟线程不需要任何显式分配或调度。</li>
+<li>虚拟线程非常适合I/O密集型任务或需要大量并行性的任务。</li>
+<li>虚拟线程也可以用来实现异步操作。</li>
+</ul>
+<h3 id="二、记录模式"><a href="#二、记录模式" class="headerlink" title="二、记录模式"></a>二、记录模式</h3><h4 id="记录模式的含义"><a href="#记录模式的含义" class="headerlink" title="记录模式的含义"></a>记录模式的含义</h4><p>记录模式是记录模式匹配的语法糖，它允许将记录类型与模式匹配。记录模式匹配允许将记录类型与模式匹配，从而允许将记录类型与模式匹配。</p>
+<h3 id="三、Switch的模式匹配"><a href="#三、Switch的模式匹配" class="headerlink" title="三、Switch的模式匹配"></a>三、Switch的模式匹配</h3><h4 id="Switch的模式匹配的含义"><a href="#Switch的模式匹配的含义" class="headerlink" title="Switch的模式匹配的含义"></a>Switch的模式匹配的含义</h4><p>switch 通过表达式和语句的模式匹配增强 Java 编程语言。扩展模式匹配switch允许针对多个模式测试表达式，每个模式都有一个特定的操作，以便可以简洁、安全地表达复杂的面向数据的查询。</p>
+]]></content>
       <categories>
-          
-          <category> 技术 </category>
-          
+        <category>技术</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 分布式 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>JDK 21新特性</title>
-      <link href="/2023/10/11/JDK%2021%E6%96%B0%E7%89%B9%E6%80%A7/"/>
-      <url>/2023/10/11/JDK%2021%E6%96%B0%E7%89%B9%E6%80%A7/</url>
-      
-        <content type="html"><![CDATA[<h1 id="JDK-21新特性"><a href="#JDK-21新特性" class="headerlink" title="JDK 21新特性"></a>JDK 21新特性</h1><p><strong>Java 21，下一个 LTS 版本，提供虚拟线程、记录模式和模式匹配该版本</strong></p><h2 id="最重要的三大特性"><a href="#最重要的三大特性" class="headerlink" title="最重要的三大特性"></a>最重要的三大特性</h2><h3 id="一、虚拟线程"><a href="#一、虚拟线程" class="headerlink" title="一、虚拟线程"></a>一、虚拟线程</h3><h4 id="虚拟线程的含义"><a href="#虚拟线程的含义" class="headerlink" title="虚拟线程的含义"></a>虚拟线程的含义</h4><p>虚拟线程便宜且充足，因此永远不应该被池化：应该为每个应用程序任务创建一个新的虚拟线程。因此，大多数虚拟线程都是短暂的，并且具有浅层调用堆栈，只执行单个 HTTP 客户端调用或单个 JDBC 查询。相比之下，平台线程重量级且昂贵，因此通常必须进行池化。它们往往寿命很长，具有很深的调用堆栈，并且在许多任务之间共享。</p><p>总之，虚拟线程保留了可靠的每个请求线程风格，该风格与 Java 平台的设计相协调，同时最佳地利用了可用的硬件。使用虚拟线程不需要学习新概念，尽管它可能需要放弃为应对当今线程的高成本而养成的习惯。虚拟线程不仅可以帮助应用程序开发人员，还可以帮助框架设计人员提供易于使用的 API，这些 API 与平台的设计兼容，而不影响可扩展性。</p><h3 id="虚拟线程的用法"><a href="#虚拟线程的用法" class="headerlink" title="虚拟线程的用法"></a>虚拟线程的用法</h3><h4 id="创建虚拟线程"><a href="#创建虚拟线程" class="headerlink" title="创建虚拟线程"></a>创建虚拟线程</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (<span class="type">var</span> <span class="variable">executor</span> <span class="operator">=</span> Executors.newVirtualThreadPerTaskExecutor()) &#123;</span><br><span class="line">    IntStream.range(<span class="number">0</span>, <span class="number">10_000</span>).forEach(i -&gt; &#123;</span><br><span class="line">        executor.submit(() -&gt; &#123;</span><br><span class="line">            Thread.sleep(Duration.ofSeconds(<span class="number">1</span>));</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="虚拟线程的特点"><a href="#虚拟线程的特点" class="headerlink" title="虚拟线程的特点"></a>虚拟线程的特点</h4><ul><li>虚拟线程是由JVM管理的轻量级线程。</li><li>虚拟线程不需要任何显式分配或调度。</li><li>虚拟线程非常适合I/O密集型任务或需要大量并行性的任务。</li><li>虚拟线程也可以用来实现异步操作。</li></ul><h3 id="二、记录模式"><a href="#二、记录模式" class="headerlink" title="二、记录模式"></a>二、记录模式</h3><h4 id="记录模式的含义"><a href="#记录模式的含义" class="headerlink" title="记录模式的含义"></a>记录模式的含义</h4><p>记录模式是记录模式匹配的语法糖，它允许将记录类型与模式匹配。记录模式匹配允许将记录类型与模式匹配，从而允许将记录类型与模式匹配。</p><h3 id="三、Switch的模式匹配"><a href="#三、Switch的模式匹配" class="headerlink" title="三、Switch的模式匹配"></a>三、Switch的模式匹配</h3><h4 id="Switch的模式匹配的含义"><a href="#Switch的模式匹配的含义" class="headerlink" title="Switch的模式匹配的含义"></a>Switch的模式匹配的含义</h4><p>switch 通过表达式和语句的模式匹配增强 Java 编程语言。扩展模式匹配switch允许针对多个模式测试表达式，每个模式都有一个特定的操作，以便可以简洁、安全地表达复杂的面向数据的查询。</p>]]></content>
-      
-      
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DataOps的起源与趋势</title>
+    <url>/2023/11/02/DataOps%E4%BD%93%E7%B3%BB/</url>
+    <content><![CDATA[<h1 id="DataOps的起源与趋势"><a href="#DataOps的起源与趋势" class="headerlink" title="DataOps的起源与趋势"></a>DataOps的起源与趋势</h1><h2 id="DataOps是什么"><a href="#DataOps是什么" class="headerlink" title="DataOps是什么"></a>DataOps是什么</h2><p>DataOps 数据运维，是一种自动化的、面向流程的方法，能够提高数据质量并缩短数据分析的周期，一般被大数据和数据分析团队使用。DataOps主要通过代码、工具、基础架构和数据之间的协作来加快数据产品的交付。</p>
+<h2 id="DataOps的演进"><a href="#DataOps的演进" class="headerlink" title="DataOps的演进"></a>DataOps的演进</h2><p>DataOps的演进经历了三个阶段，分别是：</p>
+<ol>
+<li>数据工程</li>
+<li>数据科学</li>
+<li>数据运维</li>
+</ol>
+<h2 id="DataOps核心体系"><a href="#DataOps核心体系" class="headerlink" title="DataOps核心体系"></a>DataOps核心体系</h2><p>DataOps是一种方法论，而不是一套工具或产品。包含精益化生产、敏捷开发和DevOps:三大核心体系</p>
+]]></content>
       <categories>
-          
-          <category> 技术 </category>
-          
+        <category>技术</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Java </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>不同种类的数据库比较</title>
-      <link href="/2023/09/25/%E4%B8%8D%E5%90%8C%E7%A7%8D%E7%B1%BB%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%AF%94%E8%BE%83/"/>
-      <url>/2023/09/25/%E4%B8%8D%E5%90%8C%E7%A7%8D%E7%B1%BB%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%AF%94%E8%BE%83/</url>
-      
-        <content type="html"><![CDATA[<h1 id="不同种类数据库比较"><a href="#不同种类数据库比较" class="headerlink" title="不同种类数据库比较"></a>不同种类数据库比较</h1><h2 id="数据库对比"><a href="#数据库对比" class="headerlink" title="数据库对比"></a>数据库对比</h2><table><thead><tr><th align="center">分类</th><th align="center">模型</th><th align="center">优势</th><th align="center">劣势</th><th align="center">举例</th></tr></thead><tbody><tr><td align="center">关系型数据库</td><td align="center">表结构</td><td align="center">数据高度结构化，一致性强，软件成熟度高</td><td align="center">面向多跳的关联关系查询低效或不支持</td><td align="center">MySQL、Oracle</td></tr><tr><td align="center">图数据库</td><td align="center">图结构</td><td align="center">针对关联关系的建模、操作非常高效</td><td align="center">高度结构化的数据处理能力不及关系型数据库</td><td align="center">Neo4j、TuGraph</td></tr><tr><td align="center">键值存储数据库</td><td align="center">键值结构</td><td align="center">可扩展性较高，查询效率较高</td><td align="center">不支持复杂的数据查询和处理、不支持事务、数据结构固定</td><td align="center">Redis、Memcached</td></tr><tr><td align="center">列存储数据库</td><td align="center">列式结构</td><td align="center">高压缩率，在大数据、高并发场景有优势</td><td align="center">硬件成本更高、处理事务复杂</td><td align="center">HBase、Druid</td></tr><tr><td align="center">面向文档数据库</td><td align="center">文档结构</td><td align="center">允许嵌套键值，文档型数据库比键值数据库的查询效率更高</td><td align="center">数据一致性、原子性受限、不支持事务</td><td align="center">MongDB、CouchDB</td></tr></tbody></table><style>table th:first-of-type {    width: 20%;}table th:nth-of-type(2) {    width: 14%;}table th:nth-of-type(3) {    width: 23%;}table th:nth-of-type(4) {    width: 23%;}table th:nth-of-type(5) {    width: 20%;}</style>]]></content>
-      
-      
+      <tags>
+        <tag>大数据</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>不同种类的数据库比较</title>
+    <url>/2023/09/25/%E4%B8%8D%E5%90%8C%E7%A7%8D%E7%B1%BB%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%AF%94%E8%BE%83/</url>
+    <content><![CDATA[<h1 id="不同种类数据库比较"><a href="#不同种类数据库比较" class="headerlink" title="不同种类数据库比较"></a>不同种类数据库比较</h1><h2 id="数据库对比"><a href="#数据库对比" class="headerlink" title="数据库对比"></a>数据库对比</h2><table>
+<thead>
+<tr>
+<th align="center">分类</th>
+<th align="center">模型</th>
+<th align="center">优势</th>
+<th align="center">劣势</th>
+<th align="center">举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">关系型数据库</td>
+<td align="center">表结构</td>
+<td align="center">数据高度结构化，一致性强，软件成熟度高</td>
+<td align="center">面向多跳的关联关系查询低效或不支持</td>
+<td align="center">MySQL、Oracle</td>
+</tr>
+<tr>
+<td align="center">图数据库</td>
+<td align="center">图结构</td>
+<td align="center">针对关联关系的建模、操作非常高效</td>
+<td align="center">高度结构化的数据处理能力不及关系型数据库</td>
+<td align="center">Neo4j、TuGraph</td>
+</tr>
+<tr>
+<td align="center">键值存储数据库</td>
+<td align="center">键值结构</td>
+<td align="center">可扩展性较高，查询效率较高</td>
+<td align="center">不支持复杂的数据查询和处理、不支持事务、数据结构固定</td>
+<td align="center">Redis、Memcached</td>
+</tr>
+<tr>
+<td align="center">列存储数据库</td>
+<td align="center">列式结构</td>
+<td align="center">高压缩率，在大数据、高并发场景有优势</td>
+<td align="center">硬件成本更高、处理事务复杂</td>
+<td align="center">HBase、Druid</td>
+</tr>
+<tr>
+<td align="center">面向文档数据库</td>
+<td align="center">文档结构</td>
+<td align="center">允许嵌套键值，文档型数据库比键值数据库的查询效率更高</td>
+<td align="center">数据一致性、原子性受限、不支持事务</td>
+<td align="center">MongDB、CouchDB</td>
+</tr>
+</tbody></table>
+<style>
+table th:first-of-type {
+    width: 20%;
+}
+table th:nth-of-type(2) {
+    width: 14%;
+}
+table th:nth-of-type(3) {
+    width: 23%;
+}
+table th:nth-of-type(4) {
+    width: 23%;
+}
+table th:nth-of-type(5) {
+    width: 20%;
+}
+</style>
+
+]]></content>
       <categories>
-          
-          <category> 名词 </category>
-          
+        <category>名词</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 名词 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>学习资源</title>
-      <link href="/2023/09/05/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
-      <url>/2023/09/05/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/</url>
-      
-        <content type="html"><![CDATA[<h1 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h1><p><strong>持续更新中…. 分享技术知识点、书籍、文章</strong></p><h2 id="技术知识点"><a href="#技术知识点" class="headerlink" title="技术知识点"></a>技术知识点</h2><table><thead><tr><th align="center">#</th><th align="center">项目</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">1</td><td align="center"><a href="https://doocs.gitee.io/advanced-java/#/">advanced-java</a></td><td align="center">Java 工程师进阶知识</td></tr><tr><td align="center">2</td><td align="center"><a href="https://github.com/doocs/source-code-hunter">source-code-hunter</a></td><td align="center">互联网常用组件框架源码分析</td></tr><tr><td align="center">3</td><td align="center"><a href="https://github.com/doocs/jvm">jvm</a></td><td align="center">Java 虚拟机底层原理知识总结</td></tr><tr><td align="center">4</td><td align="center"><a href="https://github.com/doocs/leetcode">leetcode</a></td><td align="center">算法、数据结构</td></tr><tr><td align="center">5</td><td align="center"><a href="https://www.liaoxuefeng.com/wiki/1252599548343744">廖雪峰Java教程</a></td><td align="center">Java 基础知识汇总</td></tr></tbody></table><h2 id="AI模型社区"><a href="#AI模型社区" class="headerlink" title="AI模型社区"></a>AI模型社区</h2><table><thead><tr><th align="center">#</th><th align="center">社区</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">1</td><td align="center"><a href="https://huggingface.co/">huggingface官网</a></td><td align="center">LLM大模型社区，有开源模型和数据集</td></tr><tr><td align="center">2</td><td align="center"><a href="https://replicate.com/">replicate官网</a></td><td align="center">开源机器学习AI模型云端部署平台</td></tr></tbody></table><h2 id="AI学习资源"><a href="#AI学习资源" class="headerlink" title="AI学习资源"></a>AI学习资源</h2><table><thead><tr><th align="center">#</th><th align="center">社区</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">1</td><td align="center"><a href="howie6879/mlhub123">资源学习导航</a></td><td align="center">资源学习导航</td></tr></tbody></table><h2 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h2><table><thead><tr><th align="center">#</th><th align="center">书籍</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">1</td><td align="center"><a href="https://icyfenix.cn/">《凤凰架构》周志明</a></td><td align="center">讨论如何构建一套可靠的大型分布式系统</td></tr></tbody></table><h2 id="技术文章"><a href="#技术文章" class="headerlink" title="技术文章"></a>技术文章</h2><table><thead><tr><th align="center">#</th><th align="center">网址</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">1</td><td align="center"><a href="https://tech.meituan.com/">美团技术团队</a></td><td align="center">讨论如何构建一套可靠的大型分布式系统</td></tr><tr><td align="center">2</td><td align="center"><a href="https://xiaomi-info.github.io/">小米信息部技术团队</a></td><td align="center">小米旗下的一个技术博客类型的网站</td></tr><tr><td align="center">3</td><td align="center"><a href="https://102.alibaba.com/">阿里技术</a></td><td align="center">技术新闻、技术干货</td></tr><tr><td align="center">4</td><td align="center"><a href="https://blogs.360.cn/">360 核心安全技术</a></td><td align="center">主要分享安全相关的文章</td></tr><tr><td align="center">5</td><td align="center"><a href="https://tech.ipalfish.com/blog/">伴鱼技术团队</a></td><td align="center">主要分享服务治理、全链路追踪与压测、分布式架构设计等领域的知识</td></tr><tr><td align="center">6</td><td align="center"><a href="https://tech.qimao.com/">七猫技术团队</a></td><td align="center">前后端、大数据、算法、运维、测试</td></tr></tbody></table><style>table th:first-of-type {    width: 10%;}table th:nth-of-type(2) {    width: 45%;}table th:nth-of-type(3) {    width: 45%;}</style>]]></content>
-      
-      
+      <tags>
+        <tag>名词</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分布式事务解决方案</title>
+    <url>/2023/10/12/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<h2 id="分布式事务解决方案"><a href="#分布式事务解决方案" class="headerlink" title="分布式事务解决方案"></a>分布式事务解决方案</h2><h3 id="一、分布式事务的产生"><a href="#一、分布式事务的产生" class="headerlink" title="一、分布式事务的产生"></a>一、分布式事务的产生</h3><p>随着时代的发展，企业级应用的规模、数据量和复杂度不断增加，传统的单体数据库无法应对这些变化，分布式数据库应运而生。于此同时也带来了一系列新问题：<strong>跨库事务</strong>、<strong>全局性数据一致性</strong>、<strong>负载均衡</strong>、<strong>复杂SQL</strong>。  </p>
+<p><strong>发展路径：</strong><br><strong>传统单体数据库</strong> $\Longrightarrow$ <strong>基于中间件的分库分表</strong>  $\Longrightarrow$ <strong>分布式数据库</strong><br><strong>分布式数据库：</strong> 通常是地理上分散而逻辑上集中的数据库系统</p>
+<h3 id="二、分布式事务的难点"><a href="#二、分布式事务的难点" class="headerlink" title="二、分布式事务的难点"></a>二、分布式事务的难点</h3><h4 id="ACID问题：原子性、一致性、隔离性、持久性"><a href="#ACID问题：原子性、一致性、隔离性、持久性" class="headerlink" title="ACID问题：原子性、一致性、隔离性、持久性"></a>ACID问题：原子性、一致性、隔离性、持久性</h4><table>
+<thead>
+<tr>
+<th align="center">问题</th>
+<th align="center">场景</th>
+<th align="center">解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">原子性</td>
+<td align="center">一个事务如何保证在多台机器，多个数据分片的修改提交，都提交全部成功，或者提交全部失败？</td>
+<td align="center">两阶段提交（2PC）、三阶段提交（3PC）</td>
+</tr>
+<tr>
+<td align="center">一致性</td>
+<td align="center">数据分片后，如何保证数据的一致和完整？</td>
+<td align="center">paxos协议、raft协议</td>
+</tr>
+<tr>
+<td align="center">隔离性</td>
+<td align="center">多个机器多个事务之间的脏读、不可重复读、幻读问题</td>
+<td align="center">MVCC版本控制</td>
+</tr>
+<tr>
+<td align="center">持久性</td>
+<td align="center">一个事务提交后需要将数据同步到其他节点，如何保证主节点宕机的情况下，其他节点仍能将事务恢复过来？</td>
+<td align="center">多副本复制技术、分布式事务日志</td>
+</tr>
+</tbody></table>
+<h3 id="三、分布式事务【原子性】解决方案"><a href="#三、分布式事务【原子性】解决方案" class="headerlink" title="三、分布式事务【原子性】解决方案"></a>三、分布式事务【原子性】解决方案</h3><h4 id="1-两阶段提交（2PC）"><a href="#1-两阶段提交（2PC）" class="headerlink" title="1.两阶段提交（2PC）"></a>1.两阶段提交（2PC）</h4><p>两阶段提交是一种经典的分布式事务解决方案。在第一阶段，协调者询问所有参与者是否准备提交事务；只有在所有参与者都回复“准备好”时，协调者才在第二阶段通知所有参与者提交事务。然而，2PC在面对系统故障和网络故障时可能出现脑裂(split-brain)问题，从而引发数据不一致。</p>
+<h4 id="2-三阶段提交（3PC）"><a href="#2-三阶段提交（3PC）" class="headerlink" title="2.三阶段提交（3PC）"></a>2.三阶段提交（3PC）</h4><p>为解决2PC的脑裂问题，出现了三阶段提交。在第三阶段，协调者询问所有参与者是否完成事务提交；只有当所有参与者都回复“完成”时，协调者才通知所有参与者提交事务。否则，根据参与者的回复进行相应处理。然而，3PC在面对网络延迟和消息丢失的情况下可能引发问题。</p>
+<h4 id="3-补偿事务（Compensating-Transactions）"><a href="#3-补偿事务（Compensating-Transactions）" class="headerlink" title="3.补偿事务（Compensating Transactions）"></a>3.补偿事务（Compensating Transactions）</h4><p>补偿事务是另一种分布式事务解决方案。当某个参与者的事务处理失败时，协调者会通知其他参与者执行补偿事务来弥补损失。补偿事务通常是一组逆操作，用于撤销或回滚之前执行的事务操作。这种方案能够解决脑裂问题和网络故障问题，但需要手动编写补偿逻辑，增加了开发成本和维护成本。</p>
+<h4 id="4-分布式事务管理器（Distributed-Transaction-Manager）"><a href="#4-分布式事务管理器（Distributed-Transaction-Manager）" class="headerlink" title="4.分布式事务管理器（Distributed Transaction Manager）"></a>4.分布式事务管理器（Distributed Transaction Manager）</h4><p>分布式事务管理器是一种自动化的解决方案，用于管理分布式事务的全生命周期。它能够协调不同数据库或数据存储之间的操作，处理分布式事务的提交、回滚等操作。常见的分布式事务管理器包括Java Transaction API (JTA)、Java Transaction Service (JTS) 和 Atomikos 等。</p>
+<h3 id="四、分布式事务【隔离性】解决方案"><a href="#四、分布式事务【隔离性】解决方案" class="headerlink" title="四、分布式事务【隔离性】解决方案"></a>四、分布式事务【隔离性】解决方案</h3><h4 id="1-MVCC版本控制"><a href="#1-MVCC版本控制" class="headerlink" title="1.MVCC版本控制"></a>1.MVCC版本控制</h4><p>MVCC（Multi-Version Concurrency Control）是一种基于乐观锁的并发控制方法。它为每个事务分配一个版本号，当事务开始时，将当前事务的版本号作为行版本号，并将其与行中的当前版本进行比较。如果版本号相同，则可以更新行；否则，需要回滚事务。MVCC能够解决脏读、不可重复读和幻读等问题，但MVCC需要数据库支持事务隔离级别，并且需要数据库支持行级锁。</p>
+<h4 id="2-分布式锁"><a href="#2-分布式锁" class="headerlink" title="2.分布式锁"></a>2.分布式锁</h4><p>分布式锁是一种基于锁机制的并发控制方法。它为每个事务分配一个锁，当事务开始时，将锁作为行版本号，并将其与行中的当前版本进行比较。如果版本号相同，则可以更新行；否则，需要回滚事务。分布式锁能够解决脏读、不可重复读和幻读等问题，但分布式锁需要数据库支持事务隔离级别，并且需要数据库支持行级锁。</p>
+<h3 id="五、分布式事务模型"><a href="#五、分布式事务模型" class="headerlink" title="五、分布式事务模型"></a>五、分布式事务模型</h3><h4 id="1-全局事务管理器GTM"><a href="#1-全局事务管理器GTM" class="headerlink" title="1.全局事务管理器GTM"></a>1.全局事务管理器GTM</h4><p>全局事务管理器GTM(Global Transaction Manager)是分布式事务管理器的一种实现，它能够管理分布式事务的全生命周期，包括事务的提交、回滚等操作。GTM能够解决分布式事务的隔离性，但需要数据库支持事务隔离级别。</p>
+<h4 id="2-谷歌Percolator"><a href="#2-谷歌Percolator" class="headerlink" title="2.谷歌Percolator"></a>2.谷歌Percolator</h4><p>Percolator 通过一个全局的授时服务器 TSO 给予事务一个全局的时间戳来解决分布式环境下事务的全局时序问题；通过经典的两阶段提交来解决分布式事务原子提交的问题。Percolator 不仅仅是一个改进版的两阶段提交，它涵盖的内容更多，可以认为是一个完整的分布式事务解决方案，它还包括了依据全局时间戳实现 Snapshot Isolation 隔离级别的并发控制协议，并给出了在故障发生如何进行自动 failover 的细节</p>
+<h3 id="六、性能优化与监控"><a href="#六、性能优化与监控" class="headerlink" title="六、性能优化与监控"></a>六、性能优化与监控</h3><h4 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h4><p>分布式事务的性能优化也是至关重要的。以下是一些性能优化的技巧：</p>
+<p>（1）选择合适的隔离级别：不同的隔离级别可能导致锁竞争和数据库连接的增加。因此，应根据具体业务需求选择合适的隔离级别，例如READ COMMITTED或REPEATABLE READ。</p>
+<p>（2）优化数据访问逻辑：避免在事务中执行不必要的查询和更新操作。对于大型数据集，应分批处理而不是一次性处理。</p>
+<p>（3）使用索引和缓存：为数据库表的关键字段创建索引，以提高查询效率。同时，利用缓存技术减少对数据库的频繁访问。</p>
+<p>（4）调整事务超时时间：根据具体业务需求和系统负载情况，合理设置事务超时时间，以避免长时间占用数据库连接。</p>
+<h4 id="监控与调优"><a href="#监控与调优" class="headerlink" title="监控与调优"></a>监控与调优</h4><p>为了确保分布式事务的稳定性和性能，应实施有效的监控和调优措施。以下是一些监控和调优的建议：</p>
+<p>（1）监控数据库连接池：密切关注数据库连接池的状态和性能，确保连接池中的连接得到充分利用，避免空闲连接过多占用资源。</p>
+<p>（2）监控事务处理速度：通过收集和分析事务处理的速度数据，找出性能瓶颈并进行针对性优化。</p>
+<p>（3）利用日志和诊断信息：记录日志并收集诊断信息，以便在出现问题时迅速定位和解决问题。</p>
+<p>（4）定期进行系统性能评估：定期进行系统性能评估，以便及时发现和解决潜在的性能问题。</p>
+<style>
+table th:first-of-type {
+    width: 10%;
+}
+table th:nth-of-type(2) {
+    width: 30%;
+}
+table th:nth-of-type(3) {
+    width: 30%;
+}
+table th:nth-of-type(4) {
+    width: 30%;
+}
+</style>
+]]></content>
       <categories>
-          
-          <category> 资源 </category>
-          
+        <category>技术</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 资源整理 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>软件服务行业名词</title>
-      <link href="/2023/08/29/%E8%BD%AF%E4%BB%B6%E6%9C%8D%E5%8A%A1%E8%A1%8C%E4%B8%9A%E5%90%8D%E8%AF%8D/"/>
-      <url>/2023/08/29/%E8%BD%AF%E4%BB%B6%E6%9C%8D%E5%8A%A1%E8%A1%8C%E4%B8%9A%E5%90%8D%E8%AF%8D/</url>
-      
-        <content type="html"><![CDATA[<h1 id="软件服务行业名词"><a href="#软件服务行业名词" class="headerlink" title="软件服务行业名词"></a>软件服务行业名词</h1><h2 id="企业管理应用软件"><a href="#企业管理应用软件" class="headerlink" title="企业管理应用软件"></a>企业管理应用软件</h2><table><thead><tr><th align="center">简称</th><th align="center">英文全称</th><th align="center">中文解释</th><th align="center">作用</th></tr></thead><tbody><tr><td align="center">ERP系统</td><td align="center">Enterprise Resource Planning</td><td align="center">企业资源计划系统</td><td align="center">帮助企业组织自动执行和管理核心业务流程</td></tr><tr><td align="center">MES系统</td><td align="center">Manufacturing Execution System</td><td align="center">制造企业生产过程执行系统</td><td align="center">可以监控、追踪、记录和控制整个生产周期，优化制造流程</td></tr><tr><td align="center">CRM系统</td><td align="center">Customer Relationship Management</td><td align="center">客户关系管理系统</td><td align="center">专注于改善客户关系，促进销售</td></tr><tr><td align="center">SCM系统</td><td align="center">Supply Chain Management</td><td align="center">供应链管理系统</td><td align="center">帮助企业实现整个业务运作的全面自动化</td></tr></tbody></table><h3 id="应用软件关系"><a href="#应用软件关系" class="headerlink" title="应用软件关系"></a>应用软件关系</h3><p><img src="https://github.com/BigBangz/spring-cloud-domo/blob/master/src/main/resources/image/document/application.jpg?raw=true" alt="应用软件关系"></p><h2 id="云计算服务模式"><a href="#云计算服务模式" class="headerlink" title="云计算服务模式"></a>云计算服务模式</h2><table><thead><tr><th align="center">简称</th><th align="center">英文全称</th><th align="center">中文解释</th><th align="center">作用</th></tr></thead><tbody><tr><td align="center">SaaS</td><td align="center">Software as a Service</td><td align="center">软件即服务</td><td align="center">提供整个应用栈，交付可供客户访问和使用的完整云端应用</td></tr><tr><td align="center">PaaS</td><td align="center">Platform as a Service</td><td align="center">平台即服务</td><td align="center">提供和管理所有硬件和软件资源，以便通过云开发应用</td></tr><tr><td align="center">APaaS</td><td align="center">Application Platform as a Service</td><td align="center">应用程序平台即服务</td><td align="center">这种基于PaaS平台的解决方案提供云端开发、部署和运行支持，并提供基础工具集，适用于低代码或零代码开发</td></tr><tr><td align="center">CaaS</td><td align="center">Containers as a Service</td><td align="center">容器即服务</td><td align="center">提供和管理所有硬件和软件资源，以使用容器开发和部署应用</td></tr><tr><td align="center">IaaS</td><td align="center">Infrastructure as a Service</td><td align="center">基础架构即服务</td><td align="center">通过云为组织提供按需基础架构资源，例如计算、存储、网络和虚拟化</td></tr></tbody></table><style>table th:first-of-type {    width: 17%;}table th:nth-of-type(2) {    width: 24%;}table th:nth-of-type(3) {    width: 30%;}table th:nth-of-type(4) {    width: 30%;}</style>]]></content>
-      
-      
+      <tags>
+        <tag>分布式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>架构知识</title>
+    <url>/2023/10/26/%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h1 id="架构知识"><a href="#架构知识" class="headerlink" title="架构知识"></a>架构知识</h1><h2 id="云原生-DevOps-工具全景图"><a href="#云原生-DevOps-工具全景图" class="headerlink" title="云原生 DevOps 工具全景图"></a>云原生 DevOps 工具全景图</h2><center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="https://fastly.jsdelivr.net/gh/BigBangz/spring-cloud-domo@master/src/main/resources/image/document/1698884709085DevOps%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%85%A8%E6%99%AF%E5%9B%BE.webp">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">云原生 DevOps 工具全景图</div>
+</center>
+
+<h2 id="监控指标体系"><a href="#监控指标体系" class="headerlink" title="监控指标体系"></a>监控指标体系</h2><p><strong>指标体系：</strong> 聚焦于故障发现环节，服务以数字形式评估出服务 QPS、成功率、延迟、容量等关键指标，搭配报警系统可以保证当核心指标异常时及时通知开发 / 运维人员。除了核心指标外，服务还可以将各模块 / 阶段的瓶颈点、外部依赖指标量化，建立更加完善服务状态概览，以便服务开发 / 运维人员快速定位异常，完成根因分析。指标系统优势是聚合能力，用较少的存储资源和计算资源表达系统内部状态。  </p>
+<table>
+<thead>
+<tr>
+<th align="center">组件</th>
+<th align="center">Prometheus</th>
+<th align="center">Openfalcon</th>
+<th align="center">Nightingale</th>
+<th align="center">Cat</th>
+<th align="center">CudgX</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">服务支持</td>
+<td align="center">开源</td>
+<td align="center">开源</td>
+<td align="center">开源</td>
+<td align="center">开源</td>
+<td align="center">源代码开源</td>
+</tr>
+<tr>
+<td align="center">API支持</td>
+<td align="center">良好</td>
+<td align="center">良好</td>
+<td align="center">良好</td>
+<td align="center">良好</td>
+<td align="center">良好</td>
+</tr>
+<tr>
+<td align="center">数据存储</td>
+<td align="center">TSDB</td>
+<td align="center">rrd/opentsdb</td>
+<td align="center">rrd/opentsdb/m3db/VictoriaMetrics</td>
+<td align="center">HDFS</td>
+<td align="center">Clickhouse/M3db/VictoriaMetrics</td>
+</tr>
+<tr>
+<td align="center">数据场景</td>
+<td align="center">服务指标</td>
+<td align="center">主机/交换机</td>
+<td align="center">主机/交换机</td>
+<td align="center">服务指标</td>
+<td align="center">物理机指标/服务指标/集成Nightingale</td>
+</tr>
+<tr>
+<td align="center">监控规模</td>
+<td align="center">Kubernetes/服务监控</td>
+<td align="center">多家国内公司在使用</td>
+<td align="center">使用范围更广泛</td>
+<td align="center">美团,大厂背书</td>
+<td align="center">高可用，高性能：支持千万每秒级指标；存储查询；支持指标聚合；</td>
+</tr>
+<tr>
+<td align="center">二次开发</td>
+<td align="center">容易</td>
+<td align="center">容易</td>
+<td align="center">容易</td>
+<td align="center">容易</td>
+<td align="center">容易</td>
+</tr>
+<tr>
+<td align="center">上手难度</td>
+<td align="center">简单易用</td>
+<td align="center">简单易用</td>
+<td align="center">简单易用</td>
+<td align="center">有一定难度</td>
+<td align="center">简单易用</td>
+</tr>
+<tr>
+<td align="center">报警</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+</tr>
+<tr>
+<td align="center">Grafana</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+</tr>
+<tr>
+<td align="center">亮点</td>
+<td align="center">生态完善</td>
+<td align="center">物理机指标开箱即用</td>
+<td align="center">物理机指标开箱即用</td>
+<td align="center">报表完善</td>
+<td align="center">服务冗余度保持特；整合业务指标和基础指标</td>
+</tr>
+</tbody></table>
+<h2 id="分布式追踪系统"><a href="#分布式追踪系统" class="headerlink" title="分布式追踪系统"></a>分布式追踪系统</h2><p><strong>分布式追踪系统：</strong> 用于分析服务调用关系。在微服务盛行的今天，服务之间调用关系越来越复杂，微服务之间相互影响也更加难以定位和排查。分布式追踪系统聚焦于故障定位环节，与指标体系和日志体系不同，分布式追踪系统可以提供服务之间依赖拓扑信息，对于梳理系统调用拓扑、追踪下游依赖导致的异常意义重大。</p>
+<table>
+<thead>
+<tr>
+<th align="center">特性</th>
+<th align="center">Jaeger</th>
+<th align="center">SkyWalking</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">OpenTracing兼容</td>
+<td align="center">是</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">客户端支持语言</td>
+<td align="center">Java,C#,Go,PHP等</td>
+<td align="center">Java,NET Core,NodeJS and PHP</td>
+</tr>
+<tr>
+<td align="center">存储</td>
+<td align="center">Elasticsearch,Kafka,Cassandra,内存</td>
+<td align="center">ES,H2,MySQL,TiDB,ShardingSphere</td>
+</tr>
+<tr>
+<td align="center">传输协议支持</td>
+<td align="center">UDP/HTTP</td>
+<td align="center">gRPC</td>
+</tr>
+<tr>
+<td align="center">UI丰富程度</td>
+<td align="center">中</td>
+<td align="center">中</td>
+</tr>
+<tr>
+<td align="center">实现方式-代码侵入性</td>
+<td align="center">拦截请求，侵入</td>
+<td align="center">字节码注入，无侵入</td>
+</tr>
+<tr>
+<td align="center">扩展性</td>
+<td align="center">高</td>
+<td align="center">中</td>
+</tr>
+<tr>
+<td align="center">trace查询</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+</tr>
+<tr>
+<td align="center">告警支持</td>
+<td align="center">不支持</td>
+<td align="center">支持</td>
+</tr>
+<tr>
+<td align="center">JVM监控</td>
+<td align="center">不支持</td>
+<td align="center">支持</td>
+</tr>
+<tr>
+<td align="center">性能损失</td>
+<td align="center">中</td>
+<td align="center">低</td>
+</tr>
+</tbody></table>
+<style>
+table th:first-of-type {
+    width: 5%;
+}
+table th:nth-of-type(2) {
+    width: 19%;
+}
+table th:nth-of-type(3) {
+    width: 19%;
+}
+table th:nth-of-type(4) {
+    width: 19%;
+}
+table th:nth-of-type(5) {
+    width: 19%;
+}
+table th:nth-of-type(6) {
+    width: 19%;
+}
+</style>
+
+]]></content>
       <categories>
-          
-          <category> 名词 </category>
-          
+        <category>技术</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 名词 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>计算机性能指标</title>
-      <link href="/2023/08/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/"/>
-      <url>/2023/08/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/</url>
-      
-        <content type="html"><![CDATA[<h1 id="计算机性能指标"><a href="#计算机性能指标" class="headerlink" title="计算机性能指标"></a>计算机性能指标</h1><h2 id="一、计算机事务处理性能指标"><a href="#一、计算机事务处理性能指标" class="headerlink" title="一、计算机事务处理性能指标"></a>一、计算机事务处理性能指标</h2><h3 id="1-每秒事务数（TPS）"><a href="#1-每秒事务数（TPS）" class="headerlink" title="1. 每秒事务数（TPS）"></a>1. 每秒事务数（TPS）</h3><h4 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h4><p>每秒事务数（TPS）是衡量系统处理能力的一个指标，指系统在单位时间内处理的事务数量。</p><h4 id="1-2-计算公式"><a href="#1-2-计算公式" class="headerlink" title="1.2 计算公式"></a>1.2 计算公式</h4><p>TPS = 事务数 / 事务响应时间</p><h4 id="1-3-计算示例"><a href="#1-3-计算示例" class="headerlink" title="1.3 计算示例"></a>1.3 计算示例</h4><p>假设系统每秒处理1000个事务，每个事务处理耗时100ms，则TPS = 1000 / 100 = 10。</p><h3 id="2-每秒查询率（QPS）"><a href="#2-每秒查询率（QPS）" class="headerlink" title="2. 每秒查询率（QPS）"></a>2. 每秒查询率（QPS）</h3><h4 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义"></a>2.1 定义</h4><p>每秒查询率（QPS）是衡量系统处理能力的一个指标，指系统在单位时间内处理的查询数量。</p><h4 id="2-2-计算公式"><a href="#2-2-计算公式" class="headerlink" title="2.2 计算公式"></a>2.2 计算公式</h4><p>QPS = 查询数 / 查询响应时间</p><h4 id="2-3-计算示例"><a href="#2-3-计算示例" class="headerlink" title="2.3 计算示例"></a>2.3 计算示例</h4><p>假设系统每秒处理1000个查询，每个查询处理耗时100ms，则QPS = 1000 / 100 = 10。</p><h3 id="3-每秒请求数（RPS）"><a href="#3-每秒请求数（RPS）" class="headerlink" title="3. 每秒请求数（RPS）"></a>3. 每秒请求数（RPS）</h3><h4 id="3-1-定义"><a href="#3-1-定义" class="headerlink" title="3.1 定义"></a>3.1 定义</h4><p>每秒请求数（RPS）是衡量系统处理能力的一个指标，指系统在单位时间内处理的请求数量。</p><h4 id="3-2-计算公式"><a href="#3-2-计算公式" class="headerlink" title="3.2 计算公式"></a>3.2 计算公式</h4><p>RPS = 请求数 / 请求响应时间</p><h4 id="3-3-计算示例"><a href="#3-3-计算示例" class="headerlink" title="3.3 计算示例"></a>3.3 计算示例</h4><p>假设系统每秒处理1000个请求，每个请求处理耗时100ms，则RPS = 1000 / 100 = 10。</p><h3 id="4-每秒并发数（CPS）"><a href="#4-每秒并发数（CPS）" class="headerlink" title="4. 每秒并发数（CPS）"></a>4. 每秒并发数（CPS）</h3><h4 id="4-1-定义"><a href="#4-1-定义" class="headerlink" title="4.1 定义"></a>4.1 定义</h4><p>每秒并发数（CPS）是衡量系统处理能力的一个指标，指系统在单位时间内处理的并发数量。</p><h4 id="4-2-计算公式"><a href="#4-2-计算公式" class="headerlink" title="4.2 计算公式"></a>4.2 计算公式</h4><p>CPS = 并发数 / 并发响应时间</p><h4 id="4-3-计算示例"><a href="#4-3-计算示例" class="headerlink" title="4.3 计算示例"></a>4.3 计算示例</h4><p>假设系统每秒处理1000个并发，每个并发处理耗时100ms，则CPS = 1000 / 100 = 10。</p><h3 id="5-TPMC指标"><a href="#5-TPMC指标" class="headerlink" title="5. TPMC指标"></a>5. TPMC指标</h3><h4 id="5-1-定义"><a href="#5-1-定义" class="headerlink" title="5.1 定义"></a>5.1 定义</h4><p>TPMC指标是衡量系统处理能力的一个指标，指系统在单位时间内处理的事务数。</p><h4 id="5-2-计算公式"><a href="#5-2-计算公式" class="headerlink" title="5.2 计算公式"></a>5.2 计算公式</h4><p>TPMC = TPS * 事务响应时间</p><h4 id="5-3-计算示例"><a href="#5-3-计算示例" class="headerlink" title="5.3 计算示例"></a>5.3 计算示例</h4><p>假设系统每秒处理1000个事务，每个事务处理耗时100ms，则TPMC = 10 * 100 = 1000。</p><h3 id="6-TPCC指标"><a href="#6-TPCC指标" class="headerlink" title="6. TPCC指标"></a>6. TPCC指标</h3><h4 id="6-1-定义"><a href="#6-1-定义" class="headerlink" title="6.1 定义"></a>6.1 定义</h4><p>TPCC指标是衡量系统处理能力的一个指标，指系统在单位时间内处理的事务数。</p><h4 id="6-2-计算公式"><a href="#6-2-计算公式" class="headerlink" title="6.2 计算公式"></a>6.2 计算公式</h4><p>TPCC = TPS * 事务响应时间</p><h4 id="6-3-计算示例"><a href="#6-3-计算示例" class="headerlink" title="6.3 计算示例"></a>6.3 计算示例</h4><p>假设系统每秒处理1000个事务，每个事务处理耗时100ms，则TPCC = 10 * 100 = 1000。</p><style>table th:first-of-type {    width: 20%;}table th:nth-of-type(2) {    width: 14%;}table th:nth-of-type(3) {    width: 23%;}table th:nth-of-type(4) {    width: 23%;}table th:nth-of-type(5) {    width: 20%;}</style>]]></content>
-      
-      
+      <tags>
+        <tag>架构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于博客的命令</title>
+    <url>/2023/01/08/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="安装前注意事项（个人踩过的坑）"><a href="#安装前注意事项（个人踩过的坑）" class="headerlink" title="安装前注意事项（个人踩过的坑）"></a>安装前注意事项（个人踩过的坑）</h3><p>1、node、npm最好更新最新版本<br>&emsp;● node升级特别注意</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"># windows环境下 <span class="built_in">cmd</span>命名行下执行命令，查看node服务安装位置</span><br><span class="line">where node</span><br><span class="line"># 下载安装包替换路径完成升级</span><br></pre></td></tr></table></figure>
+
+<p>2、不清楚的地方看看<br>官方文档：<a href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a><br>具体模版文档（以butterfly为例）：<a href="https://butterfly.js.org/">https://butterfly.js.org/</a></p>
+<h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 清理</span></span><br><span class="line">$ hexo clean </span><br><span class="line"><span class="comment"># 构建</span></span><br><span class="line">$ hexo g</span><br><span class="line"><span class="comment"># 预览</span></span><br><span class="line">$ hexo s</span><br><span class="line"><span class="comment"># 如果是新创建的 需要执行</span></span><br><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line"><span class="comment"># 打包 发布</span></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><h4 id="1、hexo-d打包时显示-ERROR-Deployer-not-found-git"><a href="#1、hexo-d打包时显示-ERROR-Deployer-not-found-git" class="headerlink" title="1、hexo d打包时显示 ERROR Deployer not found: git"></a>1、hexo d打包时显示 ERROR Deployer not found: git</h4><p>如下图<br><img src="https://github.com/BigBangz/spring-cloud-domo/blob/master/src/main/resources/image/img2.png?raw=true" alt="img2.png"><br>原因：需要安装hexo-deployer-git(hexo git部署工具) </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>完美解决<br><img src="https://github.com/BigBangz/spring-cloud-domo/blob/master/src/main/resources/image/img.png?raw=true" alt="img.png"></p>
+]]></content>
       <categories>
-          
-          <category> 名词 </category>
-          
+        <category>技术问题</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 名词 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>远程同步技术</title>
-      <link href="/2023/07/17/%E8%BF%9C%E7%A8%8B%E5%90%8C%E6%AD%A5%E6%8A%80%E6%9C%AF/"/>
-      <url>/2023/07/17/%E8%BF%9C%E7%A8%8B%E5%90%8C%E6%AD%A5%E6%8A%80%E6%9C%AF/</url>
-      
-        <content type="html"><![CDATA[<h1 id="远程同步技术"><a href="#远程同步技术" class="headerlink" title="远程同步技术"></a>远程同步技术</h1><h2 id="1-raft算法"><a href="#1-raft算法" class="headerlink" title="1. raft算法"></a>1. raft算法</h2><h3 id="raft算法是什么"><a href="#raft算法是什么" class="headerlink" title="raft算法是什么"></a>raft算法是什么</h3><p>raft是一个分布式一致性算法，用于解决分布式系统中节点之间数据同步的问题。<br>raft算法中，每个节点都维护一个日志，用于记录所有节点之间的数据同步操作。<br>当一个节点需要与其他节点进行数据同步时，它会向其他节点发送日志条目，其他节点会根据日志条目中的<br>任期号和日志索引来判断是否接收该日志条目。</p><h2 id="2-paxos算法"><a href="#2-paxos算法" class="headerlink" title="2. paxos算法"></a>2. paxos算法</h2><h3 id="paxos算法是什么"><a href="#paxos算法是什么" class="headerlink" title="paxos算法是什么"></a>paxos算法是什么</h3><p>paxos算法是分布式一致性算法，用于解决分布式系统中节点之间数据同步的问题。<br>paxos算法中，每个节点都维护一个日志，用于记录所有节点之间的数据同步操作。</p><h2 id="3-分布式一致性算法"><a href="#3-分布式一致性算法" class="headerlink" title="3. 分布式一致性算法"></a>3. 分布式一致性算法</h2><h3 id="分布式一致性算法是什么"><a href="#分布式一致性算法是什么" class="headerlink" title="分布式一致性算法是什么"></a>分布式一致性算法是什么</h3><p>分布式一致性算法用于解决分布式系统中节点之间数据同步的问题。<br>分布式一致性算法通常用于解决分布式系统中节点之间的数据同步问题，以保证分布式系统中的数据一致性。<br>分布式一致性算法通常分为两种类型：</p><ul><li>强一致性算法：<ul><li>强一致性算法通常保证分布式系统中的所有节点在同一时刻看到相同的数据。</li><li>强一致性算法通常需要比较高的计算资源，并且需要比较长的处理时间。</li></ul></li><li>最终一致性算法：<ul><li>最终一致性算法通常保证分布式系统中的所有节点最终会看到相同的数据。</li><li>最终一致性算法通常只需要比较低的计算资源，并且处理时间短。</li></ul></li></ul><h3 id="分布式一致性算法的分类"><a href="#分布式一致性算法的分类" class="headerlink" title="分布式一致性算法的分类"></a>分布式一致性算法的分类</h3><p>分布式一致性算法通常可以分为以下几类：</p><ul><li>基于消息传递的一致性算法：<ul><li>基于消息传递的一致性算法通常使用消息传递机制来保证分布式系统中的数据一致性。</li><li>基于消息传递的一致性算法通常需要比较高的计算资源，并且需要比较长的处理时间。</li></ul></li><li>基于状态机一致性算法：<ul><li>基于状态机一致性算法通常使用状态机来保证分布式系统中的数据一致性。</li><li>基于状态机一致性算法通常需要比较低的计算资源，并且处理时间短。</li></ul></li><li>基于日志一致性算法：<ul><li>基于日志一致性算法通常使用日志来保证分布式系统中的数据一致性。</li><li>基于日志一致性算法通常需要比较低的计算资源，并且处理时间短。</li></ul></li></ul><h3 id="分布式一致性算法的比较"><a href="#分布式一致性算法的比较" class="headerlink" title="分布式一致性算法的比较"></a>分布式一致性算法的比较</h3><p>分布式一致性算法通常可以分为以下几类：</p><ul><li>强一致性算法：<ul><li>强一致性算法通常保证分布式系统中的所有节点在同一时刻看到相同的数据。</li><li>强一致性算法通常需要比较高的计算资源，并且需要比较长的处理时间。</li></ul></li><li>最终一致性算法：<ul><li>最终一致性算法通常保证分布式系统中的所有节点最终会看到相同的数据。</li><li>最终一致性算法通常只需要比较低的计算资源，并且处理时间短。</li></ul></li></ul><style>table th:first-of-type {    width: 20%;}table th:nth-of-type(2) {    width: 14%;}table th:nth-of-type(3) {    width: 23%;}table th:nth-of-type(4) {    width: 23%;}table th:nth-of-type(5) {    width: 20%;}</style>]]></content>
-      
-      
+      <tags>
+        <tag>问题记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>衡量算法效率</title>
+    <url>/2023/02/07/%E8%A1%A1%E9%87%8F%E7%AE%97%E6%B3%95%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="衡量算法效率的方式"><a href="#衡量算法效率的方式" class="headerlink" title="衡量算法效率的方式"></a>衡量算法效率的方式</h1><h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p>时间复杂度是指算法执行所需要的时间，通常用大 O表示。它描述了算法执行时间随着输入大小增加而增长的趋势。<br>简单来说：时间复杂度描述了算法运行所需的时间和输入数据规模之间的关系  </p>
+<p>$O=log_{数据规模}（2*{运行所需时间}）$</p>
+<h3 id="常见的时间复杂度"><a href="#常见的时间复杂度" class="headerlink" title="常见的时间复杂度"></a>常见的时间复杂度</h3><p>● 常数阶（$O^1$）：无论输入大小如何，算法的执行时间都保持不变。<br>● 线性阶（$O^n$）：算法的执行时间与输入大小成正比。<br>● 对数阶（$Olog^n$）：算法的执行时间与输入大小的对数成正比。<br>● 平方阶（$On^2$）：算法的执行时间与输入大小的平方成正比。<br>● 指数阶（$O2^n$）：算法的执行时间随着输入大小呈指数级别增长。 通常情况下，我们希望算法的时间复杂度尽可能低，因为这意味着算法执行所需的时间更少。  </p>
+<h3 id="常见的空间复杂度"><a href="#常见的空间复杂度" class="headerlink" title="常见的空间复杂度"></a>常见的空间复杂度</h3><p>空间复杂度是指算法执行所需的内存空间大小，通常也用大 O（O）表示。它描述了算法执行时使用的额外内存随着输入大小增加而增长的趋势。<br>常见的空间复杂度有：<br>● 常数阶（$O^1$）：算法的内存使用量不随输入大小而变化。<br>● 线性阶（$O^n$）：算法的内存使用量与输入大小成正比。<br>● 对数阶（$Olog^n$）：算法的内存使用量与输入大小的对数成正比。<br>● 平方阶（$O2^n$）：算法的内存使用量与输入大小的平方成正比。通常情况下，我们希望算法的空间复杂度尽可能低，因为这意味着算法执行所需的内存更少。</p>
+<h3 id="计算时间复杂度的过程"><a href="#计算时间复杂度的过程" class="headerlink" title="计算时间复杂度的过程"></a>计算时间复杂度的过程</h3><p>计算时间复杂度的过程通常分为以下几个步骤：</p>
+<ol>
+<li>确定算法的基本操作<br>首先需要确定算法中每一条语句的执行次数，也就是算法的基本操作。比如，在一个 for 循环中，循环体内的操作就是算法的基本操作。</li>
+<li>分析最坏情况下的执行次数<br>然后需要分析算法在最坏情况下的执行次数，也就是算法的最坏时间复杂度。为了保证算法在不同情况下都能够高效地运行，通常使用最坏时间复杂度来衡量算法的效率。</li>
+<li>使用大 O 符号表示时间复杂度<br>最后，使用大 O 符号表示算法的时间复杂度。通常将算法的执行次数与输入数据规模 n 的关系表示为一个函数 f(n)，然后使用大 O 符号来描述这个函数的增长趋势。例如，如果算法的执行次数与输入数据规模 n 成正比，那么它的时间复杂度就可以表示为 O(n)。<br>总的来说，计算时间复杂度需要对算法进行仔细分析，并结合算法的基本操作和输入数据规模来确定</li>
+</ol>
+<h3 id="总结下：什么是好算法，什么是坏算法？"><a href="#总结下：什么是好算法，什么是坏算法？" class="headerlink" title="总结下：什么是好算法，什么是坏算法？"></a>总结下：什么是好算法，什么是坏算法？</h3><ol>
+<li><strong>时间复杂度</strong>代表<strong>执行时间</strong>，<strong>空间复杂度</strong>代表<strong>占用的内存空间</strong>  </li>
+<li>执行时间越短，占用的内存空间越小。一般都是<strong>好算法</strong>，反之则是<strong>坏算法</strong></li>
+</ol>
+]]></content>
       <categories>
-          
-          <category> 技术 </category>
-          
+        <category>技术</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 分布式 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>C10K与C10M问题</title>
-      <link href="/2023/04/12/C10K%E4%B8%8EC10M%E9%97%AE%E9%A2%98/"/>
-      <url>/2023/04/12/C10K%E4%B8%8EC10M%E9%97%AE%E9%A2%98/</url>
-      
-        <content type="html"><![CDATA[<h2 id="C10K与C10M问题"><a href="#C10K与C10M问题" class="headerlink" title="C10K与C10M问题"></a>C10K与C10M问题</h2><h3 id="C10K"><a href="#C10K" class="headerlink" title="C10K"></a>C10K</h3><p>C10K 问题是一个优化网络套接字以同时处理大量客户端连接的问题。<br>C10K 表示处理 10000 个并发连接（与每秒请求数相似，但更强调有效的连接）。<br><img src="https://fastly.jsdelivr.net/gh/BigBangz/spring-cloud-domo@master/src/main/resources/image/document/1697869489659tree.png" alt="流程图"><br><a href="https://jaminzhang.github.io/web/C10K-problem/">https://jaminzhang.github.io/web/C10K-problem/</a></p><!-- ```mermaidsequenceDiagram    participant dotcom    participant iframe    participant viewscreen    dotcom->>iframe: loads html w/ iframe url    iframe->>viewscreen: request template    viewscreen->>iframe: html & javascript    iframe->>dotcom: iframe ready    dotcom->>iframe: set mermaid data on iframe    iframe->>iframe: render mermaid``` -->]]></content>
-      
-      
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分布式数据库 数据迁移同步工具</title>
+    <url>/2023/10/20/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%20%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<h1 id="分布式数据库-数据迁移同步工具"><a href="#分布式数据库-数据迁移同步工具" class="headerlink" title="分布式数据库 数据迁移同步工具"></a>分布式数据库 数据迁移同步工具</h1><h2 id="TiDB数据迁移同步工具"><a href="#TiDB数据迁移同步工具" class="headerlink" title="TiDB数据迁移同步工具"></a>TiDB数据迁移同步工具</h2><h3 id="一、TiDB-Data-Migration-DM"><a href="#一、TiDB-Data-Migration-DM" class="headerlink" title="一、TiDB Data Migration (DM)"></a>一、TiDB Data Migration (DM)</h3><h4 id="DM-的使用场景："><a href="#DM-的使用场景：" class="headerlink" title="DM 的使用场景："></a>DM 的使用场景：</h4><ul>
+<li>兼容 从MySQL 的单一实例中全量和增量迁移数据到 TiDB</li>
+<li>将小数据量（小于 1 TB）分库分表 MySQL 合并迁移数据到 TiDB</li>
+<li>在业务数据中台、业务数据实时汇聚等数据中枢场景中，作为数据同步中间件来使用</li>
+</ul>
+<h4 id="数据库迁移场景"><a href="#数据库迁移场景" class="headerlink" title="数据库迁移场景"></a>数据库迁移场景</h4><ul>
+<li>支持全量数据迁移</li>
+<li>增量数据同步</li>
+<li>部分数据全量，部分数据增量</li>
+</ul>
+<h4 id="高可用架构"><a href="#高可用架构" class="headerlink" title="高可用架构"></a>高可用架构</h4><p>DM 高可用架构图<br>DM 主要包括三个组件：DM-master，DM-worker 和 dmctl。<br><img src="https://download.pingcap.com/images/docs-cn/dm/dm-architecture-2.0.png" alt="DM 架构图">  </p>
+<h4 id="DM-的性能参数如下表"><a href="#DM-的性能参数如下表" class="headerlink" title="DM 的性能参数如下表"></a>DM 的性能参数如下表</h4><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">限制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">最大同步节点（Work Nodes ）</td>
+<td align="center">1000</td>
+</tr>
+<tr>
+<td align="center">最大同步任务数量</td>
+<td align="center">600</td>
+</tr>
+<tr>
+<td align="center">最大同步 QPS</td>
+<td align="center">30k QPS/worker</td>
+</tr>
+<tr>
+<td align="center">最大 Binlog 吞吐量</td>
+<td align="center">20 MB/s/worker</td>
+</tr>
+<tr>
+<td align="center">每个 Task 处理的表数量</td>
+<td align="center">无限制</td>
+</tr>
+</tbody></table>
+<h3 id="二、数据导出工具"><a href="#二、数据导出工具" class="headerlink" title="二、数据导出工具"></a>二、数据导出工具</h3><h4 id="1、TiDB-Lightning"><a href="#1、TiDB-Lightning" class="headerlink" title="1、TiDB Lightning"></a>1、TiDB Lightning</h4><p>是用于从静态文件导入 TB 级数据到 TiDB 集群的工具，常用于 TiDB 集群的初始化数据导入</p>
+<h4 id="2、Dumpling"><a href="#2、Dumpling" class="headerlink" title="2、Dumpling"></a>2、Dumpling</h4><p>可以把存储在 TiDB 或 MySQL 中的数据导出为 SQL 或 CSV 格式，用于逻辑全量备份</p>
+<h3 id="三、开源离线数据同步框架"><a href="#三、开源离线数据同步框架" class="headerlink" title="三、开源离线数据同步框架"></a>三、开源离线数据同步框架</h3><h4 id="Dadax"><a href="#Dadax" class="headerlink" title="Dadax"></a>Dadax</h4><p>DataX 实现了包括 MySQL、Oracle、OceanBase、SqlServer、Postgre、HDFS、Hive、ADS、HBase、TableStore(OTS)、MaxCompute(ODPS)、Hologres、DRDS, databend 等各种异构数据源之间高效的数据同步功能</p>
+<p>开源地址：<a href="https://github.com/alibaba/DataX">alibaba DataX</a></p>
+<hr>
+<p>参考链接：<a href="https://docs-archive.pingcap.com/zh/tidb/v7.2/dm-overview">TiDB Data Migration官方文档</a></p>
+]]></content>
       <categories>
-          
-          <category> 技术 </category>
-          
+        <category>技术</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 高并发 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>k8s网络</title>
-      <link href="/2023/03/12/k8s%E7%BD%91%E7%BB%9C/"/>
-      <url>/2023/03/12/k8s%E7%BD%91%E7%BB%9C/</url>
-      
-        <content type="html"><![CDATA[<h2 id="k8s网络"><a href="#k8s网络" class="headerlink" title="k8s网络"></a>k8s网络</h2><h3 id="k8s网络中的ip"><a href="#k8s网络中的ip" class="headerlink" title="k8s网络中的ip"></a>k8s网络中的ip</h3><h4 id="Node-IP：Node节点的IP地址（物理机、虚拟机的IP）"><a href="#Node-IP：Node节点的IP地址（物理机、虚拟机的IP）" class="headerlink" title="Node IP：Node节点的IP地址（物理机、虚拟机的IP）"></a>Node IP：Node节点的IP地址（物理机、虚拟机的IP）</h4><h4 id="Pod-IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。"><a href="#Pod-IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。" class="headerlink" title="Pod IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。"></a>Pod IP：Pod的IP地址，即docker容器的IP地址，此为虚拟IP地址。</h4><p>● 通常是一个虚拟的二层网络<br>● 同Service下的pod可以直接根据PodIP相互通信<br>● 不同Service下的pod在集群间pod通信要借助于 cluster ip<br>● pod和集群外通信，要借助于node ip  </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看命令：kubectl describe pod podName  </span><br></pre></td></tr></table></figure><h4 id="Cluster-IP：Service的IP地址，此为虚拟IP地址。"><a href="#Cluster-IP：Service的IP地址，此为虚拟IP地址。" class="headerlink" title="Cluster IP：Service的IP地址，此为虚拟IP地址。"></a>Cluster IP：Service的IP地址，此为虚拟IP地址。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看命令：kubectl describe svc name -n uecm</span><br></pre></td></tr></table></figure><p>Cluster IP仅仅作用于Kubernetes Service这个对象，并由Kubernetes管理和分配P地址<br>Cluster IP无法被ping，他没有一个“实体网络对象”来响应<br>Cluster IP只能结合Service Port组成一个具体的通信端口，单独的Cluster IP不具备通信的基础，并且他们属于Kubernetes集群这样一个封闭的空间。<br>在不同Service下的pod节点在集群间相互访问可以通过Cluster IP  </p><hr><h3 id="三种IP网络间的通信"><a href="#三种IP网络间的通信" class="headerlink" title="三种IP网络间的通信"></a>三种IP网络间的通信</h3><h4 id="NodePort的方式"><a href="#NodePort的方式" class="headerlink" title="NodePort的方式"></a>NodePort的方式</h4><p>缺点：是服务一旦多起来，NodePort 在每个节点上开启的端口数量会极其庞大，难以维护</p><div class="gallery">    <div class="fj-gallery  data" data-rowHeight="220" data-limit="10">    <span class="gallery-data">[{"url":"https://cdn.nlark.com/yuque/0/2022/png/28188528/1669447090047-67fc33fa-8cb3-41fb-85eb-d6019b54fad8.png","alt":"img.png"}]</span>    </div>    <button class="gallery-load-more"><span>加载更多</span><i class="fa-solid fa-arrow-down"></i></button>    </div><hr><h3 id="网络知识"><a href="#网络知识" class="headerlink" title="网络知识"></a>网络知识</h3><h4 id="路由器-amp-交换机-区别"><a href="#路由器-amp-交换机-区别" class="headerlink" title="路由器&amp;交换机 区别"></a>路由器&amp;交换机 区别</h4><p><strong>路由器</strong>：寻址，转发（依靠 IP 地址），交换机：过滤，转发（依靠 MAC 地址）<br><strong>交换机</strong>：用于连接局域网，数据包在局域网内网的数据转发，路由器用于连接局域网和外网，数据包可以在不同局域网转发。<br>交换机工作于TCP/IP协议的最后一层数据链路层（物理层），路由器工作于网络层<br>交换机负责具体的数据包传输，路由器不负责包的实际传输，路由器只封装好要传输的数据包，然后交给交换机去传输（不一定是交换机，可能是其他传输技术），用java比喻大概简单理解为路由器是抽象类，定义好传输的数据包格式，交换机是具体实现类，也可以有其他实现类<br>交换机没有MAC地址和IP地址，路由器有MAC地址和IP地址（指纯碎的交换机和路由器，三层交换机是可以有IP地址的，路由器也有内置交换机功能的）  </p><h4 id="网桥-amp-交换机的区别"><a href="#网桥-amp-交换机的区别" class="headerlink" title="网桥&amp;交换机的区别"></a>网桥&amp;交换机的区别</h4><p>● <strong>交换机</strong>工作时，实际上允许许多组端口间的通道同时工作。所以，交换机的功能体现出不仅仅是一个网桥的功能，而是多个网桥功能的集合。即网桥一般分有两个输出输入端口，而交换机具有高密度的端口。所以一般的交换机，网桥就有桥接作用。<br>● <strong>网桥</strong>主要由软件实现，交换机主要由硬件实现  </p>]]></content>
-      
-      
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>学习资源</title>
+    <url>/2023/09/05/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/</url>
+    <content><![CDATA[<h1 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h1><p><strong>持续更新中…. 分享技术知识点、书籍、文章</strong></p>
+<h2 id="技术知识点"><a href="#技术知识点" class="headerlink" title="技术知识点"></a>技术知识点</h2><table>
+<thead>
+<tr>
+<th align="center">#</th>
+<th align="center">项目</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center"><a href="https://doocs.gitee.io/advanced-java/#/">advanced-java</a></td>
+<td align="center">Java 工程师进阶知识</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"><a href="https://github.com/doocs/source-code-hunter">source-code-hunter</a></td>
+<td align="center">互联网常用组件框架源码分析</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"><a href="https://github.com/doocs/jvm">jvm</a></td>
+<td align="center">Java 虚拟机底层原理知识总结</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center"><a href="https://github.com/doocs/leetcode">leetcode</a></td>
+<td align="center">算法、数据结构</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center"><a href="https://www.liaoxuefeng.com/wiki/1252599548343744">廖雪峰Java教程</a></td>
+<td align="center">Java 基础知识汇总</td>
+</tr>
+</tbody></table>
+<h2 id="AI模型社区"><a href="#AI模型社区" class="headerlink" title="AI模型社区"></a>AI模型社区</h2><table>
+<thead>
+<tr>
+<th align="center">#</th>
+<th align="center">社区</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center"><a href="https://huggingface.co/">huggingface官网</a></td>
+<td align="center">LLM大模型社区，有开源模型和数据集</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"><a href="https://replicate.com/">replicate官网</a></td>
+<td align="center">开源机器学习AI模型云端部署平台</td>
+</tr>
+</tbody></table>
+<h2 id="AI学习资源"><a href="#AI学习资源" class="headerlink" title="AI学习资源"></a>AI学习资源</h2><table>
+<thead>
+<tr>
+<th align="center">#</th>
+<th align="center">社区</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center"><a href="howie6879/mlhub123">资源学习导航</a></td>
+<td align="center">资源学习导航</td>
+</tr>
+</tbody></table>
+<h2 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h2><table>
+<thead>
+<tr>
+<th align="center">#</th>
+<th align="center">书籍</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center"><a href="https://icyfenix.cn/">《凤凰架构》周志明</a></td>
+<td align="center">讨论如何构建一套可靠的大型分布式系统</td>
+</tr>
+</tbody></table>
+<h2 id="技术文章"><a href="#技术文章" class="headerlink" title="技术文章"></a>技术文章</h2><table>
+<thead>
+<tr>
+<th align="center">#</th>
+<th align="center">网址</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center"><a href="https://tech.meituan.com/">美团技术团队</a></td>
+<td align="center">讨论如何构建一套可靠的大型分布式系统</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"><a href="https://xiaomi-info.github.io/">小米信息部技术团队</a></td>
+<td align="center">小米旗下的一个技术博客类型的网站</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"><a href="https://102.alibaba.com/">阿里技术</a></td>
+<td align="center">技术新闻、技术干货</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center"><a href="https://blogs.360.cn/">360 核心安全技术</a></td>
+<td align="center">主要分享安全相关的文章</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center"><a href="https://tech.ipalfish.com/blog/">伴鱼技术团队</a></td>
+<td align="center">主要分享服务治理、全链路追踪与压测、分布式架构设计等领域的知识</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center"><a href="https://tech.qimao.com/">七猫技术团队</a></td>
+<td align="center">前后端、大数据、算法、运维、测试</td>
+</tr>
+</tbody></table>
+<style>
+table th:first-of-type {
+    width: 10%;
+}
+table th:nth-of-type(2) {
+    width: 45%;
+}
+table th:nth-of-type(3) {
+    width: 45%;
+}
+</style>]]></content>
       <categories>
-          
-          <category> 技术 </category>
-          
+        <category>资源</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 云计算 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>衡量算法效率</title>
-      <link href="/2023/02/07/%E8%A1%A1%E9%87%8F%E7%AE%97%E6%B3%95%E7%9A%84%E6%96%B9%E5%BC%8F/"/>
-      <url>/2023/02/07/%E8%A1%A1%E9%87%8F%E7%AE%97%E6%B3%95%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
-      
-        <content type="html"><![CDATA[<h1 id="衡量算法效率的方式"><a href="#衡量算法效率的方式" class="headerlink" title="衡量算法效率的方式"></a>衡量算法效率的方式</h1><h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p>时间复杂度是指算法执行所需要的时间，通常用大 O表示。它描述了算法执行时间随着输入大小增加而增长的趋势。<br>简单来说：时间复杂度描述了算法运行所需的时间和输入数据规模之间的关系  </p><p>$O=log_{数据规模}（2*{运行所需时间}）$</p><h3 id="常见的时间复杂度"><a href="#常见的时间复杂度" class="headerlink" title="常见的时间复杂度"></a>常见的时间复杂度</h3><p>● 常数阶（$O^1$）：无论输入大小如何，算法的执行时间都保持不变。<br>● 线性阶（$O^n$）：算法的执行时间与输入大小成正比。<br>● 对数阶（$Olog^n$）：算法的执行时间与输入大小的对数成正比。<br>● 平方阶（$On^2$）：算法的执行时间与输入大小的平方成正比。<br>● 指数阶（$O2^n$）：算法的执行时间随着输入大小呈指数级别增长。 通常情况下，我们希望算法的时间复杂度尽可能低，因为这意味着算法执行所需的时间更少。  </p><h3 id="常见的空间复杂度"><a href="#常见的空间复杂度" class="headerlink" title="常见的空间复杂度"></a>常见的空间复杂度</h3><p>空间复杂度是指算法执行所需的内存空间大小，通常也用大 O（O）表示。它描述了算法执行时使用的额外内存随着输入大小增加而增长的趋势。<br>常见的空间复杂度有：<br>● 常数阶（$O^1$）：算法的内存使用量不随输入大小而变化。<br>● 线性阶（$O^n$）：算法的内存使用量与输入大小成正比。<br>● 对数阶（$Olog^n$）：算法的内存使用量与输入大小的对数成正比。<br>● 平方阶（$O2^n$）：算法的内存使用量与输入大小的平方成正比。通常情况下，我们希望算法的空间复杂度尽可能低，因为这意味着算法执行所需的内存更少。</p><h3 id="计算时间复杂度的过程"><a href="#计算时间复杂度的过程" class="headerlink" title="计算时间复杂度的过程"></a>计算时间复杂度的过程</h3><p>计算时间复杂度的过程通常分为以下几个步骤：</p><ol><li>确定算法的基本操作<br>首先需要确定算法中每一条语句的执行次数，也就是算法的基本操作。比如，在一个 for 循环中，循环体内的操作就是算法的基本操作。</li><li>分析最坏情况下的执行次数<br>然后需要分析算法在最坏情况下的执行次数，也就是算法的最坏时间复杂度。为了保证算法在不同情况下都能够高效地运行，通常使用最坏时间复杂度来衡量算法的效率。</li><li>使用大 O 符号表示时间复杂度<br>最后，使用大 O 符号表示算法的时间复杂度。通常将算法的执行次数与输入数据规模 n 的关系表示为一个函数 f(n)，然后使用大 O 符号来描述这个函数的增长趋势。例如，如果算法的执行次数与输入数据规模 n 成正比，那么它的时间复杂度就可以表示为 O(n)。<br>总的来说，计算时间复杂度需要对算法进行仔细分析，并结合算法的基本操作和输入数据规模来确定</li></ol><h3 id="总结下：什么是好算法，什么是坏算法？"><a href="#总结下：什么是好算法，什么是坏算法？" class="headerlink" title="总结下：什么是好算法，什么是坏算法？"></a>总结下：什么是好算法，什么是坏算法？</h3><ol><li><strong>时间复杂度</strong>代表<strong>执行时间</strong>，<strong>空间复杂度</strong>代表<strong>占用的内存空间</strong>  </li><li>执行时间越短，占用的内存空间越小。一般都是<strong>好算法</strong>，反之则是<strong>坏算法</strong></li></ol>]]></content>
-      
-      
+      <tags>
+        <tag>资源整理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>软件服务行业名词</title>
+    <url>/2023/08/29/%E8%BD%AF%E4%BB%B6%E6%9C%8D%E5%8A%A1%E8%A1%8C%E4%B8%9A%E5%90%8D%E8%AF%8D/</url>
+    <content><![CDATA[<h1 id="软件服务行业名词"><a href="#软件服务行业名词" class="headerlink" title="软件服务行业名词"></a>软件服务行业名词</h1><h2 id="企业管理应用软件"><a href="#企业管理应用软件" class="headerlink" title="企业管理应用软件"></a>企业管理应用软件</h2><table>
+<thead>
+<tr>
+<th align="center">简称</th>
+<th align="center">英文全称</th>
+<th align="center">中文解释</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ERP系统</td>
+<td align="center">Enterprise Resource Planning</td>
+<td align="center">企业资源计划系统</td>
+<td align="center">帮助企业组织自动执行和管理核心业务流程</td>
+</tr>
+<tr>
+<td align="center">MES系统</td>
+<td align="center">Manufacturing Execution System</td>
+<td align="center">制造企业生产过程执行系统</td>
+<td align="center">可以监控、追踪、记录和控制整个生产周期，优化制造流程</td>
+</tr>
+<tr>
+<td align="center">CRM系统</td>
+<td align="center">Customer Relationship Management</td>
+<td align="center">客户关系管理系统</td>
+<td align="center">专注于改善客户关系，促进销售</td>
+</tr>
+<tr>
+<td align="center">SCM系统</td>
+<td align="center">Supply Chain Management</td>
+<td align="center">供应链管理系统</td>
+<td align="center">帮助企业实现整个业务运作的全面自动化</td>
+</tr>
+</tbody></table>
+<h3 id="应用软件关系"><a href="#应用软件关系" class="headerlink" title="应用软件关系"></a>应用软件关系</h3><p><img src="https://github.com/BigBangz/spring-cloud-domo/blob/master/src/main/resources/image/document/application.jpg?raw=true" alt="应用软件关系"></p>
+<h2 id="云计算服务模式"><a href="#云计算服务模式" class="headerlink" title="云计算服务模式"></a>云计算服务模式</h2><table>
+<thead>
+<tr>
+<th align="center">简称</th>
+<th align="center">英文全称</th>
+<th align="center">中文解释</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SaaS</td>
+<td align="center">Software as a Service</td>
+<td align="center">软件即服务</td>
+<td align="center">提供整个应用栈，交付可供客户访问和使用的完整云端应用</td>
+</tr>
+<tr>
+<td align="center">PaaS</td>
+<td align="center">Platform as a Service</td>
+<td align="center">平台即服务</td>
+<td align="center">提供和管理所有硬件和软件资源，以便通过云开发应用</td>
+</tr>
+<tr>
+<td align="center">APaaS</td>
+<td align="center">Application Platform as a Service</td>
+<td align="center">应用程序平台即服务</td>
+<td align="center">这种基于PaaS平台的解决方案提供云端开发、部署和运行支持，并提供基础工具集，适用于低代码或零代码开发</td>
+</tr>
+<tr>
+<td align="center">CaaS</td>
+<td align="center">Containers as a Service</td>
+<td align="center">容器即服务</td>
+<td align="center">提供和管理所有硬件和软件资源，以使用容器开发和部署应用</td>
+</tr>
+<tr>
+<td align="center">IaaS</td>
+<td align="center">Infrastructure as a Service</td>
+<td align="center">基础架构即服务</td>
+<td align="center">通过云为组织提供按需基础架构资源，例如计算、存储、网络和虚拟化</td>
+</tr>
+</tbody></table>
+<style>
+table th:first-of-type {
+    width: 17%;
+}
+table th:nth-of-type(2) {
+    width: 24%;
+}
+table th:nth-of-type(3) {
+    width: 30%;
+}
+table th:nth-of-type(4) {
+    width: 30%;
+}
+</style>
+
+]]></content>
       <categories>
-          
-          <category> 技术 </category>
-          
+        <category>名词</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 算法 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>关于博客的命令</title>
-      <link href="/2023/01/08/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%91%BD%E4%BB%A4/"/>
-      <url>/2023/01/08/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
-      
-        <content type="html"><![CDATA[<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="安装前注意事项（个人踩过的坑）"><a href="#安装前注意事项（个人踩过的坑）" class="headerlink" title="安装前注意事项（个人踩过的坑）"></a>安装前注意事项（个人踩过的坑）</h3><p>1、node、npm最好更新最新版本<br>&emsp;● node升级特别注意</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># windows环境下 <span class="built_in">cmd</span>命名行下执行命令，查看node服务安装位置</span><br><span class="line">where node</span><br><span class="line"># 下载安装包替换路径完成升级</span><br></pre></td></tr></table></figure><p>2、不清楚的地方看看<br>官方文档：<a href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a><br>具体模版文档（以butterfly为例）：<a href="https://butterfly.js.org/">https://butterfly.js.org/</a></p><h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><h3 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清理</span></span><br><span class="line">$ hexo clean </span><br><span class="line"><span class="comment"># 构建</span></span><br><span class="line">$ hexo g</span><br><span class="line"><span class="comment"># 预览</span></span><br><span class="line">$ hexo s</span><br><span class="line"><span class="comment"># 如果是新创建的 需要执行</span></span><br><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line"><span class="comment"># 打包 发布</span></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure><h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><h4 id="1、hexo-d打包时显示-ERROR-Deployer-not-found-git"><a href="#1、hexo-d打包时显示-ERROR-Deployer-not-found-git" class="headerlink" title="1、hexo d打包时显示 ERROR Deployer not found: git"></a>1、hexo d打包时显示 ERROR Deployer not found: git</h4><p>如下图<br><img src="https://github.com/BigBangz/spring-cloud-domo/blob/master/src/main/resources/image/img2.png?raw=true" alt="img2.png"><br>原因：需要安装hexo-deployer-git(hexo git部署工具) </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p>完美解决<br><img src="https://github.com/BigBangz/spring-cloud-domo/blob/master/src/main/resources/image/img.png?raw=true" alt="img.png"></p>]]></content>
-      
-      
+      <tags>
+        <tag>名词</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机性能指标</title>
+    <url>/2023/08/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/</url>
+    <content><![CDATA[<h1 id="计算机性能指标"><a href="#计算机性能指标" class="headerlink" title="计算机性能指标"></a>计算机性能指标</h1><h2 id="一、计算机事务处理性能指标"><a href="#一、计算机事务处理性能指标" class="headerlink" title="一、计算机事务处理性能指标"></a>一、计算机事务处理性能指标</h2><h3 id="1-每秒事务数（TPS）"><a href="#1-每秒事务数（TPS）" class="headerlink" title="1. 每秒事务数（TPS）"></a>1. 每秒事务数（TPS）</h3><h4 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h4><p>每秒事务数（TPS）是衡量系统处理能力的一个指标，指系统在单位时间内处理的事务数量。</p>
+<h4 id="1-2-计算公式"><a href="#1-2-计算公式" class="headerlink" title="1.2 计算公式"></a>1.2 计算公式</h4><p>TPS = 事务数 / 事务响应时间</p>
+<h4 id="1-3-计算示例"><a href="#1-3-计算示例" class="headerlink" title="1.3 计算示例"></a>1.3 计算示例</h4><p>假设系统每秒处理1000个事务，每个事务处理耗时100ms，则TPS = 1000 / 100 = 10。</p>
+<h3 id="2-每秒查询率（QPS）"><a href="#2-每秒查询率（QPS）" class="headerlink" title="2. 每秒查询率（QPS）"></a>2. 每秒查询率（QPS）</h3><h4 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义"></a>2.1 定义</h4><p>每秒查询率（QPS）是衡量系统处理能力的一个指标，指系统在单位时间内处理的查询数量。</p>
+<h4 id="2-2-计算公式"><a href="#2-2-计算公式" class="headerlink" title="2.2 计算公式"></a>2.2 计算公式</h4><p>QPS = 查询数 / 查询响应时间</p>
+<h4 id="2-3-计算示例"><a href="#2-3-计算示例" class="headerlink" title="2.3 计算示例"></a>2.3 计算示例</h4><p>假设系统每秒处理1000个查询，每个查询处理耗时100ms，则QPS = 1000 / 100 = 10。</p>
+<h3 id="3-每秒请求数（RPS）"><a href="#3-每秒请求数（RPS）" class="headerlink" title="3. 每秒请求数（RPS）"></a>3. 每秒请求数（RPS）</h3><h4 id="3-1-定义"><a href="#3-1-定义" class="headerlink" title="3.1 定义"></a>3.1 定义</h4><p>每秒请求数（RPS）是衡量系统处理能力的一个指标，指系统在单位时间内处理的请求数量。</p>
+<h4 id="3-2-计算公式"><a href="#3-2-计算公式" class="headerlink" title="3.2 计算公式"></a>3.2 计算公式</h4><p>RPS = 请求数 / 请求响应时间</p>
+<h4 id="3-3-计算示例"><a href="#3-3-计算示例" class="headerlink" title="3.3 计算示例"></a>3.3 计算示例</h4><p>假设系统每秒处理1000个请求，每个请求处理耗时100ms，则RPS = 1000 / 100 = 10。</p>
+<h3 id="4-每秒并发数（CPS）"><a href="#4-每秒并发数（CPS）" class="headerlink" title="4. 每秒并发数（CPS）"></a>4. 每秒并发数（CPS）</h3><h4 id="4-1-定义"><a href="#4-1-定义" class="headerlink" title="4.1 定义"></a>4.1 定义</h4><p>每秒并发数（CPS）是衡量系统处理能力的一个指标，指系统在单位时间内处理的并发数量。</p>
+<h4 id="4-2-计算公式"><a href="#4-2-计算公式" class="headerlink" title="4.2 计算公式"></a>4.2 计算公式</h4><p>CPS = 并发数 / 并发响应时间</p>
+<h4 id="4-3-计算示例"><a href="#4-3-计算示例" class="headerlink" title="4.3 计算示例"></a>4.3 计算示例</h4><p>假设系统每秒处理1000个并发，每个并发处理耗时100ms，则CPS = 1000 / 100 = 10。</p>
+<h3 id="5-TPMC指标"><a href="#5-TPMC指标" class="headerlink" title="5. TPMC指标"></a>5. TPMC指标</h3><h4 id="5-1-定义"><a href="#5-1-定义" class="headerlink" title="5.1 定义"></a>5.1 定义</h4><p>TPMC指标是衡量系统处理能力的一个指标，指系统在单位时间内处理的事务数。</p>
+<h4 id="5-2-计算公式"><a href="#5-2-计算公式" class="headerlink" title="5.2 计算公式"></a>5.2 计算公式</h4><p>TPMC = TPS * 事务响应时间</p>
+<h4 id="5-3-计算示例"><a href="#5-3-计算示例" class="headerlink" title="5.3 计算示例"></a>5.3 计算示例</h4><p>假设系统每秒处理1000个事务，每个事务处理耗时100ms，则TPMC = 10 * 100 = 1000。</p>
+<h3 id="6-TPCC指标"><a href="#6-TPCC指标" class="headerlink" title="6. TPCC指标"></a>6. TPCC指标</h3><h4 id="6-1-定义"><a href="#6-1-定义" class="headerlink" title="6.1 定义"></a>6.1 定义</h4><p>TPCC指标是衡量系统处理能力的一个指标，指系统在单位时间内处理的事务数。</p>
+<h4 id="6-2-计算公式"><a href="#6-2-计算公式" class="headerlink" title="6.2 计算公式"></a>6.2 计算公式</h4><p>TPCC = TPS * 事务响应时间</p>
+<h4 id="6-3-计算示例"><a href="#6-3-计算示例" class="headerlink" title="6.3 计算示例"></a>6.3 计算示例</h4><p>假设系统每秒处理1000个事务，每个事务处理耗时100ms，则TPCC = 10 * 100 = 1000。</p>
+<style>
+table th:first-of-type {
+    width: 20%;
+}
+table th:nth-of-type(2) {
+    width: 14%;
+}
+table th:nth-of-type(3) {
+    width: 23%;
+}
+table th:nth-of-type(4) {
+    width: 23%;
+}
+table th:nth-of-type(5) {
+    width: 20%;
+}
+</style>
+
+]]></content>
       <categories>
-          
-          <category> 技术问题 </category>
-          
+        <category>名词</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 问题记录 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>名词</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>远程同步技术</title>
+    <url>/2023/07/17/%E8%BF%9C%E7%A8%8B%E5%90%8C%E6%AD%A5%E6%8A%80%E6%9C%AF/</url>
+    <content><![CDATA[<h1 id="远程同步技术"><a href="#远程同步技术" class="headerlink" title="远程同步技术"></a>远程同步技术</h1><h2 id="1-raft算法"><a href="#1-raft算法" class="headerlink" title="1. raft算法"></a>1. raft算法</h2><h3 id="raft算法是什么"><a href="#raft算法是什么" class="headerlink" title="raft算法是什么"></a>raft算法是什么</h3><p>raft是一个分布式一致性算法，用于解决分布式系统中节点之间数据同步的问题。<br>raft算法中，每个节点都维护一个日志，用于记录所有节点之间的数据同步操作。<br>当一个节点需要与其他节点进行数据同步时，它会向其他节点发送日志条目，其他节点会根据日志条目中的<br>任期号和日志索引来判断是否接收该日志条目。</p>
+<h2 id="2-paxos算法"><a href="#2-paxos算法" class="headerlink" title="2. paxos算法"></a>2. paxos算法</h2><h3 id="paxos算法是什么"><a href="#paxos算法是什么" class="headerlink" title="paxos算法是什么"></a>paxos算法是什么</h3><p>paxos算法是分布式一致性算法，用于解决分布式系统中节点之间数据同步的问题。<br>paxos算法中，每个节点都维护一个日志，用于记录所有节点之间的数据同步操作。</p>
+<h2 id="3-分布式一致性算法"><a href="#3-分布式一致性算法" class="headerlink" title="3. 分布式一致性算法"></a>3. 分布式一致性算法</h2><h3 id="分布式一致性算法是什么"><a href="#分布式一致性算法是什么" class="headerlink" title="分布式一致性算法是什么"></a>分布式一致性算法是什么</h3><p>分布式一致性算法用于解决分布式系统中节点之间数据同步的问题。<br>分布式一致性算法通常用于解决分布式系统中节点之间的数据同步问题，以保证分布式系统中的数据一致性。<br>分布式一致性算法通常分为两种类型：</p>
+<ul>
+<li>强一致性算法：<ul>
+<li>强一致性算法通常保证分布式系统中的所有节点在同一时刻看到相同的数据。</li>
+<li>强一致性算法通常需要比较高的计算资源，并且需要比较长的处理时间。</li>
+</ul>
+</li>
+<li>最终一致性算法：<ul>
+<li>最终一致性算法通常保证分布式系统中的所有节点最终会看到相同的数据。</li>
+<li>最终一致性算法通常只需要比较低的计算资源，并且处理时间短。</li>
+</ul>
+</li>
+</ul>
+<h3 id="分布式一致性算法的分类"><a href="#分布式一致性算法的分类" class="headerlink" title="分布式一致性算法的分类"></a>分布式一致性算法的分类</h3><p>分布式一致性算法通常可以分为以下几类：</p>
+<ul>
+<li>基于消息传递的一致性算法：<ul>
+<li>基于消息传递的一致性算法通常使用消息传递机制来保证分布式系统中的数据一致性。</li>
+<li>基于消息传递的一致性算法通常需要比较高的计算资源，并且需要比较长的处理时间。</li>
+</ul>
+</li>
+<li>基于状态机一致性算法：<ul>
+<li>基于状态机一致性算法通常使用状态机来保证分布式系统中的数据一致性。</li>
+<li>基于状态机一致性算法通常需要比较低的计算资源，并且处理时间短。</li>
+</ul>
+</li>
+<li>基于日志一致性算法：<ul>
+<li>基于日志一致性算法通常使用日志来保证分布式系统中的数据一致性。</li>
+<li>基于日志一致性算法通常需要比较低的计算资源，并且处理时间短。</li>
+</ul>
+</li>
+</ul>
+<h3 id="分布式一致性算法的比较"><a href="#分布式一致性算法的比较" class="headerlink" title="分布式一致性算法的比较"></a>分布式一致性算法的比较</h3><p>分布式一致性算法通常可以分为以下几类：</p>
+<ul>
+<li>强一致性算法：<ul>
+<li>强一致性算法通常保证分布式系统中的所有节点在同一时刻看到相同的数据。</li>
+<li>强一致性算法通常需要比较高的计算资源，并且需要比较长的处理时间。</li>
+</ul>
+</li>
+<li>最终一致性算法：<ul>
+<li>最终一致性算法通常保证分布式系统中的所有节点最终会看到相同的数据。</li>
+<li>最终一致性算法通常只需要比较低的计算资源，并且处理时间短。</li>
+</ul>
+</li>
+</ul>
+<style>
+table th:first-of-type {
+    width: 20%;
+}
+table th:nth-of-type(2) {
+    width: 14%;
+}
+table th:nth-of-type(3) {
+    width: 23%;
+}
+table th:nth-of-type(4) {
+    width: 23%;
+}
+table th:nth-of-type(5) {
+    width: 20%;
+}
+</style>
+
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>分布式</tag>
+      </tags>
+  </entry>
 </search>
